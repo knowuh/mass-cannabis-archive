@@ -1,0 +1,34 @@
+---
+import Layout from '../components/Layout.astro';
+import ArchiveTable from '../components/ArchiveTable.astro';
+---
+
+<Layout title="Data Browser">
+	<header>
+		<h1>Data Browser</h1>
+		<p class="subtitle">Latest Snapshot: Massachusetts CCC Licenses</p>
+	</header>
+
+	<ArchiveTable />
+</Layout>
+
+<style>
+	header {
+		margin-bottom: 3rem;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin: 0;
+		letter-spacing: -0.02em;
+	}
+
+	.subtitle {
+		color: var(--text-muted);
+		margin-top: 0.5rem;
+		font-family: var(--font-mono);
+		font-size: 0.9rem;
+		text-transform: uppercase;
+	}
+</style>

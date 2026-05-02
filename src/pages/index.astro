@@ -1,0 +1,83 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Manifesto">
+	<section class="hero">
+		<h1>The Archive</h1>
+		<p class="subtitle">A longitudinal record of the Massachusetts Cannabis Market.</p>
+	</section>
+
+	<section class="manifesto">
+		<h2>Project Manifesto</h2>
+		<p>
+			The Massachusetts Cannabis Control Commission (CCC) provides public data, but historical context is often lost as files are updated and overwritten. This project serves as a permanent, version-controlled archive of that data.
+		</p>
+		<p>
+			Our goal is transparency and accessibility. By snapshotting data over time, we enable researchers, journalists, and the public to track the evolution of licenses, ownership, and market dynamics in the Commonwealth.
+		</p>
+		<div class="cta">
+			<a href={`${import.meta.env.BASE_URL}/browser`} class="button">Explore the Data</a>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.hero {
+		padding: 4rem 0;
+		border-bottom: 1px solid var(--border-color);
+		margin-bottom: 4rem;
+	}
+
+	h1 {
+		font-size: 4rem;
+		font-weight: 800;
+		margin: 0;
+		letter-spacing: -0.05em;
+		color: var(--accent-color);
+	}
+
+	.subtitle {
+		font-size: 1.5rem;
+		color: var(--text-muted);
+		margin-top: 1rem;
+	}
+
+	.manifesto {
+		max-width: 800px;
+	}
+
+	h2 {
+		font-family: var(--font-mono);
+		font-size: 1rem;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		margin-bottom: 2rem;
+	}
+
+	p {
+		font-size: 1.25rem;
+		line-height: 1.6;
+		margin-bottom: 2rem;
+	}
+
+	.cta {
+		margin-top: 3rem;
+	}
+
+	.button {
+		display: inline-block;
+		background-color: var(--accent-color);
+		color: var(--bg-color);
+		padding: 1rem 2rem;
+		text-decoration: none;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		transition: transform 0.1s ease;
+	}
+
+	.button:hover {
+		transform: translateY(-2px);
+	}
+</style>

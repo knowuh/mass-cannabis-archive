@@ -1,0 +1,184 @@
+---
+---
+
+<div class="table-container">
+	<div class="controls">
+		<input type="text" id="search" placeholder="Search by Business Name, City, or License..." aria-label="Search" />
+		<div class="stats">
+			Showing <span id="count">0</span> records
+		</div>
+	</div>
+
+	<div class="scroll-wrapper">
+		<table id="archive-table">
+			<thead>
+				<tr>
+					<th>Business Name</th>
+					<th>License #</th>
+					<th>Type</th>
+					<th>City</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody id="table-body">
+				<tr>
+					<td colspan="5" class="loading">Initializing archive...</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+	const searchInput = document.getElementById('search') as HTMLInputElement;
+	const tableBody = document.getElementById('table-body');
+	const countDisplay = document.getElementById('count');
+	let allData = [];
+
+	async function init() {
+		try {
+			const response = await fetch(`${import.meta.env.BASE_URL}/data/ccc/latest.json`);
+			allData = await response.json();
+			renderTable(allData);
+		} catch (error) {
+			console.error('Failed to load data:', error);
+			if (tableBody) {
+				tableBody.innerHTML = '<tr><td colspan="5" class="error">Error loading data.</td></tr>';
+			}
+		}
+	}
+
+	function renderTable(data) {
+		if (!tableBody || !countDisplay) return;
+
+		if (data.length === 0) {
+			tableBody.innerHTML = '<tr><td colspan="5" class="empty">No matching records found.</td></tr>';
+			countDisplay.textContent = '0';
+			return;
+		}
+
+		tableBody.innerHTML = data.map(row => `
+			<tr>
+				<td class="business-name">${row.BUSINESS_NAME || 'N/A'}</td>
+				<td class="mono">${row.LICENSE_NUMBER || 'N/A'}</td>
+				<td>${row.LICENSE_TYPE || 'N/A'}</td>
+				<td>${row.ESTABLISHMENT_CITY || 'N/A'}</td>
+				<td><span class="status-tag" data-status="${row.LICENSE_STATUS_CATEGORY?.toLowerCase()}">${row.LICENSE_STATUS || 'N/A'}</span></td>
+			</tr>
+		`).join('');
+
+		countDisplay.textContent = data.length.toString();
+	}
+
+	searchInput?.addEventListener('input', (e) => {
+		const term = (e.target as HTMLInputElement).value.toLowerCase();
+		const filtered = allData.filter(row => 
+			(row.BUSINESS_NAME?.toLowerCase().includes(term)) ||
+			(row.LICENSE_NUMBER?.toLowerCase().includes(term)) ||
+			(row.ESTABLISHMENT_CITY?.toLowerCase().includes(term)) ||
+			(row.LICENSE_TYPE?.toLowerCase().includes(term))
+		);
+		renderTable(filtered);
+	});
+
+	init();
+</script>
+
+<style>
+	.table-container {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.controls {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		background: var(--surface-color);
+		padding: 1rem;
+		border: 1px solid var(--border-color);
+	}
+
+	input[type="text"] {
+		flex: 1;
+		background: var(--bg-color);
+		border: 1px solid var(--border-color);
+		color: var(--text-base);
+		padding: 0.75rem 1rem;
+		font-family: var(--font-sans);
+		font-size: 1rem;
+	}
+
+	input[type="text"]:focus {
+		outline: none;
+		border-color: var(--accent-color);
+	}
+
+	.stats {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: var(--text-muted);
+		white-space: nowrap;
+	}
+
+	.scroll-wrapper {
+		overflow-x: auto;
+		border: 1px solid var(--border-color);
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		text-align: left;
+	}
+
+	th {
+		background: var(--surface-color);
+		padding: 1rem;
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		border-bottom: 2px solid var(--border-color);
+	}
+
+	td {
+		padding: 1rem;
+		border-bottom: 1px solid var(--border-color);
+		font-size: 0.95rem;
+	}
+
+	tr:hover {
+		background: var(--surface-color);
+	}
+
+	.mono {
+		font-family: var(--font-mono);
+	}
+
+	.business-name {
+		font-weight: 600;
+	}
+
+	.status-tag {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		padding: 0.25rem 0.5rem;
+		border: 1px solid var(--border-color);
+		text-transform: uppercase;
+	}
+
+	.status-tag[data-status="active"] {
+		border-color: var(--accent-color);
+		color: var(--accent-color);
+	}
+
+	.loading, .error, .empty {
+		text-align: center;
+		padding: 4rem;
+		color: var(--text-muted);
+		font-style: italic;
+	}
+</style>

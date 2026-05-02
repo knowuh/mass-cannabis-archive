@@ -1,0 +1,22 @@
+{
+  "name": "mass-cannabis-archive",
+  "version": "1.0.0",
+  "description": "A version-controlled repository tracking the evolution of the MA cannabis market. This project snapshots public data from the Cannabis Control Commission (CCC) to provide a longitudinal history of licenses, ownership, and pricing.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/geist-mono": "^5.2.7",
+    "@fontsource/geist-sans": "^5.2.5",
+    "astro": "^5.18.1",
+    "lucide-astro": "^0.556.0"
+  }
+}
