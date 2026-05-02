@@ -1,45 +1,115 @@
 ---
 ---
 
-<div class="table-container">
-	<div class="controls">
-		<input type="text" id="search" placeholder="Search by Business Name, City, or License..." aria-label="Search" />
-		<div class="stats">
-			Showing <span id="count">0</span> records
+<div class="archive-wrapper">
+	<div class="data-browser">
+		<div class="controls">
+			<div class="search-box">
+				<input type="text" id="search" placeholder="Search Business Name, License #, or City..." aria-label="Search" />
+			</div>
+			<div class="filters">
+				<div class="filter-group">
+					<label for="filter-type">Type</label>
+					<select id="filter-type"><option value="">All Types</option></select>
+				</div>
+				<div class="filter-group">
+					<label for="filter-county">County</label>
+					<select id="filter-county"><option value="">All Counties</option></select>
+				</div>
+				<div class="filter-group">
+					<label for="filter-city">City</label>
+					<select id="filter-city"><option value="">All Cities</option></select>
+				</div>
+				<div class="filter-group">
+					<label for="filter-dbe">DBE Status</label>
+					<select id="filter-dbe"><option value="">All Statuses</option></select>
+				</div>
+				<div class="filter-group">
+					<label for="filter-priority">Priority Type</label>
+					<select id="filter-priority"><option value="">All Priorities</option></select>
+				</div>
+			</div>
+		</div>
+
+		<div class="stats-bar">
+			<div class="count-info">
+				Showing <span id="current-range">0-0</span> of <span id="total-count">0</span> records
+			</div>
+			<div class="pagination">
+				<button id="prev-page" disabled>Previous</button>
+				<span id="page-info">Page 1 of 1</span>
+				<button id="next-page" disabled>Next</button>
+			</div>
+		</div>
+
+		<div class="scroll-wrapper">
+			<table id="archive-table">
+				<thead>
+					<tr>
+						<th>Business Name</th>
+						<th>License #</th>
+						<th>Type</th>
+						<th>City</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody id="table-body">
+					<tr>
+						<td colspan="5" class="loading">Initializing archive...</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 
-	<div class="scroll-wrapper">
-		<table id="archive-table">
-			<thead>
-				<tr>
-					<th>Business Name</th>
-					<th>License #</th>
-					<th>Type</th>
-					<th>City</th>
-					<th>Status</th>
-				</tr>
-			</thead>
-			<tbody id="table-body">
-				<tr>
-					<td colspan="5" class="loading">Initializing archive...</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	<aside id="details-sidebar" class="details-sidebar hidden">
+		<div class="sidebar-header">
+			<h2>Record Details</h2>
+			<button id="close-sidebar" title="Close details">&times;</button>
+		</div>
+		<div id="details-content" class="details-content">
+			<!-- Details populated by JS -->
+		</div>
+	</aside>
 </div>
 
 <script>
 	const searchInput = document.getElementById('search') as HTMLInputElement;
 	const tableBody = document.getElementById('table-body');
-	const countDisplay = document.getElementById('count');
+	const totalCountDisplay = document.getElementById('total-count');
+	const currentRangeDisplay = document.getElementById('current-range');
+	const pageInfoDisplay = document.getElementById('page-info');
+	const prevBtn = document.getElementById('prev-page') as HTMLButtonElement;
+	const nextBtn = document.getElementById('next-page') as HTMLButtonElement;
+	
+	const typeSelect = document.getElementById('filter-type') as HTMLSelectElement;
+	const countySelect = document.getElementById('filter-county') as HTMLSelectElement;
+	const citySelect = document.getElementById('filter-city') as HTMLSelectElement;
+	const dbeSelect = document.getElementById('filter-dbe') as HTMLSelectElement;
+	const prioritySelect = document.getElementById('filter-priority') as HTMLSelectElement;
+
+	const sidebar = document.getElementById('details-sidebar');
+	const detailsContent = document.getElementById('details-content');
+	const closeSidebarBtn = document.getElementById('close-sidebar');
+
 	let allData = [];
+	let filteredData = [];
+	let currentPage = 1;
+	const itemsPerPage = 50;
 
 	async function init() {
 		try {
 			const response = await fetch(`${import.meta.env.BASE_URL}/data/ccc/latest.json`);
 			allData = await response.json();
-			renderTable(allData);
+			
+			// Populate filter dropdowns
+			populateDropdown(typeSelect, 'LICENSE_TYPE');
+			populateDropdown(countySelect, 'ESTABLISHMENT_COUNTY');
+			populateDropdown(citySelect, 'ESTABLISHMENT_CITY');
+			populateDropdown(dbeSelect, 'DBE');
+			populateDropdown(prioritySelect, 'PRIORITY_REVIEW_TYPE');
+
+			applyFilters();
 		} catch (error) {
 			console.error('Failed to load data:', error);
 			if (tableBody) {
@@ -48,17 +118,69 @@
 		}
 	}
 
-	function renderTable(data) {
-		if (!tableBody || !countDisplay) return;
+	function populateDropdown(select: HTMLSelectElement, key: string) {
+		const values = [...new Set(allData.map(item => item[key]))]
+			.filter(v => v && v !== "")
+			.sort();
+		
+		values.forEach(val => {
+			const opt = document.createElement('option');
+			opt.value = val;
+			opt.textContent = val;
+			select.appendChild(opt);
+		});
+	}
 
-		if (data.length === 0) {
+	function applyFilters() {
+		const searchTerm = searchInput.value.toLowerCase();
+		const typeVal = typeSelect.value;
+		const countyVal = countySelect.value;
+		const cityVal = citySelect.value;
+		const dbeVal = dbeSelect.value;
+		const priorityVal = prioritySelect.value;
+
+		filteredData = allData.filter(row => {
+			const matchesSearch = !searchTerm || 
+				(row.BUSINESS_NAME?.toLowerCase().includes(searchTerm)) ||
+				(row.LICENSE_NUMBER?.toLowerCase().includes(searchTerm)) ||
+				(row.ESTABLISHMENT_CITY?.toLowerCase().includes(searchTerm));
+			
+			const matchesType = !typeVal || row.LICENSE_TYPE === typeVal;
+			const matchesCounty = !countyVal || row.ESTABLISHMENT_COUNTY === countyVal;
+			const matchesCity = !cityVal || row.ESTABLISHMENT_CITY === cityVal;
+			const matchesDbe = !dbeVal || row.DBE === dbeVal;
+			const matchesPriority = !priorityVal || row.PRIORITY_REVIEW_TYPE === priorityVal;
+
+			return matchesSearch && matchesType && matchesCounty && matchesCity && matchesDbe && matchesPriority;
+		});
+
+		currentPage = 1;
+		renderTable();
+	}
+
+	function renderTable() {
+		if (!tableBody) return;
+
+		const total = filteredData.length;
+		const totalPages = Math.ceil(total / itemsPerPage) || 1;
+		
+		if (currentPage > totalPages) currentPage = totalPages;
+
+		const start = (currentPage - 1) * itemsPerPage;
+		const end = Math.min(start + itemsPerPage, total);
+		const pageData = filteredData.slice(start, end);
+
+		if (pageData.length === 0) {
 			tableBody.innerHTML = '<tr><td colspan="5" class="empty">No matching records found.</td></tr>';
-			countDisplay.textContent = '0';
+			totalCountDisplay.textContent = '0';
+			currentRangeDisplay.textContent = '0-0';
+			pageInfoDisplay.textContent = 'Page 1 of 1';
+			updatePaginationControls(1);
 			return;
 		}
 
-		tableBody.innerHTML = data.map(row => `
-			<tr>
+		tableBody.innerHTML = pageData.map((row, idx) => `
+			<tr data-index="${start + idx}" class="clickable-row">
 				<td class="business-name">${row.BUSINESS_NAME || 'N/A'}</td>
 				<td class="mono">${row.LICENSE_NUMBER || 'N/A'}</td>
 				<td>${row.LICENSE_TYPE || 'N/A'}</td>
@@ -67,42 +189,95 @@
 			</tr>
 		`).join('');
 
-		countDisplay.textContent = data.length.toString();
+		totalCountDisplay.textContent = total.toString();
+		currentRangeDisplay.textContent = `${total === 0 ? 0 : start + 1}-${end}`;
+		pageInfoDisplay.textContent = `Page ${currentPage} of ${totalPages}`;
+		
+		updatePaginationControls(totalPages);
+
+		// Add click listeners to rows
+		document.querySelectorAll('.clickable-row').forEach(row => {
+			row.addEventListener('click', () => {
+				const index = parseInt(row.getAttribute('data-index'));
+				showDetails(filteredData[index]);
+			});
+		});
 	}
 
-	searchInput?.addEventListener('input', (e) => {
-		const term = (e.target as HTMLInputElement).value.toLowerCase();
-		const filtered = allData.filter(row => 
-			(row.BUSINESS_NAME?.toLowerCase().includes(term)) ||
-			(row.LICENSE_NUMBER?.toLowerCase().includes(term)) ||
-			(row.ESTABLISHMENT_CITY?.toLowerCase().includes(term)) ||
-			(row.LICENSE_TYPE?.toLowerCase().includes(term))
-		);
-		renderTable(filtered);
+	function updatePaginationControls(totalPages: number) {
+		prevBtn.disabled = currentPage <= 1;
+		nextBtn.disabled = currentPage >= totalPages;
+	}
+
+	function showDetails(record: any) {
+		if (!detailsContent || !sidebar) return;
+
+		detailsContent.innerHTML = Object.entries(record)
+			.map(([key, value]) => `
+				<div class="detail-item">
+					<div class="detail-key">${key.replace(/_/g, ' ')}</div>
+					<div class="detail-value">${value === "" ? '<span class="empty-val">N/A</span>' : value}</div>
+				</div>
+			`).join('');
+		
+		sidebar.classList.remove('hidden');
+	}
+
+	// Event Listeners
+	searchInput?.addEventListener('input', applyFilters);
+	[typeSelect, countySelect, citySelect, dbeSelect, prioritySelect].forEach(s => {
+		s.addEventListener('change', applyFilters);
+	});
+
+	prevBtn?.addEventListener('click', () => {
+		if (currentPage > 1) {
+			currentPage--;
+			renderTable();
+		}
+	});
+
+	nextBtn?.addEventListener('click', () => {
+		const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+		if (currentPage < totalPages) {
+			currentPage++;
+			renderTable();
+		}
+	});
+
+	closeSidebarBtn?.addEventListener('click', () => {
+		sidebar?.classList.add('hidden');
 	});
 
 	init();
 </script>
 
 <style>
-	.table-container {
+	.archive-wrapper {
+		display: flex;
+		gap: 2rem;
+		align-items: flex-start;
+		position: relative;
+	}
+
+	.data-browser {
+		flex: 1;
+		min-width: 0; /* Prevent table from blowing out layout */
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 1.5rem;
 	}
 
 	.controls {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 1rem;
 		background: var(--surface-color);
-		padding: 1rem;
+		padding: 1.5rem;
 		border: 1px solid var(--border-color);
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
 	}
 
-	input[type="text"] {
-		flex: 1;
+	.search-box input {
+		width: 100%;
 		background: var(--bg-color);
 		border: 1px solid var(--border-color);
 		color: var(--text-base);
@@ -111,16 +286,73 @@
 		font-size: 1rem;
 	}
 
-	input[type="text"]:focus {
+	.search-box input:focus {
 		outline: none;
 		border-color: var(--accent-color);
 	}
 
-	.stats {
+	.filters {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 1rem;
+	}
+
+	.filter-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.filter-group label {
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+
+	.filter-group select {
+		background: var(--bg-color);
+		border: 1px solid var(--border-color);
+		color: var(--text-base);
+		padding: 0.5rem;
+		font-family: var(--font-sans);
+		font-size: 0.85rem;
+	}
+
+	.stats-bar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		font-family: var(--font-mono);
 		font-size: 0.8rem;
 		color: var(--text-muted);
-		white-space: nowrap;
+	}
+
+	.pagination {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.pagination button {
+		background: var(--surface-color);
+		border: 1px solid var(--border-color);
+		color: var(--text-base);
+		padding: 0.4rem 0.8rem;
+		cursor: pointer;
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		text-transform: uppercase;
+	}
+
+	.pagination button:disabled {
+		opacity: 0.3;
+		cursor: not-allowed;
+	}
+
+	.pagination button:not(:disabled):hover {
+		border-color: var(--accent-color);
+		color: var(--accent-color);
 	}
 
 	.scroll-wrapper {
@@ -150,7 +382,12 @@
 		font-size: 0.95rem;
 	}
 
-	tr:hover {
+	.clickable-row {
+		cursor: pointer;
+		transition: background 0.1s ease;
+	}
+
+	.clickable-row:hover {
 		background: var(--surface-color);
 	}
 
@@ -175,10 +412,98 @@
 		color: var(--accent-color);
 	}
 
-	.loading, .error, .empty {
-		text-align: center;
-		padding: 4rem;
+	/* Sidebar Styles */
+	.details-sidebar {
+		width: 400px;
+		background: var(--surface-color);
+		border: 1px solid var(--border-color);
+		height: calc(100vh - 12rem);
+		position: sticky;
+		top: 2rem;
+		display: flex;
+		flex-direction: column;
+		transition: transform 0.3s ease, opacity 0.3s ease;
+	}
+
+	.details-sidebar.hidden {
+		display: none;
+	}
+
+	.sidebar-header {
+		padding: 1.5rem;
+		border-bottom: 1px solid var(--border-color);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.sidebar-header h2 {
+		margin: 0;
+		font-family: var(--font-mono);
+		font-size: 1rem;
+		text-transform: uppercase;
+		color: var(--accent-color);
+	}
+
+	#close-sidebar {
+		background: none;
+		border: none;
 		color: var(--text-muted);
-		font-style: italic;
+		font-size: 1.5rem;
+		cursor: pointer;
+		line-height: 1;
+	}
+
+	#close-sidebar:hover {
+		color: var(--text-base);
+	}
+
+	.details-content {
+		padding: 1.5rem;
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.detail-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.detail-key {
+		font-family: var(--font-mono);
+		font-size: 0.65rem;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		letter-spacing: 0.05em;
+	}
+
+	.detail-value {
+		font-size: 0.9rem;
+		line-height: 1.4;
+		word-break: break-word;
+	}
+
+	.empty-val {
+		color: var(--border-color);
+	}
+
+	@media (max-width: 1100px) {
+		.archive-wrapper {
+			flex-direction: column;
+		}
+		
+		.details-sidebar {
+			width: 100%;
+			height: auto;
+			max-height: 50vh;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			z-index: 100;
+			top: auto;
+		}
 	}
 </style>
