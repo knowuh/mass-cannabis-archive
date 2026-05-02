@@ -83,3 +83,8 @@ Add the @astrojs/sitemap integration for SEO.
 
 Handover Note:
 By using scoped CSS, your styles remain local to the components (e.g., ArchiveTable.astro's styles won't bleed into Navigation.astro), which perfectly mimics the component-based workflow you prefer while keeping the "Lean & Elegant" technical profile.
+
+### Technical Implementation Notes
+- **Scoped CSS vs. Dynamic Content:** When injecting HTML dynamically (e.g., using `innerHTML` to render table rows), Astro's scoped CSS will NOT apply because the injected elements lack the required data-astro-cid attributes. Use `:global(.selector)` within the `<style>` tag to target dynamically generated content.
+- **AND-Oriented Filtering:** Filter dropdowns should update their available options based on other active filters to prevent "no results found" states.
+- **Persistent Selection:** When implementing pagination or filtering with row selection, ensure the selected state (e.g., `selectedLicenseNumber`) is tracked independently of the current page slice.
