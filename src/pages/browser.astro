@@ -6,6 +6,10 @@ import ArchiveTable from '../components/ArchiveTable.astro';
 <Layout title="Data Browser">
 	<header>
 		<h1>Data Browser <span class="snapshot-info">/ Latest Snapshot: Massachusetts CCC Licenses</span></h1>
+		<div class="meta-info">
+			Scraped: <span class="mono">2026-05-02 15:50 UTC</span> • 
+			Built: <span class="mono">{new Date().toISOString().replace('T', ' ').slice(0, 16)} UTC</span>
+		</div>
 	</header>
 
 	<ArchiveTable />
@@ -13,13 +17,13 @@ import ArchiveTable from '../components/ArchiveTable.astro';
 
 <style>
 	header {
-		margin-bottom: 1rem;
+		margin-bottom: 0.75rem;
 		border-bottom: 1px solid var(--border-color);
-		padding-bottom: 0.5rem;
+		padding-bottom: 0.25rem;
 	}
 
 	h1 {
-		font-size: 1.25rem;
+		font-size: 1.1rem;
 		font-weight: 700;
 		margin: 0;
 		letter-spacing: -0.01em;
@@ -31,8 +35,21 @@ import ArchiveTable from '../components/ArchiveTable.astro';
 	.snapshot-info {
 		color: var(--text-muted);
 		font-family: var(--font-mono);
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		text-transform: uppercase;
 		font-weight: 400;
+	}
+
+	.meta-info {
+		font-size: 0.6rem;
+		color: var(--text-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-top: 0.15rem;
+		opacity: 0.7;
+	}
+
+	.mono {
+		font-family: var(--font-mono);
 	}
 </style>
