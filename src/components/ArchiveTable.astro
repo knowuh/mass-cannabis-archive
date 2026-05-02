@@ -36,13 +36,13 @@
 				Showing <span id="current-range">0-0</span> of <span id="total-count">0</span> records
 			</div>
 			<div class="pagination">
-				<button id="prev-page" disabled>Previous</button>
-				<span id="page-info">Page 1 of 1</span>
+				<button id="prev-page" disabled>Prev</button>
+				<span id="page-info">1 / 1</span>
 				<button id="next-page" disabled>Next</button>
 			</div>
 		</div>
 
-		<div class="scroll-wrapper">
+		<div class="table-scroll-container">
 			<table id="archive-table">
 				<thead>
 					<tr>
@@ -62,15 +62,14 @@
 		</div>
 	</div>
 
-	<aside id="details-sidebar" class="details-sidebar hidden">
-		<div class="sidebar-header">
+	<div id="details-pane" class="details-pane">
+		<div class="pane-header">
 			<h2>Record Details</h2>
-			<button id="close-sidebar" title="Close details">&times;</button>
 		</div>
 		<div id="details-content" class="details-content">
-			<!-- Details populated by JS -->
+			<div class="placeholder-msg">Select a record to view full details</div>
 		</div>
-	</aside>
+	</div>
 </div>
 
 <script>
@@ -88,9 +87,8 @@
 	const dbeSelect = document.getElementById('filter-dbe') as HTMLSelectElement;
 	const prioritySelect = document.getElementById('filter-priority') as HTMLSelectElement;
 
-	const sidebar = document.getElementById('details-sidebar');
+	const detailsPane = document.getElementById('details-pane');
 	const detailsContent = document.getElementById('details-content');
-	const closeSidebarBtn = document.getElementById('close-sidebar');
 
 	let allData = [];
 	let filteredData = [];
@@ -102,13 +100,8 @@
 			const response = await fetch(`${import.meta.env.BASE_URL}/data/ccc/latest.json`);
 			allData = await response.json();
 			
-			// Populate filter dropdowns
-			populateDropdown(typeSelect, 'LICENSE_TYPE');
-			populateDropdown(countySelect, 'ESTABLISHMENT_COUNTY');
-			populateDropdown(citySelect, 'ESTABLISHMENT_CITY');
-			populateDropdown(dbeSelect, 'DBE');
-			populateDropdown(prioritySelect, 'PRIORITY_REVIEW_TYPE');
-
+			// Initial population of dropdowns
+			updateAllDropdowns();
 			applyFilters();
 		} catch (error) {
 			console.error('Failed to load data:', error);
@@ -118,43 +111,90 @@
 		}
 	}
 
-	function populateDropdown(select: HTMLSelectElement, key: string) {
-		const values = [...new Set(allData.map(item => item[key]))]
+	function updateAllDropdowns() {
+		const currentFilters = getCurrentFilters();
+		
+		// For each dropdown, we want to show values that are possible GIVEN THE OTHER FILTERS
+		updateDropdown(typeSelect, 'LICENSE_TYPE', currentFilters);
+		updateDropdown(countySelect, 'ESTABLISHMENT_COUNTY', currentFilters);
+		updateDropdown(citySelect, 'ESTABLISHMENT_CITY', currentFilters);
+		updateDropdown(dbeSelect, 'DBE', currentFilters);
+		updateDropdown(prioritySelect, 'PRIORITY_REVIEW_TYPE', currentFilters);
+	}
+
+	function getCurrentFilters() {
+		return {
+			searchTerm: searchInput.value.toLowerCase(),
+			type: typeSelect.value,
+			county: countySelect.value,
+			city: citySelect.value,
+			dbe: dbeSelect.value,
+			priority: prioritySelect.value
+		};
+	}
+
+	function updateDropdown(select: HTMLSelectElement, key: string, currentFilters: any) {
+		const currentVal = select.value;
+		
+		// Filter data based on ALL OTHER filters
+		const possibleData = allData.filter(row => {
+			const matchesSearch = !currentFilters.searchTerm || 
+				(row.BUSINESS_NAME?.toLowerCase().includes(currentFilters.searchTerm)) ||
+				(row.LICENSE_NUMBER?.toLowerCase().includes(currentFilters.searchTerm)) ||
+				(row.ESTABLISHMENT_CITY?.toLowerCase().includes(currentFilters.searchTerm));
+			
+			const matchesType = key === 'LICENSE_TYPE' || !currentFilters.type || row.LICENSE_TYPE === currentFilters.type;
+			const matchesCounty = key === 'ESTABLISHMENT_COUNTY' || !currentFilters.county || row.ESTABLISHMENT_COUNTY === currentFilters.county;
+			const matchesCity = key === 'ESTABLISHMENT_CITY' || !currentFilters.city || row.ESTABLISHMENT_CITY === currentFilters.city;
+			const matchesDbe = key === 'DBE' || !currentFilters.dbe || row.DBE === currentFilters.dbe;
+			const matchesPriority = key === 'PRIORITY_REVIEW_TYPE' || !currentFilters.priority || row.PRIORITY_REVIEW_TYPE === currentFilters.priority;
+
+			return matchesSearch && matchesType && matchesCounty && matchesCity && matchesDbe && matchesPriority;
+		});
+
+		const values = [...new Set(possibleData.map(item => item[key]))]
 			.filter(v => v && v !== "")
 			.sort();
+
+		// Keep current options but mark them disabled if not in values, OR just rebuild?
+		// Rebuilding is safer for "AND" orientation to show only valid choices.
+		const previousSelection = select.value;
+		select.innerHTML = `<option value="">All ${key.split('_').pop()?.toLowerCase()}s</option>`;
 		
+		// Specific overrides for "All" labels
+		if (key === 'LICENSE_TYPE') select.firstChild!.textContent = 'All Types';
+		if (key === 'DBE') select.firstChild!.textContent = 'All Statuses';
+		if (key === 'PRIORITY_REVIEW_TYPE') select.firstChild!.textContent = 'All Priorities';
+
 		values.forEach(val => {
 			const opt = document.createElement('option');
 			opt.value = val;
 			opt.textContent = val;
+			if (val === previousSelection) opt.selected = true;
 			select.appendChild(opt);
 		});
 	}
 
 	function applyFilters() {
-		const searchTerm = searchInput.value.toLowerCase();
-		const typeVal = typeSelect.value;
-		const countyVal = countySelect.value;
-		const cityVal = citySelect.value;
-		const dbeVal = dbeSelect.value;
-		const priorityVal = prioritySelect.value;
+		const filters = getCurrentFilters();
 
 		filteredData = allData.filter(row => {
-			const matchesSearch = !searchTerm || 
-				(row.BUSINESS_NAME?.toLowerCase().includes(searchTerm)) ||
-				(row.LICENSE_NUMBER?.toLowerCase().includes(searchTerm)) ||
-				(row.ESTABLISHMENT_CITY?.toLowerCase().includes(searchTerm));
+			const matchesSearch = !filters.searchTerm || 
+				(row.BUSINESS_NAME?.toLowerCase().includes(filters.searchTerm)) ||
+				(row.LICENSE_NUMBER?.toLowerCase().includes(filters.searchTerm)) ||
+				(row.ESTABLISHMENT_CITY?.toLowerCase().includes(filters.searchTerm));
 			
-			const matchesType = !typeVal || row.LICENSE_TYPE === typeVal;
-			const matchesCounty = !countyVal || row.ESTABLISHMENT_COUNTY === countyVal;
-			const matchesCity = !cityVal || row.ESTABLISHMENT_CITY === cityVal;
-			const matchesDbe = !dbeVal || row.DBE === dbeVal;
-			const matchesPriority = !priorityVal || row.PRIORITY_REVIEW_TYPE === priorityVal;
+			const matchesType = !filters.type || row.LICENSE_TYPE === filters.type;
+			const matchesCounty = !filters.county || row.ESTABLISHMENT_COUNTY === filters.county;
+			const matchesCity = !filters.city || row.ESTABLISHMENT_CITY === filters.city;
+			const matchesDbe = !filters.dbe || row.DBE === filters.dbe;
+			const matchesPriority = !filters.priority || row.PRIORITY_REVIEW_TYPE === filters.priority;
 
 			return matchesSearch && matchesType && matchesCounty && matchesCity && matchesDbe && matchesPriority;
 		});
 
 		currentPage = 1;
+		updateAllDropdowns();
 		renderTable();
 	}
 
@@ -174,7 +214,7 @@
 			tableBody.innerHTML = '<tr><td colspan="5" class="empty">No matching records found.</td></tr>';
 			totalCountDisplay.textContent = '0';
 			currentRangeDisplay.textContent = '0-0';
-			pageInfoDisplay.textContent = 'Page 1 of 1';
+			pageInfoDisplay.textContent = '1 / 1';
 			updatePaginationControls(1);
 			return;
 		}
@@ -191,15 +231,19 @@
 
 		totalCountDisplay.textContent = total.toString();
 		currentRangeDisplay.textContent = `${total === 0 ? 0 : start + 1}-${end}`;
-		pageInfoDisplay.textContent = `Page ${currentPage} of ${totalPages}`;
+		pageInfoDisplay.textContent = `${currentPage} / ${totalPages}`;
 		
 		updatePaginationControls(totalPages);
 
 		// Add click listeners to rows
 		document.querySelectorAll('.clickable-row').forEach(row => {
 			row.addEventListener('click', () => {
-				const index = parseInt(row.getAttribute('data-index'));
+				const index = parseInt(row.getAttribute('data-index')!);
 				showDetails(filteredData[index]);
+				
+				// Highlight selected row
+				document.querySelectorAll('.clickable-row').forEach(r => r.classList.remove('selected'));
+				row.classList.add('selected');
 			});
 		});
 	}
@@ -210,7 +254,7 @@
 	}
 
 	function showDetails(record: any) {
-		if (!detailsContent || !sidebar) return;
+		if (!detailsContent) return;
 
 		detailsContent.innerHTML = Object.entries(record)
 			.map(([key, value]) => `
@@ -220,7 +264,7 @@
 				</div>
 			`).join('');
 		
-		sidebar.classList.remove('hidden');
+		detailsPane?.classList.remove('hidden');
 	}
 
 	// Event Listeners
@@ -244,36 +288,32 @@
 		}
 	});
 
-	closeSidebarBtn?.addEventListener('click', () => {
-		sidebar?.classList.add('hidden');
-	});
-
 	init();
 </script>
 
 <style>
 	.archive-wrapper {
 		display: flex;
-		gap: 2rem;
-		align-items: flex-start;
-		position: relative;
+		flex-direction: column;
+		gap: 1.5rem;
+		height: calc(100vh - 10rem);
 	}
 
 	.data-browser {
 		flex: 1;
-		min-width: 0; /* Prevent table from blowing out layout */
+		min-height: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 0.75rem;
 	}
 
 	.controls {
 		background: var(--surface-color);
-		padding: 1.5rem;
+		padding: 1rem;
 		border: 1px solid var(--border-color);
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 0.75rem;
 	}
 
 	.search-box input {
@@ -281,31 +321,26 @@
 		background: var(--bg-color);
 		border: 1px solid var(--border-color);
 		color: var(--text-base);
-		padding: 0.75rem 1rem;
+		padding: 0.5rem 0.75rem;
 		font-family: var(--font-sans);
-		font-size: 1rem;
-	}
-
-	.search-box input:focus {
-		outline: none;
-		border-color: var(--accent-color);
+		font-size: 0.9rem;
 	}
 
 	.filters {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		gap: 0.75rem;
 	}
 
 	.filter-group {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 0.25rem;
 	}
 
 	.filter-group label {
 		font-family: var(--font-mono);
-		font-size: 0.7rem;
+		font-size: 0.65rem;
 		text-transform: uppercase;
 		color: var(--text-muted);
 	}
@@ -314,9 +349,9 @@
 		background: var(--bg-color);
 		border: 1px solid var(--border-color);
 		color: var(--text-base);
-		padding: 0.5rem;
+		padding: 0.35rem;
 		font-family: var(--font-sans);
-		font-size: 0.85rem;
+		font-size: 0.8rem;
 	}
 
 	.stats-bar {
@@ -324,24 +359,25 @@
 		justify-content: space-between;
 		align-items: center;
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: 0.75rem;
 		color: var(--text-muted);
+		padding: 0 0.25rem;
 	}
 
 	.pagination {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: 0.75rem;
 	}
 
 	.pagination button {
 		background: var(--surface-color);
 		border: 1px solid var(--border-color);
 		color: var(--text-base);
-		padding: 0.4rem 0.8rem;
+		padding: 0.2rem 0.6rem;
 		cursor: pointer;
 		font-family: var(--font-mono);
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		text-transform: uppercase;
 	}
 
@@ -350,14 +386,11 @@
 		cursor: not-allowed;
 	}
 
-	.pagination button:not(:disabled):hover {
-		border-color: var(--accent-color);
-		color: var(--accent-color);
-	}
-
-	.scroll-wrapper {
-		overflow-x: auto;
+	.table-scroll-container {
+		flex: 1;
+		overflow-y: auto;
 		border: 1px solid var(--border-color);
+		background: var(--bg-color);
 	}
 
 	table {
@@ -367,28 +400,35 @@
 	}
 
 	th {
+		position: sticky;
+		top: 0;
 		background: var(--surface-color);
-		padding: 1rem;
+		padding: 0.75rem;
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: 0.75rem;
 		text-transform: uppercase;
 		color: var(--text-muted);
 		border-bottom: 2px solid var(--border-color);
+		z-index: 10;
 	}
 
 	td {
-		padding: 1rem;
+		padding: 0.6rem 0.75rem;
 		border-bottom: 1px solid var(--border-color);
-		font-size: 0.95rem;
+		font-size: 0.85rem;
 	}
 
 	.clickable-row {
 		cursor: pointer;
-		transition: background 0.1s ease;
 	}
 
 	.clickable-row:hover {
 		background: var(--surface-color);
+	}
+
+	.clickable-row.selected {
+		background: rgba(90, 159, 122, 0.15);
+		border-left: 3px solid var(--accent-color);
 	}
 
 	.mono {
@@ -401,8 +441,8 @@
 
 	.status-tag {
 		font-family: var(--font-mono);
-		font-size: 0.75rem;
-		padding: 0.25rem 0.5rem;
+		font-size: 0.7rem;
+		padding: 0.15rem 0.4rem;
 		border: 1px solid var(--border-color);
 		text-transform: uppercase;
 	}
@@ -412,98 +452,80 @@
 		color: var(--accent-color);
 	}
 
-	/* Sidebar Styles */
-	.details-sidebar {
-		width: 400px;
+	/* Bottom Pane Styles */
+	.details-pane {
+		height: 200px;
 		background: var(--surface-color);
 		border: 1px solid var(--border-color);
-		height: calc(100vh - 12rem);
-		position: sticky;
-		top: 2rem;
 		display: flex;
 		flex-direction: column;
-		transition: transform 0.3s ease, opacity 0.3s ease;
+		overflow: hidden;
 	}
 
-	.details-sidebar.hidden {
-		display: none;
-	}
-
-	.sidebar-header {
-		padding: 1.5rem;
+	.pane-header {
+		padding: 0.5rem 1rem;
 		border-bottom: 1px solid var(--border-color);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		background: var(--bg-color);
 	}
 
-	.sidebar-header h2 {
+	.pane-header h2 {
 		margin: 0;
 		font-family: var(--font-mono);
-		font-size: 1rem;
+		font-size: 0.75rem;
 		text-transform: uppercase;
 		color: var(--accent-color);
 	}
 
-	#close-sidebar {
-		background: none;
-		border: none;
-		color: var(--text-muted);
-		font-size: 1.5rem;
-		cursor: pointer;
-		line-height: 1;
-	}
-
-	#close-sidebar:hover {
-		color: var(--text-base);
-	}
-
 	.details-content {
-		padding: 1.5rem;
-		overflow-y: auto;
+		padding: 1rem;
+		overflow-x: auto;
 		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+		flex-direction: row; /* Horizontal scrolling for full record details */
+		gap: 2rem;
+		align-items: flex-start;
+	}
+
+	.placeholder-msg {
+		color: var(--text-muted);
+		font-style: italic;
+		font-size: 0.9rem;
+		width: 100%;
+		text-align: center;
+		padding: 2rem;
 	}
 
 	.detail-item {
 		display: flex;
 		flex-direction: column;
-		gap: 0.25rem;
+		gap: 0.15rem;
+		min-width: 150px;
+		flex-shrink: 0;
 	}
 
 	.detail-key {
 		font-family: var(--font-mono);
-		font-size: 0.65rem;
+		font-size: 0.6rem;
 		text-transform: uppercase;
 		color: var(--text-muted);
-		letter-spacing: 0.05em;
+		white-space: nowrap;
 	}
 
 	.detail-value {
-		font-size: 0.9rem;
-		line-height: 1.4;
-		word-break: break-word;
+		font-size: 0.85rem;
+		line-height: 1.3;
 	}
 
 	.empty-val {
 		color: var(--border-color);
 	}
 
-	@media (max-width: 1100px) {
-		.archive-wrapper {
-			flex-direction: column;
+	@media (max-width: 768px) {
+		.details-pane {
+			height: 300px;
 		}
-		
-		.details-sidebar {
-			width: 100%;
-			height: auto;
-			max-height: 50vh;
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			z-index: 100;
-			top: auto;
+		.details-content {
+			flex-wrap: wrap;
+			flex-direction: column;
 		}
 	}
 </style>

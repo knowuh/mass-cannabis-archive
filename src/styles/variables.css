@@ -17,6 +17,7 @@ body {
   color: var(--text-base);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  font-size: 14px; /* Reduced from default */
 }
 
 * {
