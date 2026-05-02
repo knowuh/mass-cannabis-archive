@@ -491,20 +491,19 @@
 	}
 
 	.clickable-row:hover td {
-		background-color: var(--surface-color);
+		background-color: #2d3135 !important; /* Lighter than background for clear hover */
 	}
 
 	/* Aggressive High-contrast selection state */
 	.clickable-row.selected td {
 		background-color: var(--accent-color) !important;
-		color: var(--bg-color) !important;
+		color: #000 !important; /* Deep black for max contrast on sage */
 		font-weight: 700;
-		border-bottom-color: var(--accent-color);
 	}
 	
 	.clickable-row.selected .status-tag {
-		border-color: var(--bg-color);
-		color: var(--bg-color);
+		border-color: #000;
+		color: #000;
 		font-weight: 700;
 	}
 
