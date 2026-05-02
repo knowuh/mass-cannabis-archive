@@ -95,6 +95,7 @@
 	let allData = [];
 	let filteredData = [];
 	let currentPage = 1;
+	let selectedLicenseNumber = null;
 	const itemsPerPage = 50;
 
 	async function init() {
@@ -216,7 +217,7 @@
 		}
 
 		tableBody.innerHTML = pageData.map((row, idx) => `
-			<tr data-index="${start + idx}" class="clickable-row">
+			<tr data-license="${row.LICENSE_NUMBER}" class="clickable-row ${selectedLicenseNumber === row.LICENSE_NUMBER ? 'selected' : ''}">
 				<td class="business-name">${row.BUSINESS_NAME || 'N/A'}</td>
 				<td class="mono">${row.LICENSE_NUMBER || 'N/A'}</td>
 				<td>${row.LICENSE_TYPE || 'N/A'}</td>
@@ -234,8 +235,11 @@
 		// Add click listeners to rows
 		document.querySelectorAll('.clickable-row').forEach(row => {
 			row.addEventListener('click', () => {
-				const index = parseInt(row.getAttribute('data-index')!);
-				showDetails(filteredData[index]);
+				const license = row.getAttribute('data-license');
+				selectedLicenseNumber = license;
+				
+				const record = pageData.find(r => r.LICENSE_NUMBER === license);
+				if (record) showDetails(record);
 				
 				// Highlight selected row
 				document.querySelectorAll('.clickable-row').forEach(r => r.classList.remove('selected'));
@@ -252,7 +256,6 @@
 	function showDetails(record: any) {
 		if (!detailsContent) return;
 
-		// Prioritized keys for a better reading experience
 		const priorityKeys = [
 			'BUSINESS_NAME', 'LICENSE_NUMBER', 'LICENSE_TYPE', 'LICENSE_STATUS',
 			'ESTABLISHMENT_ADDRESS_1', 'ESTABLISHMENT_CITY', 'ESTABLISHMENT_ZIP', 'ESTABLISHMENT_COUNTY',
@@ -260,17 +263,16 @@
 			'DBE', 'PRIORITY_REVIEW_TYPE', 'APPROVED_LICENSE_STAGE', 'COMMENCE_OPERATIONS_DATE'
 		];
 
-		// Filter out empty or N/A values entirely
 		const entries = Object.entries(record).filter(([_, val]) => val && val !== "N/A" && val !== "");
 
 		const sortedEntries = entries.sort(([keyA], [keyB]) => {
 			const idxA = priorityKeys.indexOf(keyA);
 			const idxB = priorityKeys.indexOf(keyB);
 			
-			if (idxA !== -1 && idxB !== -1) return idxA - idxB; // Both prioritized
-			if (idxA !== -1) return -1; // Only A is prioritized
-			if (idxB !== -1) return 1; // Only B is prioritized
-			return keyA.localeCompare(keyB); // Neither prioritized, alphabetical
+			if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+			if (idxA !== -1) return -1;
+			if (idxB !== -1) return 1;
+			return keyA.localeCompare(keyB);
 		});
 
 		detailsContent.innerHTML = sortedEntries
@@ -286,7 +288,7 @@
 	searchInput?.addEventListener('input', applyFilters);
 	
 	countySelect.addEventListener('change', () => {
-		citySelect.value = ''; // Reset city when county changes
+		citySelect.value = '';
 		applyFilters();
 	});
 
@@ -301,9 +303,9 @@
 		citySelect.value = '';
 		dbeSelect.value = '';
 		prioritySelect.value = '';
+		selectedLicenseNumber = null;
 		applyFilters();
 		
-		// Clear details pane
 		if (detailsContent) {
 			detailsContent.innerHTML = '<div class="placeholder-msg">Select a record to view full details</div>';
 		}
@@ -487,14 +489,18 @@
 	}
 
 	/* High-contrast selection state */
+	.clickable-row.selected {
+		background: var(--accent-color) !important;
+	}
+	
 	.clickable-row.selected td {
-		background: var(--border-color);
-		color: #fff;
+		color: var(--bg-color) !important;
+		font-weight: 600;
 	}
 	
 	.clickable-row.selected .status-tag {
-		border-color: #fff;
-		color: #fff;
+		border-color: var(--bg-color);
+		color: var(--bg-color);
 	}
 
 	.mono {
@@ -520,7 +526,7 @@
 
 	/* Bottom Pane Styles */
 	.details-pane {
-		height: 350px; /* Increased height */
+		height: 400px; /* Even taller */
 		background: var(--surface-color);
 		border: 1px solid var(--border-color);
 		display: flex;
@@ -529,7 +535,7 @@
 	}
 
 	.pane-header {
-		padding: 0.5rem 1rem;
+		padding: 0.75rem 1rem;
 		border-bottom: 1px solid var(--border-color);
 		background: var(--bg-color);
 	}
@@ -537,18 +543,18 @@
 	.pane-header h2 {
 		margin: 0;
 		font-family: var(--font-mono);
-		font-size: 0.75rem;
+		font-size: 0.8rem;
 		text-transform: uppercase;
 		color: var(--accent-color);
 	}
 
 	.details-content {
-		padding: 1.5rem;
-		overflow-y: auto; /* Vertical scroll only */
+		padding: 1rem 1.5rem;
+		overflow-y: auto;
 		overflow-x: hidden;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-		gap: 1.5rem;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 1rem 2rem;
 		align-items: flex-start;
 		align-content: flex-start;
 	}
@@ -559,35 +565,36 @@
 		font-size: 0.9rem;
 		grid-column: 1 / -1;
 		text-align: center;
-		padding: 2rem;
+		padding: 4rem;
 	}
 
 	.detail-item {
 		display: flex;
 		flex-direction: column;
-		gap: 0.25rem;
+		gap: 0.1rem;
+		border-left: 2px solid var(--border-color);
+		padding-left: 0.75rem;
 	}
 
 	.detail-key {
 		font-family: var(--font-mono);
-		font-size: 0.65rem;
+		font-size: 0.6rem;
+		font-weight: 700;
 		text-transform: uppercase;
 		color: var(--text-muted);
 		letter-spacing: 0.05em;
 	}
 
 	.detail-value {
-		font-size: 0.9rem;
-		line-height: 1.3;
+		font-size: 1rem;
+		line-height: 1.2;
 		word-break: break-word;
+		color: var(--text-base);
 	}
 
 	@media (max-width: 768px) {
-		.search-box {
-			flex-direction: column;
-		}
 		.details-pane {
-			height: 300px;
+			height: 350px;
 		}
 		.details-content {
 			grid-template-columns: 1fr;
