@@ -5,7 +5,7 @@
 	<div class="data-browser">
 		<div class="controls">
 			<div class="search-box">
-				<input type="text" id="search" placeholder="Search Business Name, License #, or City..." aria-label="Search" />
+				<input type="text" id="search" placeholder="Search Business Name, Email, or City..." aria-label="Search" />
 				<button id="clear-filters" class="clear-btn">Clear Filters</button>
 			</div>
 			<div class="filters">
@@ -48,7 +48,8 @@
 				<thead>
 					<tr>
 						<th>Business Name</th>
-						<th>License #</th>
+						<th>Phone</th>
+						<th>Email</th>
 						<th>Type</th>
 						<th>City</th>
 						<th>Status</th>
@@ -56,7 +57,7 @@
 				</thead>
 				<tbody id="table-body">
 					<tr>
-						<td colspan="5" class="loading">Initializing archive...</td>
+						<td colspan="6" class="loading">Initializing archive...</td>
 					</tr>
 				</tbody>
 			</table>
@@ -109,7 +110,7 @@
 		} catch (error) {
 			console.error('Failed to load data:', error);
 			if (tableBody) {
-				tableBody.innerHTML = '<tr><td colspan="5" class="error">Error loading data.</td></tr>';
+				tableBody.innerHTML = '<tr><td colspan="6" class="error">Error loading data.</td></tr>';
 			}
 		}
 	}
@@ -141,7 +142,7 @@
 		const possibleData = allData.filter(row => {
 			const matchesSearch = !currentFilters.searchTerm || 
 				(row.BUSINESS_NAME?.toLowerCase().includes(currentFilters.searchTerm)) ||
-				(row.LICENSE_NUMBER?.toLowerCase().includes(currentFilters.searchTerm)) ||
+				(row.BUSINESS_EMAIL?.toLowerCase().includes(currentFilters.searchTerm)) ||
 				(row.ESTABLISHMENT_CITY?.toLowerCase().includes(currentFilters.searchTerm));
 			
 			const matchesType = key === 'LICENSE_TYPE' || !currentFilters.type || row.LICENSE_TYPE === currentFilters.type;
@@ -178,7 +179,7 @@
 		filteredData = allData.filter(row => {
 			const matchesSearch = !filters.searchTerm || 
 				(row.BUSINESS_NAME?.toLowerCase().includes(filters.searchTerm)) ||
-				(row.LICENSE_NUMBER?.toLowerCase().includes(filters.searchTerm)) ||
+				(row.BUSINESS_EMAIL?.toLowerCase().includes(filters.searchTerm)) ||
 				(row.ESTABLISHMENT_CITY?.toLowerCase().includes(filters.searchTerm));
 			
 			const matchesType = !filters.type || row.LICENSE_TYPE === filters.type;
@@ -208,7 +209,7 @@
 		const pageData = filteredData.slice(start, end);
 
 		if (pageData.length === 0) {
-			tableBody.innerHTML = '<tr><td colspan="5" class="empty">No matching records found.</td></tr>';
+			tableBody.innerHTML = '<tr><td colspan="6" class="empty">No matching records found.</td></tr>';
 			totalCountDisplay.textContent = '0';
 			currentRangeDisplay.textContent = '0-0';
 			pageInfoDisplay.textContent = '1 / 1';
@@ -219,7 +220,8 @@
 		tableBody.innerHTML = pageData.map((row, idx) => `
 			<tr data-license="${row.LICENSE_NUMBER}" class="clickable-row ${selectedLicenseNumber === row.LICENSE_NUMBER ? 'selected' : ''}">
 				<td class="business-name">${row.BUSINESS_NAME || 'N/A'}</td>
-				<td class="mono">${row.LICENSE_NUMBER || 'N/A'}</td>
+				<td class="mono phone-cell">${row.BUSINESS_PHONE || 'N/A'}</td>
+				<td class="email-cell">${row.BUSINESS_EMAIL || 'N/A'}</td>
 				<td>${row.LICENSE_TYPE || 'N/A'}</td>
 				<td>${row.ESTABLISHMENT_CITY || 'N/A'}</td>
 				<td><span class="status-tag" data-status="${row.LICENSE_STATUS_CATEGORY?.toLowerCase()}">${row.LICENSE_STATUS || 'N/A'}</span></td>
@@ -333,8 +335,8 @@
 	.archive-wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
-		height: calc(100vh - 10rem);
+		gap: 1rem;
+		height: calc(100vh - 5rem);
 	}
 
 	.data-browser {
@@ -342,21 +344,21 @@
 		min-height: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: 0.5rem;
 	}
 
 	.controls {
 		background: var(--surface-color);
-		padding: 1rem;
+		padding: 0.75rem;
 		border: 1px solid var(--border-color);
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: 0.5rem;
 	}
 
 	.search-box {
 		display: flex;
-		gap: 1rem;
+		gap: 0.75rem;
 	}
 
 	.search-box input {
@@ -364,18 +366,18 @@
 		background: var(--bg-color);
 		border: 1px solid var(--border-color);
 		color: var(--text-base);
-		padding: 0.5rem 0.75rem;
+		padding: 0.4rem 0.6rem;
 		font-family: var(--font-sans);
-		font-size: 0.9rem;
+		font-size: 0.85rem;
 	}
 
 	.clear-btn {
 		background: var(--bg-color);
 		border: 1px solid var(--border-color);
 		color: var(--text-muted);
-		padding: 0 1.5rem;
+		padding: 0 1rem;
 		font-family: var(--font-mono);
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		text-transform: uppercase;
 		cursor: pointer;
 		white-space: nowrap;
@@ -390,19 +392,19 @@
 
 	.filters {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-		gap: 0.75rem;
+		grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+		gap: 0.5rem;
 	}
 
 	.filter-group {
 		display: flex;
 		flex-direction: column;
-		gap: 0.25rem;
+		gap: 0.15rem;
 	}
 
 	.filter-group label {
 		font-family: var(--font-mono);
-		font-size: 0.65rem;
+		font-size: 0.6rem;
 		text-transform: uppercase;
 		color: var(--text-muted);
 	}
@@ -411,9 +413,9 @@
 		background: var(--bg-color);
 		border: 1px solid var(--border-color);
 		color: var(--text-base);
-		padding: 0.35rem;
+		padding: 0.25rem;
 		font-family: var(--font-sans);
-		font-size: 0.8rem;
+		font-size: 0.75rem;
 	}
 
 	.stats-bar {
@@ -421,7 +423,7 @@
 		justify-content: space-between;
 		align-items: center;
 		font-family: var(--font-mono);
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		color: var(--text-muted);
 		padding: 0 0.25rem;
 	}
@@ -429,17 +431,17 @@
 	.pagination {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
+		gap: 0.5rem;
 	}
 
 	.pagination button {
 		background: var(--surface-color);
 		border: 1px solid var(--border-color);
 		color: var(--text-base);
-		padding: 0.2rem 0.6rem;
+		padding: 0.15rem 0.4rem;
 		cursor: pointer;
 		font-family: var(--font-mono);
-		font-size: 0.7rem;
+		font-size: 0.65rem;
 		text-transform: uppercase;
 	}
 
@@ -459,15 +461,16 @@
 		width: 100%;
 		border-collapse: collapse;
 		text-align: left;
+		table-layout: fixed; /* For better control of column widths */
 	}
 
 	th {
 		position: sticky;
 		top: 0;
 		background: var(--surface-color);
-		padding: 0.75rem;
+		padding: 0.5rem 0.75rem;
 		font-family: var(--font-mono);
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		text-transform: uppercase;
 		color: var(--text-muted);
 		border-bottom: 2px solid var(--border-color);
@@ -475,32 +478,34 @@
 	}
 
 	td {
-		padding: 0.6rem 0.75rem;
+		padding: 0.4rem 0.75rem;
 		border-bottom: 1px solid var(--border-color);
-		font-size: 0.85rem;
+		font-size: 0.8rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.clickable-row {
 		cursor: pointer;
 	}
 
-	.clickable-row:hover {
-		background: var(--surface-color);
+	.clickable-row:hover td {
+		background-color: var(--surface-color);
 	}
 
-	/* High-contrast selection state */
-	.clickable-row.selected {
-		background: var(--accent-color) !important;
-	}
-	
+	/* Aggressive High-contrast selection state */
 	.clickable-row.selected td {
+		background-color: var(--accent-color) !important;
 		color: var(--bg-color) !important;
-		font-weight: 600;
+		font-weight: 700;
+		border-bottom-color: var(--accent-color);
 	}
 	
 	.clickable-row.selected .status-tag {
 		border-color: var(--bg-color);
 		color: var(--bg-color);
+		font-weight: 700;
 	}
 
 	.mono {
@@ -509,12 +514,16 @@
 
 	.business-name {
 		font-weight: 600;
+		width: 25%;
 	}
+	
+	.phone-cell { width: 15%; }
+	.email-cell { width: 20%; }
 
 	.status-tag {
 		font-family: var(--font-mono);
-		font-size: 0.7rem;
-		padding: 0.15rem 0.4rem;
+		font-size: 0.65rem;
+		padding: 0.1rem 0.3rem;
 		border: 1px solid var(--border-color);
 		text-transform: uppercase;
 	}
@@ -526,7 +535,7 @@
 
 	/* Bottom Pane Styles */
 	.details-pane {
-		height: 400px; /* Even taller */
+		height: 300px;
 		background: var(--surface-color);
 		border: 1px solid var(--border-color);
 		display: flex;
@@ -535,7 +544,7 @@
 	}
 
 	.pane-header {
-		padding: 0.75rem 1rem;
+		padding: 0.5rem 1rem;
 		border-bottom: 1px solid var(--border-color);
 		background: var(--bg-color);
 	}
@@ -543,18 +552,18 @@
 	.pane-header h2 {
 		margin: 0;
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: 0.75rem;
 		text-transform: uppercase;
 		color: var(--accent-color);
 	}
 
 	.details-content {
-		padding: 1rem 1.5rem;
+		padding: 1rem 1.25rem;
 		overflow-y: auto;
 		overflow-x: hidden;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-		gap: 1rem 2rem;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 0.75rem 1.5rem;
 		align-items: flex-start;
 		align-content: flex-start;
 	}
@@ -562,10 +571,10 @@
 	.placeholder-msg {
 		color: var(--text-muted);
 		font-style: italic;
-		font-size: 0.9rem;
+		font-size: 0.85rem;
 		grid-column: 1 / -1;
 		text-align: center;
-		padding: 4rem;
+		padding: 3rem;
 	}
 
 	.detail-item {
@@ -573,12 +582,12 @@
 		flex-direction: column;
 		gap: 0.1rem;
 		border-left: 2px solid var(--border-color);
-		padding-left: 0.75rem;
+		padding-left: 0.6rem;
 	}
 
 	.detail-key {
 		font-family: var(--font-mono);
-		font-size: 0.6rem;
+		font-size: 0.55rem;
 		font-weight: 700;
 		text-transform: uppercase;
 		color: var(--text-muted);
@@ -586,7 +595,7 @@
 	}
 
 	.detail-value {
-		font-size: 1rem;
+		font-size: 0.9rem;
 		line-height: 1.2;
 		word-break: break-word;
 		color: var(--text-base);
@@ -594,7 +603,7 @@
 
 	@media (max-width: 768px) {
 		.details-pane {
-			height: 350px;
+			height: 250px;
 		}
 		.details-content {
 			grid-template-columns: 1fr;
