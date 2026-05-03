@@ -1,4 +1,8 @@
 ---
+import TableRow from './TableRow.astro';
+import FilterSelect from './FilterSelect.astro';
+import Pagination from './Pagination.astro';
+import DetailsPane from './DetailsPane.astro';
 ---
 
 <div class="archive-wrapper">
@@ -9,39 +13,15 @@
 				<button id="clear-filters" class="clear-btn">Clear Filters</button>
 			</div>
 			<div class="filters">
-				<div class="filter-group">
-					<label for="filter-type">Type</label>
-					<select id="filter-type"><option value="">All Types</option></select>
-				</div>
-				<div class="filter-group">
-					<label for="filter-county">County</label>
-					<select id="filter-county"><option value="">All Counties</option></select>
-				</div>
-				<div class="filter-group">
-					<label for="filter-city">City</label>
-					<select id="filter-city"><option value="">All Cities</option></select>
-				</div>
-				<div class="filter-group">
-					<label for="filter-dbe">DBE Status</label>
-					<select id="filter-dbe"><option value="">All Statuses</option></select>
-				</div>
-				<div class="filter-group">
-					<label for="filter-priority">Priority Type</label>
-					<select id="filter-priority"><option value="">All Priorities</option></select>
-				</div>
+				<FilterSelect id="filter-type" label="Type" placeholder="All Types" />
+				<FilterSelect id="filter-county" label="County" placeholder="All Counties" />
+				<FilterSelect id="filter-city" label="City" placeholder="All Cities" />
+				<FilterSelect id="filter-dbe" label="DBE Status" placeholder="All Statuses" />
+				<FilterSelect id="filter-priority" label="Priority Type" placeholder="All Priorities" />
 			</div>
 		</div>
 
-		<div class="stats-bar">
-			<div class="count-info">
-				Showing <span id="current-range">0-0</span> of <span id="total-count">0</span> records
-			</div>
-			<div class="pagination">
-				<button id="prev-page" disabled>Prev</button>
-				<span id="page-info">1 / 1</span>
-				<button id="next-page" disabled>Next</button>
-			</div>
-		</div>
+		<Pagination />
 
 		<div class="table-scroll-container">
 			<table id="archive-table">
@@ -64,15 +44,10 @@
 		</div>
 	</div>
 
-	<div id="details-pane" class="details-pane">
-		<div class="pane-header">
-			<h2>Record Details</h2>
-		</div>
-		<div id="details-content" class="details-content">
-			<div class="placeholder-msg">Select a record to view full details</div>
-		</div>
-	</div>
+	<DetailsPane />
 </div>
+
+<TableRow />
 
 <script>
 	const searchInput = document.getElementById('search') as HTMLInputElement;
@@ -92,6 +67,8 @@
 
 	const detailsPane = document.getElementById('details-pane');
 	const detailsContent = document.getElementById('details-content');
+
+	const rowTemplate = document.getElementById('table-row-template') as HTMLTemplateElement;
 
 	let allData = [];
 	let filteredData = [];
@@ -118,11 +95,11 @@
 	function updateAllDropdowns() {
 		const currentFilters = getCurrentFilters();
 		
-		updateDropdown(typeSelect, 'LICENSE_TYPE', currentFilters);
-		updateDropdown(countySelect, 'ESTABLISHMENT_COUNTY', currentFilters);
-		updateDropdown(citySelect, 'ESTABLISHMENT_CITY', currentFilters);
-		updateDropdown(dbeSelect, 'DBE', currentFilters);
-		updateDropdown(prioritySelect, 'PRIORITY_REVIEW_TYPE', currentFilters);
+		updateDropdown(typeSelect, 'LICENSE_TYPE', currentFilters, 'All Types');
+		updateDropdown(countySelect, 'ESTABLISHMENT_COUNTY', currentFilters, 'All Counties');
+		updateDropdown(citySelect, 'ESTABLISHMENT_CITY', currentFilters, 'All Cities');
+		updateDropdown(dbeSelect, 'DBE', currentFilters, 'All Statuses');
+		updateDropdown(prioritySelect, 'PRIORITY_REVIEW_TYPE', currentFilters, 'All Priorities');
 	}
 
 	function getCurrentFilters() {
@@ -136,7 +113,7 @@
 		};
 	}
 
-	function updateDropdown(select: HTMLSelectElement, key: string, currentFilters: any) {
+	function updateDropdown(select: HTMLSelectElement, key: string, currentFilters: any, placeholder: string) {
 		const previousSelection = select.value;
 		
 		const possibleData = allData.filter(row => {
@@ -158,11 +135,7 @@
 			.filter(v => v && v !== "")
 			.sort();
 
-		select.innerHTML = `<option value="">All ${key.split('_').pop()?.toLowerCase()}s</option>`;
-		
-		if (key === 'LICENSE_TYPE') select.firstChild!.textContent = 'All Types';
-		if (key === 'DBE') select.firstChild!.textContent = 'All Statuses';
-		if (key === 'PRIORITY_REVIEW_TYPE') select.firstChild!.textContent = 'All Priorities';
+		select.innerHTML = `<option value="">${placeholder}</option>`;
 
 		values.forEach(val => {
 			const opt = document.createElement('option');
@@ -197,7 +170,7 @@
 	}
 
 	function renderTable() {
-		if (!tableBody) return;
+		if (!tableBody || !rowTemplate) return;
 
 		const total = filteredData.length;
 		const totalPages = Math.ceil(total / itemsPerPage) || 1;
@@ -208,6 +181,8 @@
 		const end = Math.min(start + itemsPerPage, total);
 		const pageData = filteredData.slice(start, end);
 
+		tableBody.innerHTML = '';
+
 		if (pageData.length === 0) {
 			tableBody.innerHTML = '<tr><td colspan="6" class="empty">No matching records found.</td></tr>';
 			totalCountDisplay.textContent = '0';
@@ -217,37 +192,38 @@
 			return;
 		}
 
-		tableBody.innerHTML = pageData.map((row, idx) => `
-			<tr data-license="${row.LICENSE_NUMBER}" class="clickable-row ${selectedLicenseNumber === row.LICENSE_NUMBER ? 'selected' : ''}">
-				<td class="business-name">${row.BUSINESS_NAME || 'N/A'}</td>
-				<td class="mono phone-cell">${row.BUSINESS_PHONE || 'N/A'}</td>
-				<td class="email-cell">${row.BUSINESS_EMAIL || 'N/A'}</td>
-				<td>${row.LICENSE_TYPE || 'N/A'}</td>
-				<td>${row.ESTABLISHMENT_CITY || 'N/A'}</td>
-				<td><span class="status-tag" data-status="${row.LICENSE_STATUS_CATEGORY?.toLowerCase()}">${row.LICENSE_STATUS || 'N/A'}</span></td>
-			</tr>
-		`).join('');
+		pageData.forEach(row => {
+			const clone = rowTemplate.content.cloneNode(true) as DocumentFragment;
+			const tr = clone.querySelector('tr');
+			
+			tr.setAttribute('data-license', row.LICENSE_NUMBER);
+			if (selectedLicenseNumber === row.LICENSE_NUMBER) tr.classList.add('selected');
+
+			tr.querySelector('.business-name').textContent = row.BUSINESS_NAME || 'N/A';
+			tr.querySelector('.phone-cell').textContent = row.BUSINESS_PHONE || 'N/A';
+			tr.querySelector('.email-cell').textContent = row.BUSINESS_EMAIL || 'N/A';
+			tr.querySelector('.license-type').textContent = row.LICENSE_TYPE || 'N/A';
+			tr.querySelector('.establishment-city').textContent = row.ESTABLISHMENT_CITY || 'N/A';
+			
+			const statusTag = tr.querySelector('.status-tag');
+			statusTag.textContent = row.LICENSE_STATUS || 'N/A';
+			statusTag.setAttribute('data-status', row.LICENSE_STATUS_CATEGORY?.toLowerCase() || '');
+
+			tr.addEventListener('click', () => {
+				selectedLicenseNumber = row.LICENSE_NUMBER;
+				showDetails(row);
+				document.querySelectorAll('.clickable-row').forEach(r => r.classList.remove('selected'));
+				tr.classList.add('selected');
+			});
+
+			tableBody.appendChild(clone);
+		});
 
 		totalCountDisplay.textContent = total.toString();
 		currentRangeDisplay.textContent = `${total === 0 ? 0 : start + 1}-${end}`;
 		pageInfoDisplay.textContent = `${currentPage} / ${totalPages}`;
 		
 		updatePaginationControls(totalPages);
-
-		// Add click listeners to rows
-		document.querySelectorAll('.clickable-row').forEach(row => {
-			row.addEventListener('click', () => {
-				const license = row.getAttribute('data-license');
-				selectedLicenseNumber = license;
-				
-				const record = pageData.find(r => r.LICENSE_NUMBER === license);
-				if (record) showDetails(record);
-				
-				// Highlight selected row
-				document.querySelectorAll('.clickable-row').forEach(r => r.classList.remove('selected'));
-				row.classList.add('selected');
-			});
-		});
 	}
 
 	function updatePaginationControls(totalPages: number) {
@@ -421,38 +397,6 @@
 		font-size: var(--font-size-sm);
 	}
 
-	.stats-bar {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-family: var(--font-mono);
-		font-size: var(--font-size-sm);
-		color: var(--text-muted);
-		padding: 0 var(--space-1);
-	}
-
-	.pagination {
-		display: flex;
-		align-items: center;
-		gap: var(--space-2);
-	}
-
-	.pagination button {
-		background: var(--surface-color);
-		border: var(--border-width) solid var(--border-color);
-		color: var(--text-base);
-		padding: var(--space-1) var(--space-2);
-		cursor: pointer;
-		font-family: var(--font-mono);
-		font-size: var(--font-size-sm);
-		text-transform: uppercase;
-	}
-
-	.pagination button:disabled {
-		opacity: 0.3;
-		cursor: not-allowed;
-	}
-
 	.table-scroll-container {
 		flex: 1;
 		overflow-y: auto;
@@ -536,83 +480,9 @@
 		color: var(--accent-color);
 	}
 
-	/* Bottom Pane Styles */
-	.details-pane {
-		height: var(--details-pane-height);
-		background: var(--surface-color);
-		border: var(--border-width) solid var(--border-color);
-		display: flex;
-		flex-direction: column;
-		overflow: hidden;
-	}
-
-	.pane-header {
-		padding: var(--space-2) var(--space-4);
-		border-bottom: var(--border-width) solid var(--border-color);
-		background: var(--bg-color);
-	}
-
-	.pane-header h2 {
-		margin: 0;
-		font-family: var(--font-mono);
-		font-size: var(--font-size-sm);
-		text-transform: uppercase;
-		color: var(--accent-color);
-	}
-
-	.details-content {
-		padding: var(--space-4) var(--space-6);
-		overflow-y: auto;
-		overflow-x: hidden;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-		gap: var(--space-3) var(--space-6);
-		align-items: flex-start;
-		align-content: flex-start;
-	}
-
-	.placeholder-msg {
-		color: var(--text-muted);
-		font-style: italic;
-		font-size: var(--font-size-base);
-		grid-column: 1 / -1;
-		text-align: center;
-		padding: var(--space-12);
-	}
-
-	.detail-item {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-1);
-		border-left: var(--border-width-thick) solid var(--border-color);
-		padding-left: var(--space-3);
-	}
-
-	.detail-key {
-		font-family: var(--font-mono);
-		font-size: var(--font-size-xs);
-		font-weight: 700;
-		text-transform: uppercase;
-		color: var(--text-muted);
-		letter-spacing: 0.05em;
-	}
-
-	.detail-value {
-		font-size: var(--font-size-base);
-		line-height: 1.2;
-		word-break: break-word;
-		color: var(--text-base);
-	}
-
 	@media (max-width: 768px) {
 		.search-box {
 			flex-direction: column;
-		}
-		.details-pane {
-			height: 250px;
-		}
-		.details-content {
-			grid-template-columns: 1fr;
 		}
 	}
 </style>

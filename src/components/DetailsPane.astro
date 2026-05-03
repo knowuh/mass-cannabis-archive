@@ -1,0 +1,89 @@
+---
+---
+<div id="details-pane" class="details-pane">
+	<div class="pane-header">
+		<h2>Record Details</h2>
+	</div>
+	<div id="details-content" class="details-content">
+		<div class="placeholder-msg">Select a record to view full details</div>
+	</div>
+</div>
+
+<style>
+	.details-pane {
+		height: var(--details-pane-height);
+		background: var(--surface-color);
+		border: var(--border-width) solid var(--border-color);
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	.pane-header {
+		padding: var(--space-2) var(--space-4);
+		border-bottom: var(--border-width) solid var(--border-color);
+		background: var(--bg-color);
+	}
+
+	.pane-header h2 {
+		margin: 0;
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		text-transform: uppercase;
+		color: var(--accent-color);
+	}
+
+	.details-content {
+		padding: var(--space-4) var(--space-6);
+		overflow-y: auto;
+		overflow-x: hidden;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: var(--space-3) var(--space-6);
+		align-items: flex-start;
+		align-content: flex-start;
+	}
+
+	/* Target dynamically injected content */
+	:global(.placeholder-msg) {
+		color: var(--text-muted);
+		font-style: italic;
+		font-size: var(--font-size-base);
+		grid-column: 1 / -1;
+		text-align: center;
+		padding: var(--space-12);
+	}
+
+	:global(.detail-item) {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+		border-left: var(--border-width-thick) solid var(--border-color);
+		padding-left: var(--space-3);
+	}
+
+	:global(.detail-key) {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		font-weight: 700;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		letter-spacing: 0.05em;
+	}
+
+	:global(.detail-value) {
+		font-size: var(--font-size-base);
+		line-height: 1.2;
+		word-break: break-word;
+		color: var(--text-base);
+	}
+
+	@media (max-width: 768px) {
+		.details-pane {
+			height: 250px;
+		}
+		.details-content {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

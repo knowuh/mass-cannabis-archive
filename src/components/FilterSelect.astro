@@ -1,0 +1,40 @@
+---
+interface Props {
+	id: string;
+	label: string;
+	placeholder: string;
+}
+
+const { id, label, placeholder } = Astro.props;
+---
+
+<div class="filter-group">
+	<label for={id}>{label}</label>
+	<select id={id}>
+		<option value="">{placeholder}</option>
+	</select>
+</div>
+
+<style>
+	.filter-group {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+	}
+
+	.filter-group label {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+
+	.filter-group select {
+		background: var(--bg-color);
+		border: var(--border-width) solid var(--border-color);
+		color: var(--text-base);
+		padding: var(--space-1);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+	}
+</style>

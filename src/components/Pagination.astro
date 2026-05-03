@@ -1,0 +1,46 @@
+---
+---
+<div class="stats-bar">
+	<div class="count-info">
+		Showing <span id="current-range">0-0</span> of <span id="total-count">0</span> records
+	</div>
+	<div class="pagination">
+		<button id="prev-page" disabled>Prev</button>
+		<span id="page-info">1 / 1</span>
+		<button id="next-page" disabled>Next</button>
+	</div>
+</div>
+
+<style>
+	.stats-bar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		color: var(--text-muted);
+		padding: 0 var(--space-1);
+	}
+
+	.pagination {
+		display: flex;
+		align-items: center;
+		gap: var(--space-2);
+	}
+
+	.pagination button {
+		background: var(--surface-color);
+		border: var(--border-width) solid var(--border-color);
+		color: var(--text-base);
+		padding: var(--space-1) var(--space-2);
+		cursor: pointer;
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		text-transform: uppercase;
+	}
+
+	.pagination button:disabled {
+		opacity: 0.3;
+		cursor: not-allowed;
+	}
+</style>
