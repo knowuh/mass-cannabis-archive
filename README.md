@@ -1,3 +1,4 @@
+<!-- Triggering initial deployment workflow -->
 # Massachusetts Cannabis Data Archive
 
 A version-controlled repository tracking the evolution of the Massachusetts cannabis market. This project snapshots public data from the [Massachusetts Cannabis Control Commission (CCC)](https://masscannabiscontrol.com/) to provide a longitudinal history of licenses, ownership, and industry dynamics.
