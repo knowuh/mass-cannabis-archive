@@ -32,12 +32,11 @@ import DetailsPane from './DetailsPane.astro';
 						<th>Email</th>
 						<th>Type</th>
 						<th>City</th>
-						<th>Status</th>
 					</tr>
 				</thead>
 				<tbody id="table-body">
 					<tr>
-						<td colspan="6" class="loading">Initializing archive...</td>
+						<td colspan="5" class="loading">Initializing archive...</td>
 					</tr>
 				</tbody>
 			</table>
@@ -87,7 +86,7 @@ import DetailsPane from './DetailsPane.astro';
 		} catch (error) {
 			console.error('Failed to load data:', error);
 			if (tableBody) {
-				tableBody.innerHTML = '<tr><td colspan="6" class="error">Error loading data.</td></tr>';
+				tableBody.innerHTML = '<tr><td colspan="5" class="error">Error loading data.</td></tr>';
 			}
 		}
 	}
@@ -184,7 +183,7 @@ import DetailsPane from './DetailsPane.astro';
 		tableBody.innerHTML = '';
 
 		if (pageData.length === 0) {
-			tableBody.innerHTML = '<tr><td colspan="6" class="empty">No matching records found.</td></tr>';
+			tableBody.innerHTML = '<tr><td colspan="5" class="empty">No matching records found.</td></tr>';
 			totalCountDisplay.textContent = '0';
 			currentRangeDisplay.textContent = '0-0';
 			pageInfoDisplay.textContent = '1 / 1';
@@ -204,10 +203,6 @@ import DetailsPane from './DetailsPane.astro';
 			tr.querySelector('.email-cell').textContent = row.BUSINESS_EMAIL || 'N/A';
 			tr.querySelector('.license-type').textContent = row.LICENSE_TYPE || 'N/A';
 			tr.querySelector('.establishment-city').textContent = row.ESTABLISHMENT_CITY || 'N/A';
-			
-			const statusTag = tr.querySelector('.status-tag');
-			statusTag.textContent = row.LICENSE_STATUS || 'N/A';
-			statusTag.setAttribute('data-status', row.LICENSE_STATUS_CATEGORY?.toLowerCase() || '');
 
 			tr.addEventListener('click', () => {
 				selectedLicenseNumber = row.LICENSE_NUMBER;
@@ -416,7 +411,7 @@ import DetailsPane from './DetailsPane.astro';
 		position: sticky;
 		top: 0;
 		background: var(--surface-color);
-		padding: var(--space-3) var(--space-4);
+		padding: var(--space-4) var(--space-6);
 		font-family: var(--font-mono);
 		font-size: var(--font-size-sm);
 		text-transform: uppercase;
@@ -426,7 +421,7 @@ import DetailsPane from './DetailsPane.astro';
 	}
 
 	td {
-		padding: var(--space-3) var(--space-4);
+		padding: var(--space-4) var(--space-6);
 		border-bottom: var(--border-width) solid var(--border-color);
 		font-size: var(--font-size-sm);
 		overflow: hidden;
