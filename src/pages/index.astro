@@ -13,7 +13,10 @@ import Manifesto from '../components/Manifesto.astro';
 				Built: <span class="mono">{new Date().toISOString().replace('T', ' ').slice(0, 16)} UTC</span>
 			</div>
 		</div>
-		<button id="info-trigger" class="info-btn" aria-label="Project Information">Info</button>
+		<div class="header-actions">
+			<button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">Theme</button>
+			<button id="info-trigger" class="info-btn" aria-label="Project Information">Info</button>
+		</div>
 	</header>
 
 	<ArchiveTable />
@@ -25,6 +28,21 @@ import Manifesto from '../components/Manifesto.astro';
 	const trigger = document.getElementById('info-trigger');
 	const overlay = document.getElementById('info-overlay');
 	const close = document.getElementById('info-close');
+	const themeToggle = document.getElementById('theme-toggle');
+
+	// Theme Management
+	const getTheme = () => localStorage.getItem('theme') || 'dark';
+	const setTheme = (theme: string) => {
+		document.documentElement.setAttribute('data-theme', theme);
+		localStorage.setItem('theme', theme);
+	};
+
+	setTheme(getTheme());
+
+	themeToggle?.addEventListener('click', () => {
+		const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+		setTheme(newTheme);
+	});
 
 	trigger?.addEventListener('click', () => {
 		overlay?.classList.remove('hidden');
@@ -90,6 +108,28 @@ import Manifesto from '../components/Manifesto.astro';
 	}
 
 	.info-btn:hover {
+		border-color: var(--accent-color);
+		color: var(--accent-color);
+	}
+
+	.header-actions {
+		display: flex;
+		gap: var(--space-2);
+	}
+
+	.theme-btn {
+		background: var(--surface-color);
+		border: var(--border-width) solid var(--border-color);
+		color: var(--text-base);
+		padding: 0.35rem 0.75rem;
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.theme-btn:hover {
 		border-color: var(--accent-color);
 		color: var(--accent-color);
 	}

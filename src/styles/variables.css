@@ -44,6 +44,19 @@
   --details-pane-height: 350px;
 }
 
+[data-theme="light"] {
+  --bg-color: #fdfcf8; /* Soft Ivory */
+  --surface-color: #f5f3e9; /* Creamy Surface */
+  --accent-color: #437a5b; /* Deeper Sage for contrast */
+  --text-base: #1a1c1e; /* Deep Charcoal */
+  --text-muted: #64748b;
+  --border-color: #e2e2d5;
+  --hover-color: #edece0;
+  --stripe-color: #f9f8f0;
+  --selection-bg: var(--accent-color);
+  --selection-text: #ffffff;
+}
+
 body {
   margin: 0;
   padding: 0;
