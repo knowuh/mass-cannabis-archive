@@ -31,7 +31,7 @@ import Manifesto from '../components/Manifesto.astro';
 	const themeToggle = document.getElementById('theme-toggle');
 
 	// Theme Management
-	const getTheme = () => localStorage.getItem('theme') || 'dark';
+	const getTheme = () => localStorage.getItem('theme') || 'light';
 	const setTheme = (theme: string) => {
 		document.documentElement.setAttribute('data-theme', theme);
 		localStorage.setItem('theme', theme);
@@ -40,7 +40,7 @@ import Manifesto from '../components/Manifesto.astro';
 	setTheme(getTheme());
 
 	themeToggle?.addEventListener('click', () => {
-		const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+		const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
 		setTheme(newTheme);
 	});
 
