@@ -1,0 +1,44 @@
+[
+  {
+    "INDUSTRY": "Adult-Use",
+    "DBE": "Disability-Owned Business",
+    "TOTAL": "7",
+    "PERCENT_TOTAL": "0.0036"
+  },
+  {
+    "INDUSTRY": "Adult-Use",
+    "DBE": "Lesbian, Gay, Bisexual, and Transgender Owned Business",
+    "TOTAL": "18",
+    "PERCENT_TOTAL": "0.0093"
+  },
+  {
+    "INDUSTRY": "Adult-Use",
+    "DBE": "Minority-Owned Business",
+    "TOTAL": "181",
+    "PERCENT_TOTAL": "0.0935"
+  },
+  {
+    "INDUSTRY": "Adult-Use",
+    "DBE": "Not a DBE",
+    "TOTAL": "1459",
+    "PERCENT_TOTAL": "0.7536"
+  },
+  {
+    "INDUSTRY": "Adult-Use",
+    "DBE": "Two or More categories",
+    "TOTAL": "130",
+    "PERCENT_TOTAL": "0.0671"
+  },
+  {
+    "INDUSTRY": "Adult-Use",
+    "DBE": "Veteran-Owned Business",
+    "TOTAL": "36",
+    "PERCENT_TOTAL": "0.0186"
+  },
+  {
+    "INDUSTRY": "Adult-Use",
+    "DBE": "Woman-Owned Business",
+    "TOTAL": "105",
+    "PERCENT_TOTAL": "0.0542"
+  }
+]

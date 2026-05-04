@@ -1,0 +1,793 @@
+INDUSTRY,ACTIVITYSUMMARYDATE,FACILITYTYPENAME,STRAINACTIVECOUNT,HARVESTACTIVECOUNT,PLANTVEGETATIVECOUNT,PLANTFLOWERINGCOUNT,PLANTHARVESTEDCOUNT,PLANTDESTROYEDCOUNT
+Adult-use,2018-11,Marijuana Cultivator,216,17,96,7134,1376,18
+Adult-use,2018-11,Marijuana Product Manufacturer,308,0,0,0,0,0
+Adult-use,2018-11,Marijuana Retailer,1310,0,0,0,0,0
+Adult-use,2018-11,Marijuana Transporter with Other Existing ME License,0,0,0,0,0,0
+Adult-use,2018-12,Marijuana Cultivator,3894,149,67530,80850,12773,5690
+Adult-use,2018-12,Marijuana Product Manufacturer,3688,0,0,0,0,0
+Adult-use,2018-12,Marijuana Retailer,6802,0,0,0,0,0
+Adult-use,2018-12,Marijuana Transporter with Other Existing ME License,6,0,0,0,0,0
+Adult-use,2019-01,Marijuana Cultivator,7333,1485,167767,183677,90522,37865
+Adult-use,2019-01,Marijuana Product Manufacturer,5302,0,0,0,0,0
+Adult-use,2019-01,Marijuana Retailer,10347,0,0,0,0,0
+Adult-use,2019-01,Marijuana Transporter with Other Existing ME License,12,0,0,0,0,0
+Adult-use,2019-02,Marijuana Cultivator,9147,1129,201660,159771,139723,63124
+Adult-use,2019-02,Marijuana Product Manufacturer,7141,0,0,0,0,0
+Adult-use,2019-02,Marijuana Retailer,11690,0,0,0,0,0
+Adult-use,2019-02,Marijuana Transporter with Other Existing ME License,495,0,0,0,0,0
+Adult-use,2019-03,Marijuana Cultivator,12949,1460,220980,398885,300558,99164
+Adult-use,2019-03,Marijuana Microbusiness,0,0,0,0,0,0
+Adult-use,2019-03,Marijuana Product Manufacturer,11606,0,0,0,0,0
+Adult-use,2019-03,Marijuana Retailer,17508,0,0,0,0,0
+Adult-use,2019-03,Marijuana Transporter with Other Existing ME License,1388,0,0,0,0,0
+Adult-use,2019-04,Marijuana Cultivator,16089,3146,311412,562963,406810,107516
+Adult-use,2019-04,Marijuana Microbusiness,10,0,0,0,0,0
+Adult-use,2019-04,Marijuana Product Manufacturer,14723,0,0,0,0,0
+Adult-use,2019-04,Marijuana Retailer,20680,0,0,0,0,0
+Adult-use,2019-04,Marijuana Transporter with Other Existing ME License,1122,0,0,0,0,0
+Adult-use,2019-05,Marijuana Cultivator,23260,4875,528939,746535,923092,225346
+Adult-use,2019-05,Marijuana Microbusiness,15,0,0,0,0,0
+Adult-use,2019-05,Marijuana Product Manufacturer,22009,0,0,0,0,0
+Adult-use,2019-05,Marijuana Retailer,33522,0,0,0,0,0
+Adult-use,2019-05,Marijuana Transporter with Other Existing ME License,932,0,0,0,0,0
+Adult-use,2019-06,Marijuana Cultivator,24707,5942,492062,670885,1201267,282250
+Adult-use,2019-06,Marijuana Microbusiness,98,0,362,0,0,0
+Adult-use,2019-06,Marijuana Product Manufacturer,21879,0,0,0,0,0
+Adult-use,2019-06,Marijuana Retailer,31046,0,0,0,0,0
+Adult-use,2019-06,Marijuana Transporter with Other Existing ME License,808,0,0,0,0,0
+Adult-use,2019-07,Marijuana Cultivator,24082,7574,541856,802635,1568271,444006
+Adult-use,2019-07,Marijuana Microbusiness,133,0,2059,0,0,12
+Adult-use,2019-07,Marijuana Product Manufacturer,24791,0,0,0,0,0
+Adult-use,2019-07,Marijuana Retailer,40583,0,0,0,0,0
+Adult-use,2019-07,Marijuana Transporter with Other Existing ME License,580,0,0,0,0,0
+Adult-use,2019-08,Marijuana Cultivator,29169,8592,532837,882801,2000420,564291
+Adult-use,2019-08,Marijuana Microbusiness,94,0,2804,0,0,26
+Adult-use,2019-08,Marijuana Product Manufacturer,24926,0,0,0,0,0
+Adult-use,2019-08,Marijuana Retailer,45371,0,0,0,0,0
+Adult-use,2019-08,Marijuana Transporter with Other Existing ME License,843,0,0,0,0,0
+Adult-use,2019-09,Marijuana Cultivator,31471,10909,468863,968350,2553482,739758
+Adult-use,2019-09,Marijuana Microbusiness,170,0,3619,1484,0,34
+Adult-use,2019-09,Marijuana Product Manufacturer,26002,0,0,0,0,0
+Adult-use,2019-09,Marijuana Retailer,45951,0,0,0,0,0
+Adult-use,2019-09,Marijuana Transporter with Other Existing ME License,595,0,0,0,0,0
+Adult-use,2019-10,Marijuana Cultivator,35492,8187,492798,941203,2948294,872608
+Adult-use,2019-10,Marijuana Microbusiness,150,0,2474,3976,0,30
+Adult-use,2019-10,Marijuana Product Manufacturer,27400,0,0,0,0,0
+Adult-use,2019-10,Marijuana Retailer,53759,0,0,0,0,0
+Adult-use,2019-10,Marijuana Transporter with Other Existing ME License,854,0,0,0,0,0
+Adult-use,2019-11,Marijuana Cultivator,34944,8368,476746,716523,3118126,891100
+Adult-use,2019-11,Marijuana Microbusiness,141,36,1737,2911,1400,192
+Adult-use,2019-11,Marijuana Product Manufacturer,30373,0,0,0,0,0
+Adult-use,2019-11,Marijuana Retailer,57487,0,0,0,0,0
+Adult-use,2019-11,Marijuana Transporter with Other Existing ME License,878,0,0,0,0,0
+Adult-use,2019-12,Marijuana Cultivator,40218,7394,618348,861333,4166551,1221550
+Adult-use,2019-12,Marijuana Microbusiness,169,86,3212,2743,3381,518
+Adult-use,2019-12,Marijuana Product Manufacturer,32730,0,0,0,0,0
+Adult-use,2019-12,Marijuana Retailer,71681,0,0,0,0,0
+Adult-use,2019-12,Marijuana Transporter with Other Existing ME License,924,0,0,0,0,0
+Adult-use,2019-12,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-01,Marijuana Cultivator,43824,7194,630953,873280,4305800,1273434
+Adult-use,2020-01,Marijuana Microbusiness,182,164,3674,3600,5008,922
+Adult-use,2020-01,Marijuana Product Manufacturer,31488,0,0,0,0,0
+Adult-use,2020-01,Marijuana Retailer,81887,0,0,0,0,0
+Adult-use,2020-01,Marijuana Transporter with Other Existing ME License,735,0,0,0,0,0
+Adult-use,2020-01,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-02,Marijuana Cultivator,44763,6993,604167,1057204,4796921,1420710
+Adult-use,2020-02,Marijuana Microbusiness,394,286,5300,5146,7500,1501
+Adult-use,2020-02,Marijuana Product Manufacturer,33818,0,0,0,0,0
+Adult-use,2020-02,Marijuana Retailer,82203,0,0,0,0,0
+Adult-use,2020-02,Marijuana Transporter with Other Existing ME License,665,0,0,0,0,0
+Adult-use,2020-02,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-03,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2020-03,Marijuana Cultivator,53420,9736,809703,1142418,5575115,1589163
+Adult-use,2020-03,Marijuana Microbusiness,1281,300,7053,5350,9730,2604
+Adult-use,2020-03,Marijuana Product Manufacturer,33775,0,0,0,0,0
+Adult-use,2020-03,Marijuana Retailer,94971,0,0,0,0,0
+Adult-use,2020-03,Marijuana Transporter with Other Existing ME License,963,0,0,0,0,0
+Adult-use,2020-03,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-04,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2020-04,Marijuana Cultivator,51654,8981,701352,952971,5230412,1440635
+Adult-use,2020-04,Marijuana Microbusiness,1162,232,8650,6104,11361,4510
+Adult-use,2020-04,Marijuana Product Manufacturer,36295,0,0,0,0,0
+Adult-use,2020-04,Marijuana Retailer,88425,0,0,0,0,0
+Adult-use,2020-04,Marijuana Transporter with Other Existing ME License,901,0,0,0,0,0
+Adult-use,2020-04,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-05,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2020-05,Marijuana Cultivator,54951,12390,870314,1167120,7252660,2158855
+Adult-use,2020-05,Marijuana Microbusiness,1584,449,5420,9881,20887,7291
+Adult-use,2020-05,Marijuana Product Manufacturer,39753,0,0,0,0,0
+Adult-use,2020-05,Marijuana Retailer,99869,0,0,0,0,0
+Adult-use,2020-05,Marijuana Transporter with Other Existing ME License,785,0,0,0,0,0
+Adult-use,2020-05,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-06,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2020-06,Marijuana Cultivator,55916,13510,828052,1066381,6617233,1874280
+Adult-use,2020-06,Marijuana Microbusiness,1463,225,6543,6963,23538,7166
+Adult-use,2020-06,Marijuana Product Manufacturer,39370,0,0,0,0,0
+Adult-use,2020-06,Marijuana Retailer,96276,0,0,0,0,0
+Adult-use,2020-06,Marijuana Transporter with Other Existing ME License,611,0,0,0,0,0
+Adult-use,2020-06,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-07,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2020-07,Marijuana Cultivator,59853,13365,950301,1095143,7818818,2092188
+Adult-use,2020-07,Marijuana Microbusiness,1549,380,7020,5854,28538,7340
+Adult-use,2020-07,Marijuana Product Manufacturer,40520,0,0,0,0,0
+Adult-use,2020-07,Marijuana Retailer,109492,0,0,0,0,0
+Adult-use,2020-07,Marijuana Transporter with Other Existing ME License,1101,0,0,0,0,0
+Adult-use,2020-07,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-08,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2020-08,Marijuana Cultivator,64683,11859,990923,1178339,8772488,2235908
+Adult-use,2020-08,Marijuana Microbusiness,1878,500,7802,7250,31230,7236
+Adult-use,2020-08,Marijuana Product Manufacturer,40264,0,0,0,0,0
+Adult-use,2020-08,Marijuana Retailer,117528,0,0,0,0,0
+Adult-use,2020-08,Marijuana Transporter with Other Existing ME License,1414,0,0,0,0,0
+Adult-use,2020-08,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-09,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2020-09,Marijuana Cultivator,62726,11555,820072,1209519,8787968,2173993
+Adult-use,2020-09,Marijuana Microbusiness,1370,284,7016,5419,30887,7033
+Adult-use,2020-09,Marijuana Product Manufacturer,40290,0,0,0,0,0
+Adult-use,2020-09,Marijuana Retailer,129789,0,0,0,0,0
+Adult-use,2020-09,Marijuana Transporter with Other Existing ME License,1356,0,0,0,0,0
+Adult-use,2020-09,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-10,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2020-10,Marijuana Cultivator,63253,13812,737275,1215467,9303875,2357883
+Adult-use,2020-10,Marijuana Microbusiness,2432,378,6676,6175,36055,8261
+Adult-use,2020-10,Marijuana Product Manufacturer,43705,0,0,0,0,0
+Adult-use,2020-10,Marijuana Retailer,150037,0,0,0,0,0
+Adult-use,2020-10,Marijuana Transporter with Other Existing ME License,1728,0,0,0,0,0
+Adult-use,2020-10,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-11,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2020-11,Marijuana Cultivator,63637,15115,838613,1265682,9439527,2305765
+Adult-use,2020-11,Marijuana Microbusiness,2457,281,20554,7669,41971,9411
+Adult-use,2020-11,Marijuana Product Manufacturer,46203,0,0,0,0,0
+Adult-use,2020-11,Marijuana Retailer,151866,0,0,0,0,0
+Adult-use,2020-11,Marijuana Transporter with Other Existing ME License,1868,0,0,0,0,0
+Adult-use,2020-11,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2020-12,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2020-12,Marijuana Cultivator,73269,16695,894036,1434698,11332574,2696885
+Adult-use,2020-12,Marijuana Microbusiness,2137,177,24138,6391,37781,8278
+Adult-use,2020-12,Marijuana Product Manufacturer,52253,0,0,0,0,0
+Adult-use,2020-12,Marijuana Retailer,174862,0,0,0,0,0
+Adult-use,2020-12,Marijuana Transporter with Other Existing ME License,2620,0,0,0,0,0
+Adult-use,2020-12,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-01,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-01,Marijuana Cultivator,76912,15513,969107,1448410,11146849,2613141
+Adult-use,2021-01,Marijuana Microbusiness,2621,159,24601,7965,51206,11193
+Adult-use,2021-01,Marijuana Product Manufacturer,58831,0,0,0,0,0
+Adult-use,2021-01,Marijuana Retailer,188078,0,0,0,0,0
+Adult-use,2021-01,Marijuana Transporter with Other Existing ME License,1914,0,0,0,0,0
+Adult-use,2021-01,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-02,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-02,Marijuana Cultivator,68889,15643,860116,1371218,11069535,2714926
+Adult-use,2021-02,Marijuana Microbusiness,2037,218,12678,23172,47001,8978
+Adult-use,2021-02,Marijuana Product Manufacturer,51494,0,0,0,0,0
+Adult-use,2021-02,Marijuana Retailer,178712,0,0,0,0,0
+Adult-use,2021-02,Marijuana Transporter with Other Existing ME License,2357,0,0,0,0,0
+Adult-use,2021-02,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-03,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-03,Marijuana Cultivator,80711,18348,962087,1425569,12113567,2902581
+Adult-use,2021-03,Marijuana Microbusiness,2926,500,17900,40796,64382,10568
+Adult-use,2021-03,Marijuana Product Manufacturer,60150,0,0,0,0,0
+Adult-use,2021-03,Marijuana Retailer,231834,0,0,0,0,0
+Adult-use,2021-03,Marijuana Transporter with Other Existing ME License,1929,0,0,0,0,0
+Adult-use,2021-03,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-04,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-04,Marijuana Courier,0,0,0,0,0,0
+Adult-use,2021-04,Marijuana Cultivator,82437,16417,892445,1469542,12180394,2911151
+Adult-use,2021-04,Marijuana Microbusiness,2301,465,15339,33075,68386,10888
+Adult-use,2021-04,Marijuana Product Manufacturer,57423,0,0,0,0,0
+Adult-use,2021-04,Marijuana Retailer,252778,0,0,0,0,0
+Adult-use,2021-04,Marijuana Transporter with Other Existing ME License,2539,0,0,0,0,0
+Adult-use,2021-04,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-05,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-05,Marijuana Courier,0,0,0,0,0,0
+Adult-use,2021-05,Marijuana Cultivator,93701,16053,1293129,1697814,14474292,3386975
+Adult-use,2021-05,Marijuana Microbusiness,2575,1065,32297,23081,110162,14659
+Adult-use,2021-05,Marijuana Product Manufacturer,63035,0,0,0,0,0
+Adult-use,2021-05,Marijuana Retailer,279445,0,0,0,0,0
+Adult-use,2021-05,Marijuana Transporter with Other Existing ME License,2111,0,0,0,0,0
+Adult-use,2021-05,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-06,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-06,Marijuana Courier,0,0,0,0,0,0
+Adult-use,2021-06,Marijuana Cultivator,98854,15950,1603571,1812648,14088139,3425062
+Adult-use,2021-06,Marijuana Microbusiness,2624,1036,15500,37089,131447,21355
+Adult-use,2021-06,Marijuana Product Manufacturer,67312,0,0,0,0,0
+Adult-use,2021-06,Marijuana Retailer,290690,0,0,0,0,0
+Adult-use,2021-06,Marijuana Transporter with Other Existing ME License,2415,0,0,0,0,0
+Adult-use,2021-06,Microbusiness Delivery,149,0,0,0,0,0
+Adult-use,2021-06,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-07,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-07,Marijuana Courier,0,0,0,0,0,0
+Adult-use,2021-07,Marijuana Cultivator,113453,19278,1772716,2098796,16289009,4174218
+Adult-use,2021-07,Marijuana Microbusiness,2940,450,10400,39620,123257,19815
+Adult-use,2021-07,Marijuana Product Manufacturer,77818,0,0,0,0,0
+Adult-use,2021-07,Marijuana Retailer,341373,0,0,0,0,0
+Adult-use,2021-07,Marijuana Transporter with Other Existing ME License,2235,0,0,0,0,0
+Adult-use,2021-07,Microbusiness Delivery,143,0,0,0,0,0
+Adult-use,2021-07,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-08,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-08,Marijuana Courier,0,0,0,0,0,0
+Adult-use,2021-08,Marijuana Cultivator,114806,20910,2145955,2111447,16266377,4281574
+Adult-use,2021-08,Marijuana Microbusiness,2237,327,18940,25070,144308,21530
+Adult-use,2021-08,Marijuana Product Manufacturer,71925,0,0,0,0,0
+Adult-use,2021-08,Marijuana Retailer,344993,0,0,0,0,0
+Adult-use,2021-08,Marijuana Transporter with Other Existing ME License,2692,0,0,0,0,0
+Adult-use,2021-08,Microbusiness Delivery,198,0,0,0,0,0
+Adult-use,2021-08,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-09,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-09,Marijuana Courier,0,0,0,0,0,0
+Adult-use,2021-09,Marijuana Cultivator,123219,25537,1444710,3319149,18308065,4802893
+Adult-use,2021-09,Marijuana Microbusiness,2811,197,16163,27057,166469,27362
+Adult-use,2021-09,Marijuana Product Manufacturer,76632,0,0,0,0,0
+Adult-use,2021-09,Marijuana Retailer,391478,0,0,0,0,0
+Adult-use,2021-09,Marijuana Transporter with Other Existing ME License,2359,0,0,0,0,0
+Adult-use,2021-09,Microbusiness Delivery,220,0,0,0,0,0
+Adult-use,2021-09,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-10,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-10,Marijuana Courier,0,0,0,0,0,0
+Adult-use,2021-10,Marijuana Cultivator,119469,27788,1258383,2209018,19774055,5044164
+Adult-use,2021-10,Marijuana Microbusiness,4069,312,41057,40678,229747,39140
+Adult-use,2021-10,Marijuana Product Manufacturer,71685,0,0,0,0,0
+Adult-use,2021-10,Marijuana Retailer,401974,0,0,0,0,0
+Adult-use,2021-10,Marijuana Transporter with Other Existing ME License,2386,0,0,0,0,0
+Adult-use,2021-10,Microbusiness Delivery,198,0,0,0,0,0
+Adult-use,2021-10,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-11,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-11,Marijuana Courier,0,0,0,0,0,0
+Adult-use,2021-11,Marijuana Cultivator,122055,29063,1080207,1992059,19967949,4941911
+Adult-use,2021-11,Marijuana Microbusiness,3909,219,26635,53124,183606,32556
+Adult-use,2021-11,Marijuana Product Manufacturer,79247,0,0,0,0,0
+Adult-use,2021-11,Marijuana Retailer,438033,0,0,0,0,0
+Adult-use,2021-11,Marijuana Transporter with Other Existing ME License,1836,0,0,0,0,0
+Adult-use,2021-11,Microbusiness Delivery,132,0,0,0,0,0
+Adult-use,2021-11,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2021-12,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2021-12,Marijuana Courier,5,0,0,0,0,0
+Adult-use,2021-12,Marijuana Cultivator,132706,25445,1132486,2120587,23395282,5970231
+Adult-use,2021-12,Marijuana Microbusiness,4049,290,25398,78900,239561,40271
+Adult-use,2021-12,Marijuana Product Manufacturer,90159,0,0,0,0,0
+Adult-use,2021-12,Marijuana Retailer,496476,0,0,0,0,0
+Adult-use,2021-12,Marijuana Transporter with Other Existing ME License,2051,0,0,0,0,0
+Adult-use,2021-12,Microbusiness Delivery,132,0,0,0,0,0
+Adult-use,2021-12,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-01,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-01,Marijuana Courier,14,0,0,0,0,0
+Adult-use,2022-01,Marijuana Cultivator,134364,22160,1213721,2020375,23540245,5746637
+Adult-use,2022-01,Marijuana Delivery Operator,0,0,0,0,0,0
+Adult-use,2022-01,Marijuana Microbusiness,4707,617,37229,60725,293314,46096
+Adult-use,2022-01,Marijuana Product Manufacturer,98410,0,0,0,0,0
+Adult-use,2022-01,Marijuana Retailer,514573,0,0,0,0,0
+Adult-use,2022-01,Marijuana Transporter with Other Existing ME License,2541,0,0,0,0,0
+Adult-use,2022-01,Microbusiness Delivery,187,0,0,0,0,0
+Adult-use,2022-01,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-02,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-02,Marijuana Courier,14,0,0,0,0,0
+Adult-use,2022-02,Marijuana Cultivator,131860,19257,1123728,1852619,22265678,5735185
+Adult-use,2022-02,Marijuana Delivery Operator,0,0,0,0,0,0
+Adult-use,2022-02,Marijuana Microbusiness,4198,730,28080,37580,253081,39661
+Adult-use,2022-02,Marijuana Product Manufacturer,85342,0,0,0,0,0
+Adult-use,2022-02,Marijuana Retailer,507218,0,0,0,0,0
+Adult-use,2022-02,Marijuana Transporter with Other Existing ME License,2111,0,0,0,0,0
+Adult-use,2022-02,Microbusiness Delivery,99,0,0,0,0,0
+Adult-use,2022-02,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-03,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-03,Marijuana Courier,13,0,0,0,0,0
+Adult-use,2022-03,Marijuana Cultivator,151742,21728,1429415,2226936,27471789,6954327
+Adult-use,2022-03,Marijuana Delivery Operator,19,0,0,0,0,0
+Adult-use,2022-03,Marijuana Microbusiness,4534,768,36275,54195,331853,51352
+Adult-use,2022-03,Marijuana Product Manufacturer,90179,0,0,0,0,0
+Adult-use,2022-03,Marijuana Retailer,593893,0,0,0,0,0
+Adult-use,2022-03,Marijuana Transporter with Other Existing ME License,3382,0,0,0,0,0
+Adult-use,2022-03,Microbusiness Delivery,165,0,0,0,0,0
+Adult-use,2022-03,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-04,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-04,Marijuana Courier,17,0,0,0,0,0
+Adult-use,2022-04,Marijuana Cultivator,151611,21393,1559197,2101193,26667423,6859718
+Adult-use,2022-04,Marijuana Delivery Operator,34,0,0,0,0,0
+Adult-use,2022-04,Marijuana Microbusiness,5607,1197,30360,70717,433157,67612
+Adult-use,2022-04,Marijuana Product Manufacturer,96333,0,0,0,0,0
+Adult-use,2022-04,Marijuana Retailer,613374,0,0,0,0,0
+Adult-use,2022-04,Marijuana Transporter with Other Existing ME License,2027,0,0,0,0,0
+Adult-use,2022-04,Microbusiness Delivery,154,0,0,0,0,0
+Adult-use,2022-04,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-05,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-05,Marijuana Courier,14,0,0,0,0,0
+Adult-use,2022-05,Marijuana Cultivator,159969,22634,1685257,2419318,28959982,7441807
+Adult-use,2022-05,Marijuana Delivery Operator,1572,0,0,0,0,0
+Adult-use,2022-05,Marijuana Microbusiness,4857,1066,28704,60622,368938,56509
+Adult-use,2022-05,Marijuana Product Manufacturer,104749,0,0,0,0,0
+Adult-use,2022-05,Marijuana Retailer,670777,0,0,0,0,0
+Adult-use,2022-05,Marijuana Transporter with Other Existing ME License,2590,0,0,0,0,0
+Adult-use,2022-05,Microbusiness Delivery,187,0,0,0,0,0
+Adult-use,2022-05,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-06,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-06,Marijuana Courier,15,0,0,0,0,0
+Adult-use,2022-06,Marijuana Cultivator,163460,25759,1794730,2661889,28508338,7266514
+Adult-use,2022-06,Marijuana Delivery Operator,1101,0,0,0,0,0
+Adult-use,2022-06,Marijuana Microbusiness,4607,1331,30458,59353,405262,59833
+Adult-use,2022-06,Marijuana Product Manufacturer,100858,0,0,0,0,0
+Adult-use,2022-06,Marijuana Retailer,674166,0,0,0,0,0
+Adult-use,2022-06,Marijuana Transporter with Other Existing ME License,2309,0,0,0,0,0
+Adult-use,2022-06,Microbusiness Delivery,176,0,0,0,0,0
+Adult-use,2022-06,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-07,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-07,Marijuana Courier,20,0,0,0,0,0
+Adult-use,2022-07,Marijuana Cultivator,179739,28122,2209608,4030991,31159985,8472496
+Adult-use,2022-07,Marijuana Delivery Operator,1867,0,0,0,0,0
+Adult-use,2022-07,Marijuana Microbusiness,6422,1319,36530,63352,493668,71150
+Adult-use,2022-07,Marijuana Product Manufacturer,134911,0,0,0,0,0
+Adult-use,2022-07,Marijuana Retailer,748855,0,0,0,0,0
+Adult-use,2022-07,Marijuana Transporter with Other Existing ME License,2194,0,0,0,0,0
+Adult-use,2022-07,Microbusiness Delivery,143,0,0,0,0,0
+Adult-use,2022-07,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-08,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-08,Marijuana Courier,14,0,0,0,0,0
+Adult-use,2022-08,Marijuana Cultivator,175834,32773,2153130,3856326,33087664,8695623
+Adult-use,2022-08,Marijuana Delivery Operator,1303,0,0,0,0,0
+Adult-use,2022-08,Marijuana Microbusiness,6329,1874,40795,79244,508935,72170
+Adult-use,2022-08,Marijuana Product Manufacturer,129384,0,0,0,0,0
+Adult-use,2022-08,Marijuana Retailer,754553,0,0,0,0,0
+Adult-use,2022-08,Marijuana Transporter with Other Existing ME License,2381,0,0,0,0,0
+Adult-use,2022-08,Microbusiness Delivery,198,0,0,0,0,0
+Adult-use,2022-08,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-09,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-09,Marijuana Courier,13,0,0,0,0,0
+Adult-use,2022-09,Marijuana Cultivator,182645,31239,1614780,3475484,33125682,8676343
+Adult-use,2022-09,Marijuana Delivery Operator,2524,0,0,0,0,0
+Adult-use,2022-09,Marijuana Microbusiness,5718,1726,26483,89890,460819,66071
+Adult-use,2022-09,Marijuana Product Manufacturer,135486,0,0,0,0,0
+Adult-use,2022-09,Marijuana Retailer,781022,0,0,0,0,0
+Adult-use,2022-09,Marijuana Transporter with Other Existing ME License,2641,0,0,0,0,0
+Adult-use,2022-09,Microbusiness Delivery,132,0,0,0,0,0
+Adult-use,2022-09,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-10,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-10,Marijuana Courier,13,0,0,0,0,0
+Adult-use,2022-10,Marijuana Cultivator,199361,35959,1692049,3474537,38347017,10359272
+Adult-use,2022-10,Marijuana Delivery Operator,3852,0,0,0,0,0
+Adult-use,2022-10,Marijuana Microbusiness,6103,2016,40859,83793,533138,79046
+Adult-use,2022-10,Marijuana Product Manufacturer,148113,0,0,0,0,0
+Adult-use,2022-10,Marijuana Retailer,836481,0,0,0,0,0
+Adult-use,2022-10,Marijuana Transporter with Other Existing ME License,2067,0,0,0,0,0
+Adult-use,2022-10,Microbusiness Delivery,154,0,0,0,0,0
+Adult-use,2022-10,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-11,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-11,Marijuana Courier,18,0,0,0,0,0
+Adult-use,2022-11,Marijuana Cultivator,185083,38922,1387685,2715274,35984273,9907715
+Adult-use,2022-11,Marijuana Delivery Operator,3472,0,0,0,0,0
+Adult-use,2022-11,Marijuana Microbusiness,6947,2785,28461,87712,557466,80475
+Adult-use,2022-11,Marijuana Product Manufacturer,158369,0,0,0,0,0
+Adult-use,2022-11,Marijuana Retailer,869377,0,0,0,0,0
+Adult-use,2022-11,Marijuana Transporter with Other Existing ME License,2796,0,0,0,0,0
+Adult-use,2022-11,Microbusiness Delivery,176,0,0,0,0,0
+Adult-use,2022-11,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2022-12,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2022-12,Marijuana Courier,16,0,0,0,0,0
+Adult-use,2022-12,Marijuana Cultivator,198289,40828,1507303,2509899,38845355,10934707
+Adult-use,2022-12,Marijuana Delivery Operator,3532,0,0,0,0,0
+Adult-use,2022-12,Marijuana Microbusiness,6784,2921,34473,89657,677324,91567
+Adult-use,2022-12,Marijuana Product Manufacturer,175492,0,0,0,0,0
+Adult-use,2022-12,Marijuana Retailer,937918,0,0,0,0,0
+Adult-use,2022-12,Marijuana Transporter with Other Existing ME License,2703,0,0,0,0,0
+Adult-use,2022-12,Microbusiness Delivery,231,0,0,0,0,0
+Adult-use,2022-12,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-01,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-01,Marijuana Courier,20,0,0,0,0,0
+Adult-use,2023-01,Marijuana Cultivator,214612,42876,1505303,2578536,42767551,11965200
+Adult-use,2023-01,Marijuana Delivery Operator,7368,0,0,0,0,0
+Adult-use,2023-01,Marijuana Microbusiness,6734,3910,41465,95856,667490,82980
+Adult-use,2023-01,Marijuana Product Manufacturer,177316,0,0,0,0,0
+Adult-use,2023-01,Marijuana Retailer,1009615,0,0,0,0,0
+Adult-use,2023-01,Marijuana Transporter with Other Existing ME License,2994,0,0,0,0,0
+Adult-use,2023-01,Microbusiness Delivery,165,0,0,0,0,0
+Adult-use,2023-01,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-02,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-02,Marijuana Courier,15,0,0,0,0,0
+Adult-use,2023-02,Marijuana Cultivator,197823,36419,1353153,2204636,37506536,10774407
+Adult-use,2023-02,Marijuana Delivery Operator,8304,0,0,0,0,0
+Adult-use,2023-02,Marijuana Microbusiness,6400,3841,29256,81623,630912,80119
+Adult-use,2023-02,Marijuana Product Manufacturer,171285,0,0,0,0,0
+Adult-use,2023-02,Marijuana Retailer,927418,0,0,0,0,0
+Adult-use,2023-02,Marijuana Transporter with Other Existing ME License,1237,0,0,0,0,0
+Adult-use,2023-02,Microbusiness Delivery,187,0,0,0,0,0
+Adult-use,2023-02,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-03,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-03,Marijuana Courier,14,0,0,0,0,0
+Adult-use,2023-03,Marijuana Cultivator,229650,43955,1459785,2343720,42680116,12488770
+Adult-use,2023-03,Marijuana Delivery Operator,6189,0,0,0,0,0
+Adult-use,2023-03,Marijuana Microbusiness,7695,3730,31529,89027,753940,100271
+Adult-use,2023-03,Marijuana Product Manufacturer,193762,0,0,0,0,0
+Adult-use,2023-03,Marijuana Retailer,1103154,0,0,0,0,0
+Adult-use,2023-03,Marijuana Transporter with Other Existing ME License,2257,0,0,0,0,0
+Adult-use,2023-03,Microbusiness Delivery,198,0,0,0,0,0
+Adult-use,2023-03,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-04,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-04,Marijuana Courier,15,0,0,0,0,0
+Adult-use,2023-04,Marijuana Cultivator,238192,40287,1499248,2365745,43064076,11961417
+Adult-use,2023-04,Marijuana Delivery Operator,6533,0,0,0,0,0
+Adult-use,2023-04,Marijuana Microbusiness,6147,3188,21069,66646,597310,78145
+Adult-use,2023-04,Marijuana Product Manufacturer,189324,0,0,0,0,0
+Adult-use,2023-04,Marijuana Retailer,1127378,0,0,0,0,0
+Adult-use,2023-04,Marijuana Transporter with Other Existing ME License,3184,0,0,0,0,0
+Adult-use,2023-04,Microbusiness Delivery,121,0,0,0,0,0
+Adult-use,2023-04,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-05,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-05,Marijuana Courier,12,0,0,0,0,0
+Adult-use,2023-05,Marijuana Cultivator,251426,43615,1549589,2616698,44101281,12760212
+Adult-use,2023-05,Marijuana Delivery Operator,10031,0,0,0,0,0
+Adult-use,2023-05,Marijuana Microbusiness,8319,4434,29098,72851,959732,120271
+Adult-use,2023-05,Marijuana Product Manufacturer,200169,0,0,0,0,0
+Adult-use,2023-05,Marijuana Retailer,1182539,0,0,0,0,0
+Adult-use,2023-05,Marijuana Transporter with Other Existing ME License,2067,0,0,0,0,0
+Adult-use,2023-05,Microbusiness Delivery,165,0,0,0,0,0
+Adult-use,2023-05,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-06,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-06,Marijuana Courier,13,0,0,0,0,0
+Adult-use,2023-06,Marijuana Cultivator,251093,41117,1869445,2640712,44205315,13176896
+Adult-use,2023-06,Marijuana Delivery Operator,16202,0,0,0,0,0
+Adult-use,2023-06,Marijuana Microbusiness,6475,4135,29305,58272,825605,94397
+Adult-use,2023-06,Marijuana Product Manufacturer,211021,0,0,0,0,0
+Adult-use,2023-06,Marijuana Retailer,1258670,0,0,0,0,0
+Adult-use,2023-06,Marijuana Transporter with Other Existing ME License,2645,0,0,0,0,0
+Adult-use,2023-06,Microbusiness Delivery,209,0,0,0,0,0
+Adult-use,2023-06,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-07,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-07,Marijuana Courier,13,0,0,0,0,0
+Adult-use,2023-07,Marijuana Cultivator,275873,39249,2296761,3089593,48100173,14321388
+Adult-use,2023-07,Marijuana Delivery Operator,16871,0,0,0,0,0
+Adult-use,2023-07,Marijuana Microbusiness,8457,5751,20380,87545,956650,115123
+Adult-use,2023-07,Marijuana Product Manufacturer,208077,0,0,0,0,0
+Adult-use,2023-07,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2023-07,Marijuana Retailer,1358988,0,0,0,0,0
+Adult-use,2023-07,Marijuana Transporter with Other Existing ME License,2325,0,0,0,0,0
+Adult-use,2023-07,Microbusiness Delivery,143,0,0,0,0,0
+Adult-use,2023-07,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-08,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-08,Marijuana Courier,20,0,0,0,0,0
+Adult-use,2023-08,Marijuana Cultivator,302095,46447,2236489,3527468,50391709,14799139
+Adult-use,2023-08,Marijuana Delivery Operator,22410,0,0,0,0,0
+Adult-use,2023-08,Marijuana Microbusiness,8541,5231,27676,78548,1134307,138111
+Adult-use,2023-08,Marijuana Product Manufacturer,217077,0,0,0,0,0
+Adult-use,2023-08,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2023-08,Marijuana Retailer,1490613,0,0,0,0,0
+Adult-use,2023-08,Marijuana Transporter with Other Existing ME License,2782,0,0,0,0,0
+Adult-use,2023-08,Microbusiness Delivery,154,0,0,0,0,0
+Adult-use,2023-08,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-09,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-09,Marijuana Courier,11,0,0,0,0,0
+Adult-use,2023-09,Marijuana Cultivator,282585,44757,1775630,3377336,48366616,13830342
+Adult-use,2023-09,Marijuana Delivery Operator,17171,0,0,0,0,0
+Adult-use,2023-09,Marijuana Microbusiness,7817,6326,26329,75758,1043340,121836
+Adult-use,2023-09,Marijuana Product Manufacturer,234925,0,0,0,0,0
+Adult-use,2023-09,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2023-09,Marijuana Retailer,1497416,0,0,0,0,0
+Adult-use,2023-09,Marijuana Transporter with Other Existing ME License,3040,0,0,0,0,0
+Adult-use,2023-09,Microbusiness Delivery,187,0,0,0,0,0
+Adult-use,2023-09,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-10,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-10,Marijuana Courier,12,0,0,0,0,0
+Adult-use,2023-10,Marijuana Cultivator,312867,56436,1790194,3439990,53974921,16176250
+Adult-use,2023-10,Marijuana Delivery Operator,19729,0,0,0,0,0
+Adult-use,2023-10,Marijuana Microbusiness,8425,6782,24914,80906,1112635,132958
+Adult-use,2023-10,Marijuana Product Manufacturer,239438,0,0,0,0,0
+Adult-use,2023-10,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2023-10,Marijuana Retailer,1647459,0,0,0,0,0
+Adult-use,2023-10,Marijuana Transporter with Other Existing ME License,2204,0,0,0,0,0
+Adult-use,2023-10,Microbusiness Delivery,187,0,0,0,0,0
+Adult-use,2023-10,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-11,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-11,Marijuana Courier,12,0,0,0,0,0
+Adult-use,2023-11,Marijuana Cultivator,297706,50465,1537762,2941610,51100257,14650026
+Adult-use,2023-11,Marijuana Delivery Operator,22385,0,0,0,0,0
+Adult-use,2023-11,Marijuana Microbusiness,7122,5566,16419,66931,1042865,121491
+Adult-use,2023-11,Marijuana Product Manufacturer,228427,0,0,0,0,0
+Adult-use,2023-11,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2023-11,Marijuana Retailer,1585620,0,0,0,0,0
+Adult-use,2023-11,Marijuana Transporter with Other Existing ME License,1987,0,0,0,0,0
+Adult-use,2023-11,Microbusiness Delivery,220,0,0,0,0,0
+Adult-use,2023-11,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2023-12,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2023-12,Marijuana Courier,16,0,0,0,0,0
+Adult-use,2023-12,Marijuana Cultivator,327750,53136,1891931,3413789,57147447,16959462
+Adult-use,2023-12,Marijuana Delivery Operator,21151,0,0,0,0,0
+Adult-use,2023-12,Marijuana Microbusiness,8713,7659,23065,74181,1219996,141745
+Adult-use,2023-12,Marijuana Product Manufacturer,232188,0,0,0,0,0
+Adult-use,2023-12,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2023-12,Marijuana Retailer,1747430,0,0,0,0,0
+Adult-use,2023-12,Marijuana Transporter with Other Existing ME License,2369,0,0,0,0,0
+Adult-use,2023-12,Microbusiness Delivery,154,0,0,0,0,0
+Adult-use,2023-12,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-01,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-01,Marijuana Courier,16,0,0,0,0,0
+Adult-use,2024-01,Marijuana Cultivator,319757,48157,1718231,3244905,55257132,16515338
+Adult-use,2024-01,Marijuana Delivery Operator,22559,0,0,0,0,0
+Adult-use,2024-01,Marijuana Microbusiness,8450,5240,24809,57560,1164433,133437
+Adult-use,2024-01,Marijuana Product Manufacturer,241003,0,0,0,0,0
+Adult-use,2024-01,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-01,Marijuana Retailer,1887454,0,0,0,0,0
+Adult-use,2024-01,Marijuana Transporter with Other Existing ME License,2418,0,0,0,0,0
+Adult-use,2024-01,Microbusiness Delivery,110,0,0,0,0,0
+Adult-use,2024-01,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-02,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-02,Marijuana Courier,18,0,0,0,0,0
+Adult-use,2024-02,Marijuana Cultivator,324034,48305,1801808,3362277,55573496,16530440
+Adult-use,2024-02,Marijuana Delivery Operator,23660,0,0,0,0,0
+Adult-use,2024-02,Marijuana Microbusiness,8663,5769,27176,70135,1299447,155256
+Adult-use,2024-02,Marijuana Product Manufacturer,249665,0,0,0,0,0
+Adult-use,2024-02,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-02,Marijuana Retailer,1768245,0,0,0,0,0
+Adult-use,2024-02,Marijuana Transporter with Other Existing ME License,2384,0,0,0,0,0
+Adult-use,2024-02,Microbusiness Delivery,154,0,0,0,0,0
+Adult-use,2024-02,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-03,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-03,Marijuana Courier,13,0,0,0,0,0
+Adult-use,2024-03,Marijuana Cultivator,350086,57798,1927194,3596618,61791044,17334163
+Adult-use,2024-03,Marijuana Delivery Operator,30505,0,0,0,0,0
+Adult-use,2024-03,Marijuana Microbusiness,9630,5276,29202,77260,1294074,159024
+Adult-use,2024-03,Marijuana Product Manufacturer,279849,0,0,0,0,0
+Adult-use,2024-03,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-03,Marijuana Retailer,1993989,0,0,0,0,0
+Adult-use,2024-03,Marijuana Transporter with Other Existing ME License,2874,0,0,0,0,0
+Adult-use,2024-03,Microbusiness Delivery,209,0,0,0,0,0
+Adult-use,2024-03,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-04,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-04,Marijuana Courier,15,0,0,0,0,0
+Adult-use,2024-04,Marijuana Cultivator,338093,48601,2054565,3741136,61842579,17884683
+Adult-use,2024-04,Marijuana Delivery Operator,26033,0,0,0,0,0
+Adult-use,2024-04,Marijuana Microbusiness,8507,5383,26144,60463,1213722,138738
+Adult-use,2024-04,Marijuana Product Manufacturer,273635,0,0,0,0,0
+Adult-use,2024-04,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-04,Marijuana Retailer,2035191,0,0,0,0,0
+Adult-use,2024-04,Marijuana Transporter with Other Existing ME License,3212,0,0,0,0,0
+Adult-use,2024-04,Microbusiness Delivery,165,0,0,0,0,0
+Adult-use,2024-04,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-05,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-05,Marijuana Courier,20,0,0,0,0,0
+Adult-use,2024-05,Marijuana Cultivator,384220,62910,2359645,4190390,69407891,20075612
+Adult-use,2024-05,Marijuana Delivery Operator,27085,0,0,0,0,0
+Adult-use,2024-05,Marijuana Microbusiness,9446,6387,34414,73179,1311709,151979
+Adult-use,2024-05,Marijuana Product Manufacturer,276004,0,0,0,0,0
+Adult-use,2024-05,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-05,Marijuana Retailer,2072558,0,0,0,0,0
+Adult-use,2024-05,Marijuana Transporter with Other Existing ME License,2580,0,0,0,0,0
+Adult-use,2024-05,Microbusiness Delivery,165,0,0,0,0,0
+Adult-use,2024-05,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-06,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-06,Marijuana Courier,19,0,0,0,0,0
+Adult-use,2024-06,Marijuana Cultivator,358832,61529,2420162,3864132,65348012,18955444
+Adult-use,2024-06,Marijuana Delivery Operator,27538,0,0,0,0,0
+Adult-use,2024-06,Marijuana Microbusiness,10015,6477,33872,67774,1284771,156033
+Adult-use,2024-06,Marijuana Product Manufacturer,296030,0,0,0,0,0
+Adult-use,2024-06,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-06,Marijuana Retailer,2085240,0,0,0,0,0
+Adult-use,2024-06,Marijuana Transporter with Other Existing ME License,2615,0,0,0,0,0
+Adult-use,2024-06,Microbusiness Delivery,143,0,0,0,0,0
+Adult-use,2024-06,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-07,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-07,Marijuana Courier,15,0,0,0,0,0
+Adult-use,2024-07,Marijuana Cultivator,373894,65498,2606622,4141275,70659590,20206004
+Adult-use,2024-07,Marijuana Delivery Operator,26938,0,0,0,0,0
+Adult-use,2024-07,Marijuana Microbusiness,11409,7379,36841,68137,1549193,179598
+Adult-use,2024-07,Marijuana Product Manufacturer,297021,0,0,0,0,0
+Adult-use,2024-07,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-07,Marijuana Retailer,2235941,0,0,0,0,0
+Adult-use,2024-07,Marijuana Transporter with Other Existing ME License,2620,0,0,0,0,0
+Adult-use,2024-07,Microbusiness Delivery,220,0,0,0,0,0
+Adult-use,2024-07,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-08,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-08,Marijuana Courier,13,0,0,0,0,0
+Adult-use,2024-08,Marijuana Cultivator,404393,65701,2728490,4378378,72954548,21582467
+Adult-use,2024-08,Marijuana Delivery Operator,31343,0,0,0,0,0
+Adult-use,2024-08,Marijuana Microbusiness,11343,6952,25182,78578,1532340,182922
+Adult-use,2024-08,Marijuana Product Manufacturer,317224,0,0,0,0,0
+Adult-use,2024-08,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-08,Marijuana Retailer,2274471,0,0,0,0,0
+Adult-use,2024-08,Marijuana Transporter with Other Existing ME License,3163,0,0,0,0,0
+Adult-use,2024-08,Microbusiness Delivery,154,0,0,0,0,0
+Adult-use,2024-08,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-09,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-09,Marijuana Courier,18,0,0,0,0,0
+Adult-use,2024-09,Marijuana Cultivator,372007,63963,2130639,4413836,71223573,21076285
+Adult-use,2024-09,Marijuana Delivery Operator,31095,0,0,0,0,0
+Adult-use,2024-09,Marijuana Microbusiness,11469,6740,28303,65727,1528324,192816
+Adult-use,2024-09,Marijuana Product Manufacturer,280937,0,0,0,0,0
+Adult-use,2024-09,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-09,Marijuana Retailer,2344267,0,0,0,0,0
+Adult-use,2024-09,Marijuana Transporter with Other Existing ME License,2317,0,0,0,0,0
+Adult-use,2024-09,Microbusiness Delivery,88,0,0,0,0,0
+Adult-use,2024-09,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-10,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-10,Marijuana Courier,13,0,0,0,0,0
+Adult-use,2024-10,Marijuana Cultivator,404056,76407,2184377,4501177,78572576,22622276
+Adult-use,2024-10,Marijuana Delivery Operator,32983,0,0,0,0,0
+Adult-use,2024-10,Marijuana Microbusiness,10258,6413,24495,56868,1357929,162568
+Adult-use,2024-10,Marijuana Product Manufacturer,326938,0,0,0,0,0
+Adult-use,2024-10,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-10,Marijuana Retailer,2429125,0,0,0,0,0
+Adult-use,2024-10,Marijuana Transporter with Other Existing ME License,3107,0,0,0,0,0
+Adult-use,2024-10,Microbusiness Delivery,132,0,0,0,0,0
+Adult-use,2024-10,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-11,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-11,Marijuana Courier,18,0,0,0,0,0
+Adult-use,2024-11,Marijuana Cultivator,393070,71171,1900244,3892873,74121171,21205129
+Adult-use,2024-11,Marijuana Delivery Operator,34716,0,0,0,0,0
+Adult-use,2024-11,Marijuana Microbusiness,11612,6298,22424,61712,1601487,205962
+Adult-use,2024-11,Marijuana Product Manufacturer,324107,0,0,0,0,0
+Adult-use,2024-11,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-11,Marijuana Retailer,2389274,0,0,0,0,0
+Adult-use,2024-11,Marijuana Transporter with Other Existing ME License,3823,0,0,0,0,0
+Adult-use,2024-11,Microbusiness Delivery,165,0,0,0,0,0
+Adult-use,2024-11,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2024-12,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2024-12,Marijuana Courier,12,0,0,0,0,0
+Adult-use,2024-12,Marijuana Cultivator,400844,76380,1912236,3992598,78854308,22849457
+Adult-use,2024-12,Marijuana Delivery Operator,33240,0,0,0,0,0
+Adult-use,2024-12,Marijuana Microbusiness,10560,7559,18447,49314,1454891,177141
+Adult-use,2024-12,Marijuana Product Manufacturer,320144,0,0,0,0,0
+Adult-use,2024-12,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2024-12,Marijuana Retailer,2592408,0,0,0,0,0
+Adult-use,2024-12,Marijuana Transporter with Other Existing ME License,3858,0,0,0,0,0
+Adult-use,2024-12,Microbusiness Delivery,132,0,0,0,0,0
+Adult-use,2024-12,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-01,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-01,Marijuana Courier,15,0,0,0,0,0
+Adult-use,2025-01,Marijuana Cultivator,404648,73342,1679587,4080510,80508731,22308983
+Adult-use,2025-01,Marijuana Delivery Operator,25950,0,0,0,0,0
+Adult-use,2025-01,Marijuana Microbusiness,11474,7723,20004,38085,1590393,201669
+Adult-use,2025-01,Marijuana Product Manufacturer,338922,0,0,0,0,0
+Adult-use,2025-01,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-01,Marijuana Retailer,2588042,0,0,0,0,0
+Adult-use,2025-01,Marijuana Transporter with Other Existing ME License,4380,0,0,0,0,0
+Adult-use,2025-01,Microbusiness Delivery,176,0,0,0,0,0
+Adult-use,2025-01,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-02,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-02,Marijuana Courier,18,0,0,0,0,0
+Adult-use,2025-02,Marijuana Cultivator,396728,62738,1650695,3709755,76582293,21658061
+Adult-use,2025-02,Marijuana Delivery Operator,26373,0,0,0,0,0
+Adult-use,2025-02,Marijuana Microbusiness,9127,7082,19564,32473,1253510,155156
+Adult-use,2025-02,Marijuana Product Manufacturer,338399,0,0,0,0,0
+Adult-use,2025-02,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-02,Marijuana Retailer,2401188,0,0,0,0,0
+Adult-use,2025-02,Marijuana Transporter with Other Existing ME License,3702,0,0,0,0,0
+Adult-use,2025-02,Microbusiness Delivery,143,0,0,0,0,0
+Adult-use,2025-02,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-03,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-03,Marijuana Courier,17,0,0,0,0,0
+Adult-use,2025-03,Marijuana Cultivator,437265,74022,1921280,3991269,86199898,23537962
+Adult-use,2025-03,Marijuana Delivery Operator,33033,0,0,0,0,0
+Adult-use,2025-03,Marijuana Microbusiness,13081,8301,21473,54747,1705196,219103
+Adult-use,2025-03,Marijuana Product Manufacturer,417268,0,0,0,0,0
+Adult-use,2025-03,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-03,Marijuana Retailer,2755832,0,0,0,0,0
+Adult-use,2025-03,Marijuana Transporter with Other Existing ME License,3094,0,0,0,0,0
+Adult-use,2025-03,Microbusiness Delivery,143,0,0,0,0,0
+Adult-use,2025-03,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-04,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-04,Marijuana Courier,20,0,0,0,0,0
+Adult-use,2025-04,Marijuana Cultivator,447816,75942,1919565,3994915,88809740,24742174
+Adult-use,2025-04,Marijuana Delivery Operator,30265,0,0,0,0,0
+Adult-use,2025-04,Marijuana Microbusiness,10957,7971,19668,46676,1578338,198641
+Adult-use,2025-04,Marijuana Product Manufacturer,391539,0,0,0,0,0
+Adult-use,2025-04,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-04,Marijuana Retailer,2598930,0,0,0,0,0
+Adult-use,2025-04,Marijuana Transporter with Other Existing ME License,2696,0,0,0,0,0
+Adult-use,2025-04,Microbusiness Delivery,220,0,0,0,0,0
+Adult-use,2025-04,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-05,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-05,Marijuana Courier,11,0,0,0,0,0
+Adult-use,2025-05,Marijuana Cultivator,474787,70260,1927933,4334275,95097601,25007297
+Adult-use,2025-05,Marijuana Delivery Operator,45464,0,0,0,0,0
+Adult-use,2025-05,Marijuana Microbusiness,11562,9551,20226,39262,1506015,183647
+Adult-use,2025-05,Marijuana Product Manufacturer,428977,0,0,0,0,0
+Adult-use,2025-05,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-05,Marijuana Retailer,2763179,0,0,0,0,0
+Adult-use,2025-05,Marijuana Transporter with Other Existing ME License,4209,0,0,0,0,0
+Adult-use,2025-05,Microbusiness Delivery,198,0,0,0,0,0
+Adult-use,2025-05,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-06,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-06,Marijuana Courier,17,0,0,0,0,0
+Adult-use,2025-06,Marijuana Cultivator,445771,67926,2067549,3839369,87922649,22971663
+Adult-use,2025-06,Marijuana Delivery Operator,47071,0,0,0,0,0
+Adult-use,2025-06,Marijuana Microbusiness,12451,8452,22607,32228,1556207,207854
+Adult-use,2025-06,Marijuana Product Manufacturer,417603,0,0,0,0,0
+Adult-use,2025-06,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-06,Marijuana Retailer,2780527,0,0,0,0,0
+Adult-use,2025-06,Marijuana Transporter with Other Existing ME License,3719,0,0,0,0,0
+Adult-use,2025-06,Microbusiness Delivery,198,0,0,0,0,0
+Adult-use,2025-06,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-07,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-07,Marijuana Courier,15,0,0,0,0,0
+Adult-use,2025-07,Marijuana Cultivator,459984,63196,2780457,4185371,95289559,25941213
+Adult-use,2025-07,Marijuana Delivery Operator,53368,0,0,0,0,0
+Adult-use,2025-07,Marijuana Microbusiness,13523,9386,39544,43434,1771165,226397
+Adult-use,2025-07,Marijuana Product Manufacturer,462758,0,0,0,0,0
+Adult-use,2025-07,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-07,Marijuana Retailer,2901216,0,0,0,0,0
+Adult-use,2025-07,Marijuana Transporter with Other Existing ME License,3972,0,0,0,0,0
+Adult-use,2025-07,Microbusiness Delivery,187,0,0,0,0,0
+Adult-use,2025-07,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-08,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-08,Marijuana Courier,11,0,0,0,0,0
+Adult-use,2025-08,Marijuana Cultivator,473123,56393,2834116,4339097,98775065,26694331
+Adult-use,2025-08,Marijuana Delivery Operator,50215,0,0,0,0,0
+Adult-use,2025-08,Marijuana Microbusiness,12884,9157,23315,52354,1587619,209852
+Adult-use,2025-08,Marijuana Product Manufacturer,546048,0,0,0,0,0
+Adult-use,2025-08,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-08,Marijuana Retailer,3023138,0,0,0,0,0
+Adult-use,2025-08,Marijuana Transporter with Other Existing ME License,3402,0,0,0,0,0
+Adult-use,2025-08,Microbusiness Delivery,164,0,0,0,0,0
+Adult-use,2025-08,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-09,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-09,Marijuana Courier,15,0,0,0,0,0
+Adult-use,2025-09,Marijuana Cultivator,476884,67352,2094978,4692795,100358774,27106443
+Adult-use,2025-09,Marijuana Delivery Operator,51301,0,0,0,0,0
+Adult-use,2025-09,Marijuana Microbusiness,12279,8541,28579,45396,1611740,206065
+Adult-use,2025-09,Marijuana Product Manufacturer,522083,0,0,0,0,0
+Adult-use,2025-09,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-09,Marijuana Retailer,3024100,0,0,0,0,0
+Adult-use,2025-09,Marijuana Transporter with Other Existing ME License,3419,0,0,0,0,0
+Adult-use,2025-09,Microbusiness Delivery,206,0,0,0,0,0
+Adult-use,2025-09,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-10,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-10,Marijuana Courier,22,0,0,0,0,0
+Adult-use,2025-10,Marijuana Cultivator,491130,71085,1822671,4688193,103763539,27845827
+Adult-use,2025-10,Marijuana Delivery Operator,40146,0,0,0,0,0
+Adult-use,2025-10,Marijuana Microbusiness,14185,8212,30346,61133,1741521,229538
+Adult-use,2025-10,Marijuana Product Manufacturer,516515,0,0,0,0,0
+Adult-use,2025-10,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-10,Marijuana Retailer,3109267,0,0,0,0,0
+Adult-use,2025-10,Marijuana Transporter with Other Existing ME License,3506,0,0,0,0,0
+Adult-use,2025-10,Microbusiness Delivery,220,0,0,0,0,0
+Adult-use,2025-10,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-11,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-11,Marijuana Courier,14,0,0,0,0,0
+Adult-use,2025-11,Marijuana Cultivator,487156,81872,1764930,4286878,104691822,27869241
+Adult-use,2025-11,Marijuana Delivery Operator,52571,0,0,0,0,0
+Adult-use,2025-11,Marijuana Microbusiness,13827,7163,29612,58098,1888425,251175
+Adult-use,2025-11,Marijuana Product Manufacturer,527041,0,0,0,0,0
+Adult-use,2025-11,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-11,Marijuana Retailer,3145250,0,0,0,0,0
+Adult-use,2025-11,Marijuana Transporter with Other Existing ME License,3593,0,0,0,0,0
+Adult-use,2025-11,Microbusiness Delivery,303,0,0,0,0,0
+Adult-use,2025-11,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2025-12,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2025-12,Marijuana Courier,17,0,0,0,0,0
+Adult-use,2025-12,Marijuana Cultivator,510272,80963,1830035,4117571,107383874,28493330
+Adult-use,2025-12,Marijuana Delivery Operator,56460,0,0,0,0,0
+Adult-use,2025-12,Marijuana Microbusiness,14165,10505,28207,64911,1878744,238927
+Adult-use,2025-12,Marijuana Product Manufacturer,568229,0,0,0,0,0
+Adult-use,2025-12,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2025-12,Marijuana Retailer,3336709,0,0,0,0,0
+Adult-use,2025-12,Marijuana Transporter with Other Existing ME License,3437,0,0,0,0,0
+Adult-use,2025-12,Microbusiness Delivery,410,0,0,0,0,0
+Adult-use,2025-12,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2026-01,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2026-01,Marijuana Courier,18,0,0,0,0,0
+Adult-use,2026-01,Marijuana Cultivator,529048,71297,1905158,4357991,111541982,28473077
+Adult-use,2026-01,Marijuana Delivery Operator,58724,0,0,0,0,0
+Adult-use,2026-01,Marijuana Microbusiness,14098,10914,26509,56676,1797406,224188
+Adult-use,2026-01,Marijuana Product Manufacturer,527234,0,0,0,0,0
+Adult-use,2026-01,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2026-01,Marijuana Retailer,3398034,0,0,0,0,0
+Adult-use,2026-01,Marijuana Transporter with Other Existing ME License,4195,0,0,0,0,0
+Adult-use,2026-01,Microbusiness Delivery,413,0,0,0,0,0
+Adult-use,2026-01,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2026-02,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2026-02,Marijuana Courier,16,0,0,0,0,0
+Adult-use,2026-02,Marijuana Cultivator,468851,55257,1613455,3798965,101578898,26761675
+Adult-use,2026-02,Marijuana Delivery Operator,62618,0,0,0,0,0
+Adult-use,2026-02,Marijuana Microbusiness,14330,8924,17836,60158,1839905,237568
+Adult-use,2026-02,Marijuana Product Manufacturer,514381,0,0,0,0,0
+Adult-use,2026-02,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2026-02,Marijuana Retailer,3094242,0,0,0,0,0
+Adult-use,2026-02,Marijuana Transporter with Other Existing ME License,4646,0,0,0,0,0
+Adult-use,2026-02,Microbusiness Delivery,414,0,0,0,0,0
+Adult-use,2026-02,Third Party Marijuana Transporter,0,0,0,0,0,0
+Adult-use,2026-03,Craft Marijuana Cooperative,0,0,0,0,0,0
+Adult-use,2026-03,Marijuana Courier,15,0,0,0,0,0
+Adult-use,2026-03,Marijuana Cultivator,536046,59983,1843443,4156328,113328562,29532514
+Adult-use,2026-03,Marijuana Delivery Operator,68715,0,0,0,0,0
+Adult-use,2026-03,Marijuana Microbusiness,16516,6355,23762,66468,2139985,285450
+Adult-use,2026-03,Marijuana Product Manufacturer,628008,0,0,0,0,0
+Adult-use,2026-03,Marijuana Research Facility,0,0,0,0,0,0
+Adult-use,2026-03,Marijuana Retailer,3576118,0,0,0,0,0
+Adult-use,2026-03,Marijuana Transporter with Other Existing ME License,3393,0,0,0,0,0
+Adult-use,2026-03,Microbusiness Delivery,460,0,0,0,0,0
+Adult-use,2026-03,Third Party Marijuana Transporter,0,0,0,0,0,0
