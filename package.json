@@ -14,9 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@astrojs/preact": "^5.1.2",
     "@fontsource/geist-mono": "^5.2.7",
     "@fontsource/geist-sans": "^5.2.5",
     "astro": "^5.18.1",
-    "lucide-astro": "^0.556.0"
+    "lucide-astro": "^0.556.0",
+    "preact": "^10.29.1"
   }
 }
