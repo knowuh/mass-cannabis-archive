@@ -24,15 +24,15 @@ Status of the Mass Cannabis Archive project relative to the [mass-cannabis-archi
 | **License Search** | 🟢 Complete | Migrated to Preact `LicenseSearch.tsx` per spec. |
 | **Filter Logic** | 🟢 Complete | "AND-oriented" filtering implemented. |
 | **Details Pane** | 🟢 Complete | Integrated into the main search view with semantic grouping. |
-| **Entity History Page** | 🔴 Missing | Requires `data/changelog/` data to build. |
+| **Entity History Page** | 🟢 Complete | Dynamic route `[license_number].astro` implemented with timeline UI. |
 | **Safety Footer** | 🟢 Complete | Extracted to standalone `SafetyFooter.astro`. |
 | **Theme System** | 🟢 Complete | Utilitarian Deluxe light/dark mode implemented. |
 
 ## 3. Implementation Tasks
-- [ ] **Data Audit:** Move/rename files in `data/ccc/current/` to match spec.
+- [x] **Data Audit:** Moved/renamed files in `data/ccc/current/` to match spec.
 - [x] **Component Migration:** Replace `ArchiveTable.astro` (Vanilla) with `LicenseSearch.tsx` (Preact).
 - [x] **Safety Footer:** Extract public health info to standalone `SafetyFooter.astro`.
-- [ ] **Entity History:** Implement `src/pages/license/[license_number].astro`.
+- [x] **Entity History:** Implement `src/pages/license/[license_number].astro`.
 - [x] **Build Fix:** Resolved `astro:preact:opts` error by stabilizing on Astro 4.x.
 - [ ] **Git LFS:** Configure LFS for `data/test-results/`.
 - [ ] **Manifesto/README:** Sync README with the "front door" philosophy in spec.

@@ -1,0 +1,256 @@
+---
+import Layout from '../../components/Layout.astro';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+export async function getStaticPaths() {
+  const changelogDir = path.join(process.cwd(), 'data/changelog/by-license');
+  try {
+    const files = await fs.readdir(changelogDir);
+    const paths = files
+      .filter(file => file.endsWith('.jsonl'))
+      .map(file => {
+        const licenseNumber = file.replace('.jsonl', '');
+        return {
+          params: { license_number: licenseNumber }
+        };
+      });
+    return paths;
+  } catch (e) {
+    console.error('Error reading changelogs:', e);
+    return [];
+  }
+}
+
+const { license_number } = Astro.params;
+
+// Read and parse JSONL
+const changelogPath = path.join(process.cwd(), 'data/changelog/by-license', `${license_number}.jsonl`);
+const content = await fs.readFile(changelogPath, 'utf-8');
+const events = content
+  .trim()
+  .split('\n')
+  .map(line => JSON.parse(line))
+  .reverse(); // Newest first
+
+const entityName = events[0]?.entity_name || 'Unknown Entity';
+
+function formatDate(ts) {
+  return new Date(ts).toISOString().split('T')[0];
+}
+
+function formatType(type) {
+  return type.replace(/_/g, ' ').toUpperCase();
+}
+---
+
+<Layout title={`${entityName} - History`}>
+  <div class="history-container">
+    <header class="history-header">
+      <a href="/mass-cannabis-archive/" class="back-link">← Back to Browser</a>
+      <div class="title-group">
+        <h1>{entityName}</h1>
+        <div class="license-badge mono">{license_number}</div>
+      </div>
+    </header>
+
+    <section class="timeline-section">
+      <h2>Change History</h2>
+      <div class="timeline">
+        {events.map((event, index) => (
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="event-meta mono">
+                <span class="event-date">{formatDate(event.ts)}</span>
+                <span class="event-type">{formatType(event.type)}</span>
+              </div>
+              
+              <div class="event-details">
+                {event.type === 'field_changed' && (
+                  <div class="field-change">
+                    <span class="field-name mono">{event.field.replace(/_/g, ' ')}</span>
+                    <div class="change-values">
+                      <span class="old-value">{event.old_value || 'None'}</span>
+                      <span class="arrow">→</span>
+                      <span class="new-value">{event.new_value}</span>
+                    </div>
+                  </div>
+                )}
+                
+                {event.type === 'entity_added' && (
+                  <div class="entity-added">
+                    License first appeared in CCC dataset.
+                    {event.record && (
+                      <div class="initial-fields mono">
+                        {Object.entries(event.record).map(([k, v]) => (
+                          <div class="initial-field">{k}: {v}</div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .history-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    padding: var(--space-4) 0;
+  }
+
+  .history-header {
+    margin-bottom: var(--space-12);
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding-bottom: var(--space-6);
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    margin-bottom: var(--space-6);
+    color: var(--text-muted);
+  }
+
+  .title-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  h1 {
+    font-size: var(--font-size-xl);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .license-badge {
+    background: var(--surface-color);
+    border: var(--border-width) solid var(--border-color);
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--accent-color);
+  }
+
+  h2 {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: var(--space-8);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: var(--space-8);
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: var(--space-12);
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -25px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: var(--bg-color);
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .event-meta {
+    display: flex;
+    gap: var(--space-4);
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--space-2);
+  }
+
+  .event-date {
+    color: var(--text-base);
+    font-weight: 700;
+  }
+
+  .event-type {
+    color: var(--text-muted);
+    background: var(--surface-color);
+    padding: 0 4px;
+  }
+
+  .field-change {
+    background: var(--surface-color);
+    border: var(--border-width) solid var(--border-color);
+    padding: var(--space-4);
+  }
+
+  .field-name {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: var(--space-2);
+  }
+
+  .change-values {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: var(--font-size-base);
+  }
+
+  .old-value {
+    color: var(--text-muted);
+    text-decoration: line-through;
+  }
+
+  .new-value {
+    color: var(--text-base);
+    font-weight: 600;
+  }
+
+  .arrow {
+    color: var(--accent-color);
+  }
+
+  .entity-added {
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .initial-fields {
+    margin-top: var(--space-4);
+    font-size: var(--font-size-xs);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-2);
+  }
+
+  .initial-field {
+    border-left: 2px solid var(--border-color);
+    padding-left: var(--space-2);
+  }
+</style>
