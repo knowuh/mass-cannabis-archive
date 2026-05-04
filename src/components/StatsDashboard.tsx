@@ -98,7 +98,7 @@ export default function StatsDashboard({ licenses, sales, prices, raceData, gend
       ],
       x: { label: "Date →", grid: true },
       y: { label: "↑ Monthly Revenue ($)", grid: true, tickFormat: "$.0s" },
-      color: { scheme: "GnBu", legend: true },
+      color: { scheme: "tableau10", legend: true },
       width: salesRef.current?.clientWidth || 600,
       height: 400,
       marginBottom: 40
