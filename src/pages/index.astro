@@ -7,6 +7,10 @@ import Manifesto from '../components/Manifesto.astro';
 <Layout title="Data Browser">
 	<header class="main-header">
 		<div class="title-group">
+			<nav class="sub-nav">
+				<span class="nav-link active">Data Browser</span>
+				<a href="/mass-cannabis-archive/stats/" class="nav-link">Market Statistics</a>
+			</nav>
 			<h1>Mass Cannabis Archive <span class="browser-label">Data Browser</span></h1>
 			<div class="meta-info">
 				Scraped: <span class="mono">2026-05-02 15:50 UTC</span> • 
@@ -63,10 +67,30 @@ import Manifesto from '../components/Manifesto.astro';
 	.main-header {
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-end; /* Changed from center to align with nav */
 		margin-bottom: var(--space-2);
 		border-bottom: var(--border-width) solid var(--border-color);
 		padding-bottom: var(--space-2);
+	}
+
+	.sub-nav {
+		display: flex;
+		gap: var(--space-6);
+		margin-bottom: var(--space-4);
+	}
+
+	.nav-link {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		text-transform: uppercase;
+		color: var(--text-muted);
+		text-decoration: none;
+	}
+
+	.nav-link.active {
+		color: var(--accent-color);
+		font-weight: 700;
+		border-bottom: 2px solid var(--accent-color);
 	}
 
 	h1 {
