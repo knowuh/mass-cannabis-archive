@@ -1,0 +1,83 @@
+---
+import Layout from '../../components/Layout.astro';
+import StatsDashboard from '../../components/StatsDashboard';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+// Fetch initial data at build time for speed, or fetch client-side for "live" updates.
+// Since we want a static SPA, we'll read from the current data directory.
+const licensesPath = path.join(process.cwd(), 'public/data/ccc/latest.json');
+const licenses = JSON.parse(await fs.readFile(licensesPath, 'utf-8'));
+
+// Sample sales data or fetch real one
+const salesPath = path.join(process.cwd(), 'data/ccc/current/sales-adult-use.json');
+const sales = JSON.parse(await fs.readFile(salesPath, 'utf-8'));
+---
+
+<Layout title="Market Statistics">
+  <div class="stats-page-container">
+    <header class="stats-header">
+      <nav class="sub-nav">
+        <a href="/mass-cannabis-archive/" class="nav-link">Browser</a>
+        <span class="nav-link active">Market Statistics</span>
+      </nav>
+      <div class="title-group">
+        <h1>Market Statistics</h1>
+        <p class="subtitle">Aggregate trends and longitudinal analysis of the Massachusetts cannabis market.</p>
+      </div>
+    </header>
+
+    <StatsDashboard client:only="preact" licenses={licenses} sales={sales} />
+  </div>
+</Layout>
+
+<style>
+  .stats-page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: var(--space-4) 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  .stats-header {
+    margin-bottom: var(--space-8);
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding-bottom: var(--space-4);
+  }
+
+  .sub-nav {
+    display: flex;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+
+  .nav-link {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    color: var(--accent-color);
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent-color);
+  }
+
+  h1 {
+    font-size: var(--font-size-xl);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+    margin-top: var(--space-1);
+  }
+</style>

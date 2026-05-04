@@ -27,6 +27,7 @@ Status of the Mass Cannabis Archive project relative to the [mass-cannabis-archi
 | **Entity History Page** | 🟢 Complete | Dynamic route `[license_number].astro` implemented with timeline UI. |
 | **Safety Footer** | 🟢 Complete | Extracted to standalone `SafetyFooter.astro`. |
 | **Theme System** | 🟢 Complete | Utilitarian Deluxe light/dark mode implemented. |
+| **Stats Dashboard** | 🟡 In Progress | Phase 2 started: `StatsDashboard.tsx` (Observable Plot) implemented. |
 
 ## 3. Implementation Tasks
 - [x] **Data Audit:** Moved/renamed files in `data/ccc/current/` to match spec.
@@ -34,6 +35,8 @@ Status of the Mass Cannabis Archive project relative to the [mass-cannabis-archi
 - [x] **Safety Footer:** Extract public health info to standalone `SafetyFooter.astro`.
 - [x] **Entity History:** Implement `src/pages/license/[license_number].astro`.
 - [x] **Build Fix:** Resolved `astro:preact:opts` error by stabilizing on Astro 4.x.
+- [x] **Phase 2 Init:** Installed Observable Plot and scaffolded `/stats` dashboard.
+- [ ] **Data Viz:** Implement sales trend and price trend visualizations.
 - [ ] **Git LFS:** Configure LFS for `data/test-results/`.
 - [ ] **Manifesto/README:** Sync README with the "front door" philosophy in spec.
 
