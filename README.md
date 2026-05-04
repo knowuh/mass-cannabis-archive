@@ -1,28 +1,38 @@
-<!-- Triggering initial deployment workflow -->
-# Massachusetts Cannabis Data Archive
+# Mass Cannabis Archive
 
-A version-controlled repository tracking the evolution of the Massachusetts cannabis market. This project snapshots public data from the [Massachusetts Cannabis Control Commission (CCC)](https://masscannabiscontrol.com/) to provide a longitudinal history of licenses, ownership, and industry dynamics.
+The authoritative open record of the Massachusetts cannabis market. This project serves as a permanent, version-controlled archive of data from the Cannabis Control Commission (CCC).
 
-## 🔎 Browse the Data
-**[Browse the Archive](https://knowuh.github.io/mass-cannabis-archive/)**
-*A high-speed, minimalist interface for exploring current and historical data.*
+**[Browse the Data Archive →](https://knowuh.github.io/mass-cannabis-archive/)**
 
-## 🏛 Official Resources
-- **CCC Data Portal:** [masscannabiscontrol.com/data/](https://masscannabiscontrol.com/data/)
-- **License Search:** [masscannabiscontrol.com/find-a-retailer/](https://masscannabiscontrol.com/find-a-retailer/)
+---
 
-## 🛠 Project Mission & Disclaimer
-This project is provided as a **service to the community**. By snapshotting data over time, we enable researchers, journalists, and the public to track industry trends that might otherwise be lost when the official records are updated.
+## Mission
+The Massachusetts cannabis market evolves rapidly, and public data snapshots are often overwritten or lost. This archive preserves the longitudinal history of:
+- **Licenses & Applications:** Ownership, equity status, and operational milestones.
+- **Market Performance:** Adult-use, medical, and delivery sales volumes.
+- **Pricing Trends:** Average monthly retail price per gram.
+- **Workforce Demographics:** Aggregate race and gender data for cannabis agents.
 
-> [!IMPORTANT]
-> **This project is not affiliated with the Massachusetts Cannabis Control Commission (CCC).** It is an independent, non-commercial archive of public data. While we strive for accuracy, please refer to the official CCC resources for legal and compliance matters.
+## Direct Data Downloads
+For researchers and data scientists, current snapshots are available in raw JSON and CSV formats:
 
-## 📂 Data Structure
-- `/data/ccc/`: Periodic snapshots of the CCC Application and License database.
-- `/public/data/ccc/latest.json`: The current data source for the browser application.
+| Dataset | JSON | CSV |
+| :--- | :--- | :--- |
+| **Licenses** | [Download](./data/ccc/current/licenses.json) | [Download](./data/ccc/current/licenses.csv) |
+| **Sales (Adult-Use)** | [Download](./data/ccc/current/sales-adult-use.json) | [Download](./data/ccc/current/sales-adult-use.csv) |
+| **Sales (Medical)** | [Download](./data/ccc/current/sales-medical.json) | [Download](./data/ccc/current/sales-medical.csv) |
+| **Sales (Delivery)** | [Download](./data/ccc/current/sales-delivery.json) | [Download](./data/ccc/current/sales-delivery.csv) |
+| **Average Prices** | [Download](./data/ccc/current/prices.json) | [Download](./data/ccc/current/prices.csv) |
+| **Plant Activity** | [Download](./data/ccc/current/plant-activity.json) | [Download](./data/ccc/current/plant-activity.csv) |
 
-## ⚖️ Responsibility & Safety
-If you or someone you know is struggling with substance use, professional help is available:
-- **MA Substance Use Helpline:** [800-327-5050](tel:800-327-5050)
-- **SAMHSA National Helpline:** [800-662-4357](tel:800-662-4357)
-- **MoreAboutMJ.org:** Official Massachusetts responsible-use information.
+## The Archive Pipeline
+This repository is the destination for the **WeedHunter** pipeline. Scraping and differencing logic is handled in a private repository; every commit here represents a point-in-time snapshot of the market.
+- **`data/ccc/current/`**: The latest full snapshot for each dataset.
+- **`data/changelog/`**: Append-only event logs tracking field-level changes over time.
+- **`data/test-results/`**: Annual laboratory test result CSVs (Tracked via Git LFS).
+
+## Data Caveat
+This archive aggregates public data published by the CCC. Data is self-reported by licensees; this project serves as a record of what was published and does not independently validate the accuracy of self-reported fields.
+
+---
+*Maintained by [Knowuh](https://github.com/knowuh).*
