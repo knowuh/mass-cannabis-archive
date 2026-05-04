@@ -1,0 +1,73 @@
+---
+---
+<footer class="safety-footer">
+	<div class="footer-content">
+		<div class="safety-alert">
+			<span class="label">Public Health & Safety:</span>
+			<span class="info">MA Substance Use Helpline: <a href="tel:800-327-5050">800-327-5050</a></span>
+		</div>
+		<div class="disclaimer">
+			Independent archive of public CCC data. Not affiliated with the Cannabis Control Commission.
+		</div>
+	</div>
+</footer>
+
+<style>
+	.safety-footer {
+		background: var(--surface-color);
+		border-top: var(--border-width) solid var(--border-color);
+		padding: var(--space-2) var(--space-4);
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		z-index: 100;
+	}
+
+	.footer-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1400px;
+		margin: 0 auto;
+		gap: var(--space-4);
+	}
+
+	.safety-alert {
+		display: flex;
+		gap: var(--space-2);
+		align-items: center;
+	}
+
+	.label {
+		color: var(--text-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.info {
+		color: var(--text-base);
+		font-weight: 600;
+	}
+
+	.info a {
+		color: var(--accent-color);
+		text-decoration: none;
+	}
+
+	.info a:hover {
+		text-decoration: underline;
+	}
+
+	.disclaimer {
+		color: var(--text-muted);
+		font-style: italic;
+		opacity: 0.8;
+	}
+
+	@media (max-width: 768px) {
+		.footer-content {
+			flex-direction: column;
+			text-align: center;
+			gap: var(--space-1);
+		}
+	}
+</style>

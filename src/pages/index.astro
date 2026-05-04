@@ -1,6 +1,6 @@
 ---
 import Layout from '../components/Layout.astro';
-import ArchiveTable from '../components/ArchiveTable.astro';
+import LicenseSearch from '../components/LicenseSearch';
 import Manifesto from '../components/Manifesto.astro';
 ---
 
@@ -19,7 +19,7 @@ import Manifesto from '../components/Manifesto.astro';
 		</div>
 	</header>
 
-	<ArchiveTable />
+	<LicenseSearch client:load />
 
 	<Manifesto />
 </Layout>
@@ -132,5 +132,331 @@ import Manifesto from '../components/Manifesto.astro';
 	.theme-btn:hover {
 		border-color: var(--accent-color);
 		color: var(--accent-color);
+	}
+
+	/* Search Tool Styles (Migrated from ArchiveTable) */
+	:global(.archive-wrapper) {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-4);
+		height: calc(100vh - 6rem);
+		min-height: 0;
+	}
+
+	:global(.data-browser) {
+		flex: 1;
+		min-height: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	:global(.controls) {
+		background: var(--surface-color);
+		padding: var(--space-3);
+		border: var(--border-width) solid var(--border-color);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	:global(.search-box) {
+		display: flex;
+		gap: var(--space-3);
+	}
+
+	:global(.search-box input) {
+		flex: 1;
+		background: var(--bg-color);
+		border: var(--border-width) solid var(--border-color);
+		color: var(--text-base);
+		padding: var(--space-2) var(--space-3);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+	}
+
+	:global(.clear-btn) {
+		background: var(--bg-color);
+		border: var(--border-width) solid var(--border-color);
+		color: var(--text-muted);
+		padding: 0 var(--space-4);
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		text-transform: uppercase;
+		cursor: pointer;
+		white-space: nowrap;
+		transition: all 0.2s ease;
+	}
+
+	:global(.clear-btn:hover) {
+		border-color: var(--text-base);
+		color: var(--text-base);
+		background: var(--surface-color);
+	}
+
+	:global(.filters) {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+		gap: var(--space-2);
+	}
+
+	:global(.filter-group) {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+	}
+
+	:global(.filter-group label) {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+
+	:global(.filter-group select) {
+		background: var(--bg-color);
+		border: var(--border-width) solid var(--border-color);
+		color: var(--text-base);
+		padding: var(--space-1);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+	}
+
+	:global(.stats-bar) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: var(--space-1) var(--space-2);
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		color: var(--text-muted);
+		text-transform: uppercase;
+	}
+
+	:global(.pagination) {
+		display: flex;
+		gap: var(--space-4);
+		align-items: center;
+	}
+
+	:global(.pagination button) {
+		background: var(--surface-color);
+		border: var(--border-width) solid var(--border-color);
+		color: var(--text-base);
+		padding: 0.25rem 0.5rem;
+		cursor: pointer;
+	}
+
+	:global(.pagination button:disabled) {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	:global(.table-scroll-container) {
+		flex: 1;
+		overflow-y: auto;
+		border: var(--border-width) solid var(--border-color);
+		background: var(--bg-color);
+	}
+
+	:global(table) {
+		width: 100%;
+		border-collapse: separate;
+		border-spacing: var(--space-1) 0;
+		text-align: left;
+		table-layout: fixed;
+		font-family: var(--font-mono);
+	}
+
+	:global(th) {
+		position: sticky;
+		top: 0;
+		background: var(--surface-color);
+		padding: var(--space-3) var(--space-4);
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		text-transform: uppercase;
+		color: var(--text-muted);
+		border-bottom: var(--border-width-thick) solid var(--border-color);
+		z-index: 10;
+	}
+
+	:global(td) {
+		padding: var(--space-3) var(--space-4);
+		border-bottom: var(--border-width) solid var(--border-color);
+		font-size: var(--font-size-sm);
+		overflow: hidden;
+		text-overflow: clip;
+		white-space: nowrap;
+	}
+
+	:global(.clickable-row) {
+		cursor: pointer;
+	}
+
+	:global(.clickable-row:nth-child(even) td) {
+		background-color: var(--stripe-color);
+	}
+
+	:global(.clickable-row:hover td) {
+		background-color: var(--hover-color) !important;
+	}
+
+	:global(.clickable-row.selected td) {
+		background-color: var(--selection-bg) !important;
+		color: var(--selection-text) !important;
+		font-weight: 700 !important;
+	}
+
+	:global(.status-tag) {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		padding: 2px 6px;
+		border: var(--border-width) solid var(--border-color);
+		text-transform: uppercase;
+		display: inline-block;
+		white-space: nowrap;
+	}
+
+	:global(.status-tag[data-status="active"]) {
+		border-color: #437a5b;
+		color: #437a5b;
+		background: rgba(67, 122, 91, 0.1);
+	}
+
+	:global(.status-tag[data-status="surrendered"]),
+	:global(.status-tag[data-status="expired"]),
+	:global(.status-tag[data-status="revoked"]) {
+		border-color: #b91c1c;
+		color: #b91c1c;
+		background: rgba(185, 28, 28, 0.1);
+	}
+
+	:global(.type-cell) {
+		font-size: var(--font-size-xs);
+		color: var(--text-muted);
+	}
+
+	:global(.small-text) {
+		font-size: var(--font-size-xs);
+	}
+
+	:global(.details-pane) {
+		height: var(--details-pane-height);
+		background: var(--surface-color);
+		border: var(--border-width) solid var(--border-color);
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	:global(.pane-header) {
+		padding: var(--space-2) var(--space-4);
+		border-bottom: var(--border-width) solid var(--border-color);
+		background: var(--bg-color);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	:global(.pane-header h2) {
+		margin: 0;
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		text-transform: uppercase;
+		color: var(--accent-color);
+	}
+
+	:global(.history-link) {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		text-transform: uppercase;
+		color: var(--accent-color);
+		font-weight: 700;
+	}
+
+	:global(.details-content) {
+		padding: var(--space-4) var(--space-6);
+		overflow-y: auto;
+		overflow-x: hidden;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: var(--space-3) var(--space-6);
+		align-items: flex-start;
+		align-content: flex-start;
+	}
+
+	:global(.placeholder-msg) {
+		color: var(--text-muted);
+		font-style: italic;
+		font-size: var(--font-size-base);
+		grid-column: 1 / -1;
+		text-align: center;
+		padding: var(--space-12);
+	}
+
+	:global(.detail-group) {
+		grid-column: 1 / -1;
+		margin-bottom: var(--space-4);
+	}
+
+	:global(.detail-group h3) {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		text-transform: uppercase;
+		color: var(--text-muted);
+		border-bottom: var(--border-width) solid var(--border-color);
+		padding-bottom: var(--space-1);
+		margin-bottom: var(--space-3);
+		letter-spacing: 0.1em;
+	}
+
+	:global(.group-items) {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: var(--space-3) var(--space-6);
+	}
+
+	:global(.detail-item) {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+		border-left: var(--border-width-thick) solid var(--border-color);
+		padding-left: var(--space-3);
+	}
+
+	:global(.detail-key) {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		font-weight: 700;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		letter-spacing: 0.05em;
+	}
+
+	:global(.detail-value) {
+		font-size: var(--font-size-base);
+		line-height: 1.2;
+		word-break: break-word;
+		color: var(--text-base);
+	}
+
+	:global(.mono) {
+		font-family: var(--font-mono);
+	}
+
+	@media (max-width: 768px) {
+		:global(.search-box) {
+			flex-direction: column;
+		}
+		:global(.details-pane) {
+			height: 250px;
+		}
+		:global(.details-content) {
+			grid-template-columns: 1fr;
+		}
+		:global(.group-items) {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

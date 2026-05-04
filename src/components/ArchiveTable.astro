@@ -310,7 +310,7 @@ import DetailsPane from './DetailsPane.astro';
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-4);
-		height: calc(100vh - 5rem);
+		height: calc(100vh - 6rem); /* Reduced to account for SafetyFooter */
 	}
 
 	.data-browser {
@@ -465,20 +465,72 @@ import DetailsPane from './DetailsPane.astro';
 
 	.status-tag {
 		font-family: var(--font-mono);
-		font-size: var(--font-size-sm);
-		padding: var(--space-1) var(--space-2);
+		font-size: var(--font-size-xs);
+		padding: 2px 6px;
 		border: var(--border-width) solid var(--border-color);
 		text-transform: uppercase;
+		display: inline-block;
+		white-space: nowrap;
 	}
 
-	.status-tag[data-status="active"] {
-		border-color: var(--accent-color);
-		color: var(--accent-color);
+	:global(.status-tag[data-status="active"]) {
+		border-color: #437a5b;
+		color: #437a5b;
+		background: rgba(67, 122, 91, 0.1);
+	}
+
+	:global(.status-tag[data-status="surrendered"]),
+	:global(.status-tag[data-status="expired"]),
+	:global(.status-tag[data-status="revoked"]) {
+		border-color: #b91c1c;
+		color: #b91c1c;
+		background: rgba(185, 28, 28, 0.1);
+	}
+
+	:global(.type-cell) {
+		font-size: var(--font-size-xs);
+		color: var(--text-muted);
+	}
+
+	:global(.small-text) {
+		font-size: var(--font-size-xs);
+	}
+
+	/* Details Pane Grouping */
+	:global(.detail-group) {
+		grid-column: 1 / -1;
+		margin-bottom: var(--space-4);
+	}
+
+	:global(.detail-group h3) {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		text-transform: uppercase;
+		color: var(--text-muted);
+		border-bottom: var(--border-width) solid var(--border-color);
+		padding-bottom: var(--space-1);
+		margin-bottom: var(--space-3);
+		letter-spacing: 0.1em;
+	}
+
+	:global(.group-items) {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: var(--space-3) var(--space-6);
 	}
 
 	@media (max-width: 768px) {
 		.search-box {
 			flex-direction: column;
+		}
+		.details-pane {
+			height: 250px;
+		}
+		.details-content {
+			grid-template-columns: 1fr;
+		}
+		:global(.group-items) {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>
