@@ -9,9 +9,18 @@ import path from 'node:path';
 const licensesPath = path.join(process.cwd(), 'public/data/ccc/latest.json');
 const licenses = JSON.parse(await fs.readFile(licensesPath, 'utf-8'));
 
-// Sample sales data or fetch real one
+// Real data fetching
 const salesPath = path.join(process.cwd(), 'data/ccc/current/sales-adult-use.json');
 const sales = JSON.parse(await fs.readFile(salesPath, 'utf-8'));
+
+const pricesPath = path.join(process.cwd(), 'data/ccc/current/prices.json');
+const prices = JSON.parse(await fs.readFile(pricesPath, 'utf-8'));
+
+const racePath = path.join(process.cwd(), 'data/ccc/current/agents-race.json');
+const raceData = JSON.parse(await fs.readFile(racePath, 'utf-8'));
+
+const genderPath = path.join(process.cwd(), 'data/ccc/current/agents-gender.json');
+const genderData = JSON.parse(await fs.readFile(genderPath, 'utf-8'));
 ---
 
 <Layout title="Market Statistics">
@@ -27,7 +36,14 @@ const sales = JSON.parse(await fs.readFile(salesPath, 'utf-8'));
       </div>
     </header>
 
-    <StatsDashboard client:only="preact" licenses={licenses} sales={sales} />
+    <StatsDashboard 
+      client:only="preact" 
+      licenses={licenses} 
+      sales={sales} 
+      prices={prices}
+      raceData={raceData}
+      genderData={genderData}
+    />
   </div>
 </Layout>
 
