@@ -71,45 +71,36 @@ mass-cannabis-archive/
 │       └── by-license/               # Per-entity slices (one file per license)
 │           └── {LICENSE_NUMBER}.jsonl
 │
-├── site/                              # Astro SPA (GitHub Pages)
-│   ├── astro.config.ts
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── src/
-│       ├── pages/
-│       │   ├── index.astro            # License search + browse
-│       │   └── license/
-│       │       └── [license_number].astro  # Per-entity history page
-│       └── components/
-│           ├── LicenseSearch.tsx      # Preact island: search + filter table
-│           └── ChangeTimeline.tsx     # Preact island: entity change history
+├── src/                               # Astro SPA
+│   ├── pages/
+│   │   ├── index.astro            # License search + browse
+│   │   └── license/
+│   │       └── [license_number].astro  # Per-entity history page
+│   └── components/
+│       ├── LicenseSearch.tsx      # Preact island: search + filter table
+│       └── ChangeTimeline.tsx     # Preact island: entity change history
 │
 ├── .github/
 │   └── workflows/
-│       └── deploy-site.yml            # Astro build → GitHub Pages (triggers on push to main)
+│       └── deploy.yml            # Astro build → GitHub Pages (triggers on push to main)
 │
 └── README.md
 ```
 
 No `scrapers/`, no `processors/`, no `scripts/`. All pipeline logic lives in the
-weedhunter repo under `pipeline/1c-fetch-ccc-datasets.ts`, `pipeline/7-archive-push.ts`,
-and `pipeline/lib/archive/`.
+weedhunter repo.
 
 ---
 
 ## Data Written by the weedhunter Pipeline
 
-The weedhunter pipeline (step 7) writes into a local checkout of this repo at the
-path defined by `ARCHIVE_REPO_PATH` in `.env`. After writing, it commits and pushes.
+The weedhunter pipeline writes into a local checkout of this repo. After writing, it commits and pushes.
 GitHub Actions then triggers the SPA deploy.
 
 ### `data/ccc/current/`
 Full latest snapshot for each dataset. Overwritten on every pipeline run.
 
-All eight CCC datasets are included (see repo layout above). Note that `sales-adult-use`,
-`sales-medical`, and `sales-delivery` share the same column schema — they are separate
-files because they represent distinct market segments that should be analyzed independently
-(adult-use retail, medical dispensaries, and delivery operators).
+All eight CCC datasets are included. Note that `sales-adult-use`, `sales-medical`, and `sales-delivery` share the same column schema.
 
 ### `data/changelog/changes.jsonl`
 Append-only global event log. One JSON object per line.
@@ -120,8 +111,7 @@ license number that has ever had a change event. These are what the SPA reads.
 
 ### `data/test-results/{YEAR}.csv`
 Annual test result CSVs pushed manually (CCC publishes with ~6-month lag).
-Tracked with Git LFS — files are ~99MB. JSON versions are not stored here due to
-the ~270MB size; the SPA reads CSV directly or converts at build time.
+Tracked with Git LFS — files are ~99MB. JSON versions are not stored here.
 
 ---
 
@@ -166,7 +156,7 @@ type ChangeEvent = {
 
 ---
 
-## GitHub Actions: `deploy-site.yml`
+## GitHub Actions: `deploy.yml`
 
 The only workflow in this repo. Triggers on push to `main` (i.e., every time the
 weedhunter pipeline pushes new data). Builds the Astro SPA and deploys to GitHub Pages.
@@ -189,8 +179,8 @@ jobs:
           lfs: true
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - run: cd site && npm ci && npm run build
+          node-version: '22'
+      - run: npm ci && npm run build
       - uses: actions/deploy-pages@v4
         with:
           artifact_name: github-pages
@@ -198,16 +188,16 @@ jobs:
 
 ---
 
-## SPA (`site/`)
+## SPA
 
-**Stack:** Astro (static) + Preact islands. Same conventions as WeedHunter.
-**Hosting:** GitHub Pages (free, public repo).
+**Stack:** Astro (static) + Preact islands.
+**Hosting:** GitHub Pages.
 
 ### Pages
 
 **`index.astro` — License Search**
-- At build time: reads `data/ccc/current/licenses.json` → copies to `site/public/data/`
-- On mount: fetches `licenses.json`, renders searchable/filterable table
+- At build time: reads `data/ccc/current/licenses.json` → copies to `public/data/ccc/latest.json`
+- On mount: fetches `latest.json`, renders searchable/filterable table
 - Filters: license type, status, city, county, ownership type, equity status
 - Columns: name, city, license type, status, opened, expires, ownership
 
@@ -220,9 +210,9 @@ jobs:
 ### Build-time data prep
 
 ```typescript
-// site/src/pages/license/[license_number].astro
+// src/pages/license/[license_number].astro
 export async function getStaticPaths() {
-  const files = await fs.readdir('../../../data/changelog/by-license');
+  const files = await fs.readdir('./data/changelog/by-license');
   return files.map(f => ({
     params: { license_number: f.replace('.jsonl', '') },
     props: { events: parseJsonl(f) },
@@ -272,9 +262,9 @@ The archive repo's own build order is just standing up the data destination and 
    `.gitignore`
 2. Stub `data/ccc/current/` with empty JSON files so the weedhunter pipeline has something
    to diff against on first run
-3. Astro scaffold — `site/` init, Preact integration, same design system as WeedHunter
-4. `site/src/pages/index.astro` — license search SPA
-5. `site/src/pages/license/[license_number].astro` — entity history page
-6. `site/.github/workflows/deploy-site.yml` — GitHub Pages deploy
+3. Astro scaffold — Preact integration, same design system as WeedHunter
+4. `src/pages/index.astro` — license search SPA
+5. `src/pages/license/[license_number].astro` — entity history page
+6. `.github/workflows/deploy.yml` — GitHub Pages deploy
 7. Verify end-to-end: run weedhunter step 7 → confirm data lands + SPA deploys
 8. Data viz layer (Phase 2 — after 3+ months of history accumulated)
