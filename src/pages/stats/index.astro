@@ -4,23 +4,145 @@ import StatsDashboard from '../../components/StatsDashboard';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-// Fetch initial data at build time for speed, or fetch client-side for "live" updates.
-// Since we want a static SPA, we'll read from the current data directory.
+// --- Data Paths ---
 const licensesPath = path.join(process.cwd(), 'public/data/ccc/latest.json');
-const licenses = JSON.parse(await fs.readFile(licensesPath, 'utf-8'));
-
-// Real data fetching
-const salesPath = path.join(process.cwd(), 'data/ccc/current/sales-adult-use.json');
-const sales = JSON.parse(await fs.readFile(salesPath, 'utf-8'));
-
+const salesAdultPath = path.join(process.cwd(), 'data/ccc/current/sales-adult-use.json');
+const salesMedPath = path.join(process.cwd(), 'data/ccc/current/sales-medical.json');
+const salesDelPath = path.join(process.cwd(), 'data/ccc/current/sales-delivery.json');
 const pricesPath = path.join(process.cwd(), 'data/ccc/current/prices.json');
-const prices = JSON.parse(await fs.readFile(pricesPath, 'utf-8'));
-
 const racePath = path.join(process.cwd(), 'data/ccc/current/agents-race.json');
-const raceData = JSON.parse(await fs.readFile(racePath, 'utf-8'));
-
 const genderPath = path.join(process.cwd(), 'data/ccc/current/agents-gender.json');
-const genderData = JSON.parse(await fs.readFile(genderPath, 'utf-8'));
+
+// --- Helper: Load JSON ---
+async function loadJSON(p) {
+  try {
+    const raw = await fs.readFile(p, 'utf-8');
+    return JSON.parse(raw);
+  } catch (e) {
+    console.error(`Failed to load ${p}:`, e);
+    return [];
+  }
+}
+
+// --- Load Raw Data ---
+const rawLicenses = await loadJSON(licensesPath);
+const rawSalesAdult = await loadJSON(salesAdultPath);
+const rawSalesMed = await loadJSON(salesMedPath);
+const rawSalesDel = await loadJSON(salesDelPath);
+const rawPrices = await loadJSON(pricesPath);
+const rawRace = await loadJSON(racePath);
+const rawGender = await loadJSON(genderPath);
+
+// --- Aggregation: Licenses ---
+const licenseVelocity = Object.entries(
+  rawLicenses
+    .filter(d => d.COMMENCE_OPERATIONS_DATE)
+    .reduce((acc, d) => {
+      const month = d.COMMENCE_OPERATIONS_DATE.substring(0, 7); // YYYY-MM
+      acc[month] = (acc[month] || 0) + 1;
+      return acc;
+    }, {})
+).map(([date, count]) => ({ date, count })).sort((a, b) => a.date.localeCompare(b.date));
+
+const marketComposition = Object.entries(
+  rawLicenses.reduce((acc, d) => {
+    acc[d.LICENSE_TYPE] = (acc[d.LICENSE_TYPE] || 0) + 1;
+    return acc;
+  }, {})
+).map(([type, count]) => ({ type, count }));
+
+const parentConcentration = Object.entries(
+  rawLicenses
+    .filter(d => d.EIN_TIN)
+    .reduce((acc, d) => {
+      if (!acc[d.EIN_TIN]) acc[d.EIN_TIN] = { name: d.BUSINESS_NAME, count: 0 };
+      acc[d.EIN_TIN].count++;
+      return acc;
+    }, {})
+)
+  .map(([ein, data]) => ({ name: data.name, count: data.count }))
+  .sort((a, b) => b.count - a.count)
+  .slice(0, 10);
+
+// --- Aggregation: Sales (Trends & Segment Split) ---
+const aggregateSales = (data, segment) => {
+  return data.reduce((acc, d) => {
+    const month = d.SaleDate.substring(0, 7);
+    const total = parseFloat(d["TOTAL_$"]) || 0;
+    const key = `${month}|${segment}`;
+    acc[key] = (acc[key] || 0) + total;
+    return acc;
+  }, {});
+};
+
+const salesByMonthSegment = {
+  ...aggregateSales(rawSalesAdult, "Adult-Use"),
+  ...aggregateSales(rawSalesMed, "Medical"),
+  ...aggregateSales(rawSalesDel, "Delivery")
+};
+
+const segmentSplit = Object.entries(salesByMonthSegment).map(([key, total]) => {
+  const [date, segment] = key.split('|');
+  return { date, segment, total };
+});
+
+const salesByCategory = rawSalesAdult.reduce((acc, d) => {
+  const month = d.SaleDate.substring(0, 7);
+  const cat = d.ProductCategoryName;
+  const total = parseFloat(d["TOTAL_$"]) || 0;
+  const key = `${month}|${cat}`;
+  acc[key] = (acc[key] || 0) + total;
+  return acc;
+}, {});
+
+const salesTrends = Object.entries(salesByCategory).map(([key, total]) => {
+  const [date, category] = key.split('|');
+  return { date, category, total };
+});
+
+// --- Aggregation: Prices ---
+const priceTrends = rawPrices.map(d => ({
+  date: d.YEARMONTH,
+  price: parseFloat(d.AVERAGERETAILPRICEPERGM)
+}));
+
+// --- Aggregation: Demographics ---
+const raceData = rawRace.map(d => ({
+  race: d.RACE_ETHNICITY,
+  total: parseInt(d.TOTAL) || 0
+}));
+
+const genderData = rawGender.map(d => ({
+  gender: d.GENDER,
+  total: parseInt(d.TOTAL) || 0
+}));
+
+// --- Aggregation: Counties ---
+const countyStats = Object.entries(
+  rawLicenses
+    .filter(d => d.ESTABLISHMENT_COUNTY)
+    .reduce((acc, d) => {
+      acc[d.ESTABLISHMENT_COUNTY] = (acc[d.ESTABLISHMENT_COUNTY] || 0) + 1;
+      return acc;
+    }, {})
+)
+  .map(([name, count]) => ({ 
+    name, 
+    count, 
+    slug: name.toLowerCase().replace(/ /g, '-') 
+  }))
+  .sort((a, b) => b.count - a.count);
+
+const aggregatedData = {
+  licenseVelocity,
+  marketComposition,
+  parentConcentration,
+  segmentSplit,
+  salesTrends,
+  priceTrends,
+  raceData,
+  genderData
+};
 ---
 
 <Layout title="Market Statistics">
@@ -36,14 +158,23 @@ const genderData = JSON.parse(await fs.readFile(genderPath, 'utf-8'));
       </div>
     </header>
 
-    <StatsDashboard 
-      client:only="preact" 
-      licenses={licenses} 
-      sales={sales} 
-      prices={prices}
-      raceData={raceData}
-      genderData={genderData}
-    />
+    <div class="stats-main">
+      <StatsDashboard client:only="preact" data={aggregatedData} />
+      
+      <aside class="stats-sidebar">
+        <section class="stat-card">
+          <h3>Market By County</h3>
+          <div class="county-list">
+            {countyStats.map(county => (
+              <a href={`/mass-cannabis-archive/county/${county.slug}`} class="county-row">
+                <span class="county-name">{county.name}</span>
+                <span class="county-count mono">{county.count}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      </aside>
+    </div>
   </div>
 </Layout>
 
@@ -56,13 +187,19 @@ const genderData = JSON.parse(await fs.readFile(genderPath, 'utf-8'));
     display: flex;
     flex-direction: column;
     min-height: 0;
-    overflow-y: auto;
   }
 
   .stats-header {
     margin-bottom: var(--space-8);
     border-bottom: var(--border-width) solid var(--border-color);
     padding-bottom: var(--space-4);
+  }
+
+  .stats-main {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--space-8);
+    align-items: flex-start;
   }
 
   .sub-nav {
@@ -95,5 +232,61 @@ const genderData = JSON.parse(await fs.readFile(genderPath, 'utf-8'));
     font-size: var(--font-size-base);
     color: var(--text-muted);
     margin-top: var(--space-1);
+  }
+
+  .stats-sidebar {
+    position: sticky;
+    top: var(--space-4);
+  }
+
+  .stat-card {
+    background: var(--surface-color);
+    border: var(--border-width) solid var(--border-color);
+    padding: var(--space-6);
+  }
+
+  .stat-card h3 {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: var(--space-6);
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding-bottom: var(--space-2);
+  }
+
+  .county-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .county-row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-2);
+    text-decoration: none;
+    color: var(--text-base);
+    font-size: var(--font-size-sm);
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s ease;
+  }
+
+  .county-row:hover {
+    background: var(--bg-color);
+    color: var(--accent-color);
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 1100px) {
+    .stats-main {
+      grid-template-columns: 1fr;
+    }
+    .stats-sidebar {
+      position: static;
+    }
   }
 </style>

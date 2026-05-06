@@ -1,0 +1,241 @@
+---
+import Layout from '../../components/Layout.astro';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+export async function getStaticPaths() {
+  const licensesPath = path.join(process.cwd(), 'public/data/ccc/latest.json');
+  const raw = await fs.readFile(licensesPath, 'utf-8');
+  const licenses = JSON.parse(raw);
+
+  const counties = [...new Set(licenses.map(l => l.ESTABLISHMENT_COUNTY).filter(Boolean))];
+  
+  return counties.map(county => {
+    const countyLicenses = licenses.filter(l => l.ESTABLISHMENT_COUNTY === county);
+    return {
+      params: { county: county.toLowerCase().replace(/ /g, '-') },
+      props: { 
+        countyName: county,
+        licenses: countyLicenses
+      }
+    };
+  });
+}
+
+const { countyName, licenses } = Astro.props;
+
+const typeBreakdown = Object.entries(
+  licenses.reduce((acc, l) => {
+    acc[l.LICENSE_TYPE] = (acc[l.LICENSE_TYPE] || 0) + 1;
+    return acc;
+  }, {})
+).sort((a, b) => b[1] - a[1]);
+
+const activeCount = licenses.filter(l => l.LICENSE_STATUS === 'Active').length;
+const commenceCount = licenses.filter(l => l.COMMENCE_OPS === 'Yes').length;
+---
+
+<Layout title={`${countyName} Market Profile`}>
+  <div class="county-container">
+    <header class="county-header">
+      <nav class="sub-nav">
+        <a href="/mass-cannabis-archive/" class="nav-link">Data Browser</a>
+        <a href="/mass-cannabis-archive/stats/" class="nav-link">Market Statistics</a>
+        <span class="nav-link active">{countyName}</span>
+      </nav>
+      <h1>{countyName} <span class="muted">Market Profile</span></h1>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">{licenses.length}</div>
+        <div class="stat-label">Total Licenses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{activeCount}</div>
+        <div class="stat-label">Active Licenses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{commenceCount}</div>
+        <div class="stat-label">Commence Ops</div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <section class="type-section">
+        <h2>License Composition</h2>
+        <div class="type-list">
+          {typeBreakdown.map(([type, count]) => (
+            <div class="type-row">
+              <span class="type-name">{type}</span>
+              <span class="type-count mono">{count}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="license-section">
+        <h2>Local Establishments</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Business Name</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Zip</th>
+              </tr>
+            </thead>
+            <tbody>
+              {licenses.map(l => (
+                <tr>
+                  <td>
+                    <a href={`/mass-cannabis-archive/license/${l.LICENSE_NUMBER}`} class="business-link">
+                      {l.BUSINESS_NAME}
+                    </a>
+                  </td>
+                  <td class="small-text">{l.LICENSE_TYPE}</td>
+                  <td>
+                    <span class="status-tag" data-status={l.LICENSE_STATUS?.toLowerCase()}>
+                      {l.LICENSE_STATUS}
+                    </span>
+                  </td>
+                  <td class="mono">{l.ESTABLISHMENT_ZIP}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .county-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-4) 0;
+  }
+  .county-header {
+    margin-bottom: var(--space-8);
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding-bottom: var(--space-4);
+  }
+  .sub-nav {
+    display: flex;
+    gap: var(--space-6);
+    margin-bottom: var(--space-4);
+  }
+  .nav-link {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .nav-link.active {
+    color: var(--accent-color);
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent-color);
+  }
+  h1 { font-size: var(--font-size-xl); margin: 0; }
+  .muted { color: var(--text-muted); font-weight: 400; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+  .stat-card {
+    background: var(--surface-color);
+    border: var(--border-width) solid var(--border-color);
+    padding: var(--space-6);
+    text-align: center;
+  }
+  .stat-value {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xl);
+    color: var(--accent-color);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: var(--space-2);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: var(--space-8);
+  }
+  h2 {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .type-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .type-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+    padding: var(--space-1) 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .mono { font-family: var(--font-mono); }
+
+  .table-container {
+    background: var(--surface-color);
+    border: var(--border-width) solid var(--border-color);
+    overflow-x: auto;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    background: var(--bg-color);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: var(--border-width) solid var(--border-color);
+  }
+  td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--border-color);
+    font-size: var(--font-size-sm);
+  }
+  .business-link {
+    color: var(--text-base);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .business-link:hover { color: var(--accent-color); }
+  .small-text { font-size: var(--font-size-xs); color: var(--text-muted); }
+
+  .status-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 6px;
+    border: 1px solid var(--border-color);
+    text-transform: uppercase;
+  }
+  .status-tag[data-status="active"] { border-color: #437a5b; color: #437a5b; }
+
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -2,6 +2,20 @@
 import Layout from '../components/Layout.astro';
 import LicenseSearch from '../components/LicenseSearch';
 import Manifesto from '../components/Manifesto.astro';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+// Build-time: sync the latest data snapshot for the client-side search
+const sourcePath = path.join(process.cwd(), 'data/ccc/current/licenses.json');
+const destPath = path.join(process.cwd(), 'public/data/ccc/latest.json');
+
+try {
+	await fs.mkdir(path.dirname(destPath), { recursive: true });
+	await fs.copyFile(sourcePath, destPath);
+	console.log('Successfully synced licenses.json to public/data/ccc/latest.json');
+} catch (e) {
+	console.error('Failed to sync licenses.json:', e);
+}
 ---
 
 <Layout title="Data Browser">
@@ -467,6 +481,17 @@ import Manifesto from '../components/Manifesto.astro';
 
 	:global(.mono) {
 		font-family: var(--font-mono);
+	}
+
+	:global(.geo-link) {
+		color: var(--text-muted);
+		text-decoration: none;
+		border-bottom: 1px dotted var(--border-color);
+	}
+
+	:global(.geo-link:hover) {
+		color: var(--accent-color);
+		border-bottom-style: solid;
 	}
 
 	@media (max-width: 768px) {

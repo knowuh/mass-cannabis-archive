@@ -206,7 +206,15 @@ export default function LicenseSearch() {
                   onClick={() => setSelectedLicense(row)}
                 >
                   <td class="business-name">{row.BUSINESS_NAME}</td>
-                  <td class="mono">{row.ESTABLISHMENT_CITY}</td>
+                  <td class="mono">
+                    <a 
+                      href={`/mass-cannabis-archive/county/${row.ESTABLISHMENT_COUNTY?.toLowerCase().replace(/ /g, '-')}`} 
+                      class="geo-link"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {row.ESTABLISHMENT_COUNTY?.replace(' County', '')}
+                    </a>
+                  </td>
                   <td class="type-cell">{row.LICENSE_TYPE}</td>
                   <td>
                     <span class={`status-tag`} data-status={row.LICENSE_STATUS?.toLowerCase()}>
