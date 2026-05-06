@@ -24,14 +24,21 @@ Status of the Mass Cannabis Archive project relative to the [mass-cannabis-archi
 | **License Search** | 🟢 Complete | Migrated to Preact `LicenseSearch.tsx` per spec. |
 | **Filter Logic** | 🟢 Complete | "AND-oriented" filtering implemented. |
 | **Details Pane** | 🟢 Complete | Integrated into the main search view with semantic grouping. |
-| **Entity History Page** | 🟢 Complete | Dynamic route `[license_number].astro` implemented with timeline UI. |
+| **Entity History Page** | 🟢 Complete | Generates for all entities; shows current details. |
 | **Safety Footer** | 🟢 Complete | Extracted to standalone `SafetyFooter.astro`. |
 | **Theme System** | 🟢 Complete | Utilitarian Deluxe light/dark mode implemented. |
-| **Stats Dashboard** | 🟢 Complete | Phase 2 complete: Observable Plot charts with build-time aggregation. |
+| **Stats Dashboard** | 🟢 Complete | Fixed layout overflow and chart reordering. |
 | **Sitemap** | 🟢 Complete | @astrojs/sitemap integrated for SEO. |
 | **Geo Intel** | 🟡 Partial | County profiles implemented; Municipality profiles pending data enrichment. |
 
-## 3. Implementation Tasks
+## 3. Known Issues
+- [x] **Stats Dashboard:** `div.stats-main` lacks overflow scrolling.
+- [x] **Stats Dashboard:** Remove non-functional "Market Concentration" graph.
+- [x] **Stats Dashboard:** Reorder charts: Price -> Workforce -> Segment -> Category -> Composition -> Velocity.
+- [x] **Entity History:** Dynamic routes only generate for licenses with `.jsonl` files. Fixed to generate for all.
+- [x] **Entity History:** Show current license details when transaction history is empty.
+
+## 4. Implementation Tasks
 - [x] **Data Audit:** Moved/renamed files in `data/ccc/current/` to match spec.
 - [x] **Component Migration:** Replace `ArchiveTable.astro` (Vanilla) with `LicenseSearch.tsx` (Preact).
 - [x] **Safety Footer:** Extract public health info to standalone `SafetyFooter.astro`.

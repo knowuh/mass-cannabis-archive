@@ -4,36 +4,55 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 export async function getStaticPaths() {
+  const licensesPath = path.join(process.cwd(), 'data/ccc/current/licenses.json');
+  const raw = await fs.readFile(licensesPath, 'utf-8');
+  const licenses = JSON.parse(raw);
+  
+  const licenseMap = new Map(licenses.map(l => [l.LICENSE_NUMBER, l]));
+  
   const changelogDir = path.join(process.cwd(), 'data/changelog/by-license');
+  let historicalLicenseNumbers = [];
   try {
     const files = await fs.readdir(changelogDir);
-    const paths = files
+    historicalLicenseNumbers = files
       .filter(file => file.endsWith('.jsonl'))
-      .map(file => {
-        const licenseNumber = file.replace('.jsonl', '');
-        return {
-          params: { license_number: licenseNumber }
-        };
-      });
-    return paths;
+      .map(file => file.replace('.jsonl', ''));
   } catch (e) {
     console.error('Error reading changelogs:', e);
-    return [];
   }
+
+  const allLicenseNumbers = [...new Set([
+    ...licenseMap.keys(),
+    ...historicalLicenseNumbers
+  ])];
+
+  return allLicenseNumbers.map(ln => {
+    return {
+      params: { license_number: ln },
+      props: { currentRecord: licenseMap.get(ln) || null }
+    };
+  });
 }
 
 const { license_number } = Astro.params;
+const { currentRecord } = Astro.props;
 
-// Read and parse JSONL
-const changelogPath = path.join(process.cwd(), 'data/changelog/by-license', `${license_number}.jsonl`);
-const content = await fs.readFile(changelogPath, 'utf-8');
-const events = content
-  .trim()
-  .split('\n')
-  .map(line => JSON.parse(line))
-  .reverse(); // Newest first
+// Read and parse JSONL if it exists
+let events = [];
+try {
+  const changelogPath = path.join(process.cwd(), 'data/changelog/by-license', `${license_number}.jsonl`);
+  const content = await fs.readFile(changelogPath, 'utf-8');
+  events = content
+    .trim()
+    .split('\n')
+    .filter(line => line.trim())
+    .map(line => JSON.parse(line))
+    .reverse(); // Newest first
+} catch (e) {
+  // No historical logs yet
+}
 
-const entityName = events[0]?.entity_name || 'Unknown Entity';
+const entityName = currentRecord?.BUSINESS_NAME || events[0]?.entity_name || 'Unknown Entity';
 
 function formatDate(ts) {
   return new Date(ts).toISOString().split('T')[0];
@@ -42,6 +61,17 @@ function formatDate(ts) {
 function formatType(type) {
   return type.replace(/_/g, ' ').toUpperCase();
 }
+
+const statusGroups = [
+  {
+    title: 'License Lifecycle',
+    keys: ['LICENSE_STATUS', 'APPROVED_LICENSE_STAGE', 'COMMENCE_OPERATIONS_DATE', 'LIC_EXPIRATION_DATE', 'LIC_ORIGINAL_START_DATE']
+  },
+  {
+    title: 'Location & Contact',
+    keys: ['ESTABLISHMENT_ADDRESS_1', 'ESTABLISHMENT_CITY', 'ESTABLISHMENT_ZIP', 'ESTABLISHMENT_COUNTY', 'BUSINESS_EMAIL', 'BUSINESS_PHONE']
+  }
+];
 ---
 
 <Layout title={`${entityName} - History`}>
@@ -54,47 +84,83 @@ function formatType(type) {
       </div>
     </header>
 
-    <section class="timeline-section">
-      <h2>Change History</h2>
-      <div class="timeline">
-        {events.map((event, index) => (
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="event-meta mono">
-                <span class="event-date">{formatDate(event.ts)}</span>
-                <span class="event-type">{formatType(event.type)}</span>
-              </div>
-              
-              <div class="event-details">
-                {event.type === 'field_changed' && (
-                  <div class="field-change">
-                    <span class="field-name mono">{event.field.replace(/_/g, ' ')}</span>
-                    <div class="change-values">
-                      <span class="old-value">{event.old_value || 'None'}</span>
-                      <span class="arrow">→</span>
-                      <span class="new-value">{event.new_value}</span>
+    {currentRecord && (
+      <section class="current-status-section">
+        <h2>Current License Details</h2>
+        <div class="status-grid">
+          {statusGroups.map(group => {
+            const items = Object.entries(currentRecord)
+              .filter(([key, val]) => group.keys.includes(key) && val && val !== "N/A" && val !== "")
+              .sort((a, b) => group.keys.indexOf(a[0]) - group.keys.indexOf(b[0]));
+            
+            if (items.length === 0) return null;
+
+            return (
+              <div class="status-group" key={group.title}>
+                <h3>{group.title}</h3>
+                <div class="group-items">
+                  {items.map(([key, value]) => (
+                    <div class="detail-item" key={key}>
+                      <div class="detail-key">{key.replace(/_/g, ' ')}</div>
+                      <div class="detail-value">{value}</div>
                     </div>
-                  </div>
-                )}
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    <section class="timeline-section">
+      <h2>Transaction History</h2>
+      {events.length > 0 ? (
+        <div class="timeline">
+          {events.map((event, index) => (
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="event-meta mono">
+                  <span class="event-date">{formatDate(event.ts)}</span>
+                  <span class="event-type">{formatType(event.type)}</span>
+                </div>
                 
-                {event.type === 'entity_added' && (
-                  <div class="entity-added">
-                    License first appeared in CCC dataset.
-                    {event.record && (
-                      <div class="initial-fields mono">
-                        {Object.entries(event.record).map(([k, v]) => (
-                          <div class="initial-field">{k}: {v}</div>
-                        ))}
+                <div class="event-details">
+                  {event.type === 'field_changed' && (
+                    <div class="field-change">
+                      <span class="field-name mono">{event.field.replace(/_/g, ' ')}</span>
+                      <div class="change-values">
+                        <span class="old-value">{event.old_value || 'None'}</span>
+                        <span class="arrow">→</span>
+                        <span class="new-value">{event.new_value}</span>
                       </div>
-                    )}
-                  </div>
-                )}
+                    </div>
+                  )}
+                  
+                  {event.type === 'entity_added' && (
+                    <div class="entity-added">
+                      License first appeared in CCC dataset.
+                      {event.record && (
+                        <div class="initial-fields mono">
+                          {Object.entries(event.record).map(([k, v]) => (
+                            <div class="initial-field">{k}: {v}</div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div class="no-history">
+          <p>No historical transaction records found for this entity.</p>
+          <p class="muted">The archive began tracking this license's evolution recently, or no state changes have occurred since the initial crawl.</p>
+        </div>
+      )}
     </section>
   </div>
 </Layout>
@@ -108,7 +174,7 @@ function formatType(type) {
   }
 
   .history-header {
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-8);
     border-bottom: var(--border-width) solid var(--border-color);
     padding-bottom: var(--space-6);
   }
@@ -142,12 +208,63 @@ function formatType(type) {
     color: var(--accent-color);
   }
 
+  section {
+    margin-bottom: var(--space-12);
+  }
+
   h2 {
     font-family: var(--font-mono);
     font-size: var(--font-size-sm);
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-6);
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding-bottom: var(--space-2);
+  }
+
+  .current-status-section {
+    background: var(--surface-color);
+    border: var(--border-width) solid var(--border-color);
+    padding: var(--space-6);
+  }
+
+  .status-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .status-group h3 {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+    opacity: 0.7;
+  }
+
+  .group-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .detail-item {
+    border-left: 2px solid var(--border-color);
+    padding-left: var(--space-3);
+  }
+
+  .detail-key {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .detail-value {
+    font-size: var(--font-size-sm);
+    color: var(--text-base);
   }
 
   .timeline {
@@ -252,5 +369,23 @@ function formatType(type) {
   .initial-field {
     border-left: 2px solid var(--border-color);
     padding-left: var(--space-2);
+  }
+
+  .no-history {
+    background: var(--surface-color);
+    border: var(--border-width) solid var(--border-color);
+    padding: var(--space-8);
+    text-align: center;
+  }
+
+  .no-history p {
+    margin: 0;
+    font-size: var(--font-size-base);
+  }
+
+  .no-history .muted {
+    margin-top: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
   }
 </style>

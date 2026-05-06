@@ -46,7 +46,17 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
         }),
         Plot.ruleY([0])
       ],
-      x: { label: "Date →", grid: true },
+      x: { 
+        label: "Date →", 
+        grid: true,
+        ticks: "year", // Use yearly ticks or a sparse interval to avoid overlap
+        tickFormat: d => {
+          const date = new Date(d);
+          const mm = String(date.getMonth() + 1).padStart(2, '0');
+          const yy = String(date.getFullYear()).slice(-2);
+          return `${mm}/${yy}`;
+        }
+      },
       y: { label: "↑ New Licenses", grid: true },
       width: velocityRef.current?.clientWidth || 800,
       height: 300
@@ -218,33 +228,6 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
   return (
     <div class="stats-grid">
       <section class="stat-card">
-        <h3>License Velocity <span class="mono">(Commence Operations)</span></h3>
-        <div ref={velocityRef} class="plot-container"></div>
-      </section>
-
-      <div class="stat-row">
-        <section class="stat-card">
-          <h3>Market Composition <span class="mono">(By License Type)</span></h3>
-          <div ref={typeRef} class="plot-container"></div>
-        </section>
-
-        <section class="stat-card">
-          <h3>Market Concentration <span class="mono">(Top 10 Parent Entities)</span></h3>
-          <div ref={shareRef} class="plot-container"></div>
-        </section>
-      </div>
-
-      <section class="stat-card">
-        <h3>Market Segment Split <span class="mono">(Monthly Revenue)</span></h3>
-        <div ref={segmentRef} class="plot-container"></div>
-      </section>
-
-      <section class="stat-card">
-        <h3>Product Category Trends <span class="mono">(Adult-Use Monthly Revenue)</span></h3>
-        <div ref={salesRef} class="plot-container"></div>
-      </section>
-
-      <section class="stat-card">
         <h3>Price Trends <span class="mono">(Statewide Avg Retail Price/Gram)</span></h3>
         <div ref={priceRef} class="plot-container"></div>
       </section>
@@ -260,6 +243,26 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
           <div ref={genderRef} class="plot-container"></div>
         </section>
       </div>
+
+      <section class="stat-card">
+        <h3>Market Segment Split <span class="mono">(Monthly Revenue)</span></h3>
+        <div ref={segmentRef} class="plot-container"></div>
+      </section>
+
+      <section class="stat-card">
+        <h3>Product Category Trends <span class="mono">(Adult-Use Monthly Revenue)</span></h3>
+        <div ref={salesRef} class="plot-container"></div>
+      </section>
+
+      <section class="stat-card">
+        <h3>Market Composition <span class="mono">(By License Type)</span></h3>
+        <div ref={typeRef} class="plot-container"></div>
+      </section>
+
+      <section class="stat-card">
+        <h3>License Velocity <span class="mono">(Commence Operations)</span></h3>
+        <div ref={velocityRef} class="plot-container"></div>
+      </section>
 
       <style>{`
         .stats-grid {
