@@ -7,6 +7,8 @@ interface AggregatedData {
   parentConcentration: { name: string; count: number }[];
   segmentSplit: { date: string; segment: string; total: number }[];
   salesTrends: { date: string; category: string; total: number }[];
+  cumulativeSales: { date: string; total: number }[];
+  categoryMix: { category: string; total: number }[];
   priceTrends: { date: string; price: number }[];
   raceData: { race: string; total: number }[];
   genderData: { gender: string; total: number }[];
@@ -22,6 +24,8 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
   const shareRef = useRef<HTMLDivElement>(null);
   const segmentRef = useRef<HTMLDivElement>(null);
   const salesRef = useRef<HTMLDivElement>(null);
+  const cumulativeRef = useRef<HTMLDivElement>(null);
+  const mixRef = useRef<HTMLDivElement>(null);
   const priceRef = useRef<HTMLDivElement>(null);
   const raceRef = useRef<HTMLDivElement>(null);
   const genderRef = useRef<HTMLDivElement>(null);
@@ -33,6 +37,8 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
       fontFamily: "var(--font-mono)",
       fontSize: "10px"
     };
+
+    // ... (rest of useEffect logic will be updated in next turn or I can try to put it all here if small enough)
 
     // 1. License Velocity
     const velocityPlot = Plot.plot({
@@ -145,6 +151,53 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
     });
     salesRef.current?.appendChild(salesPlot);
 
+    // 5b. Cumulative Sales
+    const cumulativePlot = Plot.plot({
+      style: commonStyle,
+      marks: [
+        Plot.areaY(data.cumulativeSales, {
+          x: d => new Date(d.date),
+          y: "total",
+          fill: "var(--accent-color)",
+          fillOpacity: 0.2,
+          tip: true
+        }),
+        Plot.lineY(data.cumulativeSales, {
+          x: d => new Date(d.date),
+          y: "total",
+          stroke: "var(--accent-color)",
+          strokeWidth: 2
+        }),
+        Plot.ruleY([0])
+      ],
+      x: { label: "Date →", grid: true },
+      y: { label: "↑ Cumulative Revenue ($)", grid: true, tickFormat: "$.0s" },
+      width: cumulativeRef.current?.clientWidth || 800,
+      height: 300
+    });
+    cumulativeRef.current?.appendChild(cumulativePlot);
+
+    // 5c. Product Category Mix
+    const mixPlot = Plot.plot({
+      style: commonStyle,
+      marks: [
+        Plot.barX(data.categoryMix, {
+          x: "total",
+          y: "category",
+          fill: "var(--accent-color)",
+          sort: { y: "-x" },
+          tip: true
+        }),
+        Plot.ruleX([0])
+      ],
+      x: { label: "Total Revenue ($) →", grid: true, tickFormat: "$.0s" },
+      y: { label: null },
+      width: mixRef.current?.clientWidth || 400,
+      height: 400,
+      marginLeft: 180
+    });
+    mixRef.current?.appendChild(mixPlot);
+
     // 6. Price Trends
     const pricePlot = Plot.plot({
       style: commonStyle,
@@ -219,6 +272,8 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
       sharePlot.remove();
       segmentPlot.remove();
       salesPlot.remove();
+      cumulativePlot.remove();
+      mixPlot.remove();
       pricePlot.remove();
       racePlot.remove();
       genderPlot.remove();
@@ -227,6 +282,23 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
 
   return (
     <div class="stats-grid">
+      <section class="stat-card">
+        <h3>Cumulative Market Revenue <span class="mono">(All-Time Total)</span></h3>
+        <div ref={cumulativeRef} class="plot-container"></div>
+      </section>
+
+      <div class="stat-row">
+        <section class="stat-card">
+          <h3>Product Category Trends <span class="mono">(Monthly Revenue)</span></h3>
+          <div ref={salesRef} class="plot-container"></div>
+        </section>
+
+        <section class="stat-card">
+          <h3>Market Product Mix <span class="mono">(All-Time Total)</span></h3>
+          <div ref={mixRef} class="plot-container"></div>
+        </section>
+      </div>
+
       <section class="stat-card">
         <h3>Price Trends <span class="mono">(Statewide Avg Retail Price/Gram)</span></h3>
         <div ref={priceRef} class="plot-container"></div>
@@ -247,11 +319,6 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
       <section class="stat-card">
         <h3>Market Segment Split <span class="mono">(Monthly Revenue)</span></h3>
         <div ref={segmentRef} class="plot-container"></div>
-      </section>
-
-      <section class="stat-card">
-        <h3>Product Category Trends <span class="mono">(Adult-Use Monthly Revenue)</span></h3>
-        <div ref={salesRef} class="plot-container"></div>
       </section>
 
       <section class="stat-card">

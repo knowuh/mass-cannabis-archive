@@ -84,7 +84,21 @@ const salesByMonthSegment = {
 const segmentSplit = Object.entries(salesByMonthSegment).map(([key, total]) => {
   const [date, segment] = key.split('|');
   return { date, segment, total };
-});
+}).sort((a, b) => a.date.localeCompare(b.date));
+
+// --- Aggregation: Cumulative Sales ---
+const monthlyTotal = segmentSplit.reduce((acc, d) => {
+  acc[d.date] = (acc[d.date] || 0) + d.total;
+  return acc;
+}, {});
+
+let runningTotal = 0;
+const cumulativeSales = Object.entries(monthlyTotal)
+  .sort((a, b) => a[0].localeCompare(b[0]))
+  .map(([date, total]) => {
+    runningTotal += total;
+    return { date, total: runningTotal };
+  });
 
 const salesByCategory = rawSalesAdult.reduce((acc, d) => {
   const month = d.SaleDate.substring(0, 7);
@@ -99,6 +113,15 @@ const salesTrends = Object.entries(salesByCategory).map(([key, total]) => {
   const [date, category] = key.split('|');
   return { date, category, total };
 });
+
+const categoryMix = Object.entries(
+  salesTrends.reduce((acc, d) => {
+    acc[d.category] = (acc[d.category] || 0) + d.total;
+    return acc;
+  }, {})
+)
+  .map(([category, total]) => ({ category, total }))
+  .sort((a, b) => b.total - a.total);
 
 // --- Aggregation: Prices ---
 const priceTrends = rawPrices.map(d => ({
@@ -139,6 +162,8 @@ const aggregatedData = {
   parentConcentration,
   segmentSplit,
   salesTrends,
+  cumulativeSales,
+  categoryMix,
   priceTrends,
   raceData,
   genderData
