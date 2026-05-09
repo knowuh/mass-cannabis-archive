@@ -124,6 +124,8 @@ const categoryMix = Object.entries(
   .sort((a, b) => b.total - a.total);
 
 // --- Aggregation: Tax Estimates ---
+// These estimates are derived from total all-time revenue across the market.
+// Rates: State Excise (10.75%), State Sales (6.25%), Local Option (up to 3%).
 const totalRevenue = cumulativeSales[cumulativeSales.length - 1]?.total || 0;
 const taxEstimates = [
   { label: 'State Excise (10.75%)', value: totalRevenue * 0.1075, color: '#5a9f7a' },
