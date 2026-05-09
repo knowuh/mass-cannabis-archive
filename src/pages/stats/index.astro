@@ -123,6 +123,14 @@ const categoryMix = Object.entries(
   .map(([category, total]) => ({ category, total }))
   .sort((a, b) => b.total - a.total);
 
+// --- Aggregation: Tax Estimates ---
+const totalRevenue = cumulativeSales[cumulativeSales.length - 1]?.total || 0;
+const taxEstimates = [
+  { label: 'State Excise (10.75%)', value: totalRevenue * 0.1075, color: '#5a9f7a' },
+  { label: 'State Sales (6.25%)', value: totalRevenue * 0.0625, color: '#437a5b' },
+  { label: 'Local Option (3.00%)', value: totalRevenue * 0.03, color: '#2d3135' }
+];
+
 // --- Aggregation: Prices ---
 const priceTrends = rawPrices.map(d => ({
   date: d.YEARMONTH,
@@ -164,6 +172,7 @@ const aggregatedData = {
   salesTrends,
   cumulativeSales,
   categoryMix,
+  taxEstimates,
   priceTrends,
   raceData,
   genderData

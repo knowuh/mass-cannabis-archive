@@ -9,6 +9,7 @@ interface AggregatedData {
   salesTrends: { date: string; category: string; total: number }[];
   cumulativeSales: { date: string; total: number }[];
   categoryMix: { category: string; total: number }[];
+  taxEstimates: { label: string; value: number; color: string }[];
   priceTrends: { date: string; price: number }[];
   raceData: { race: string; total: number }[];
   genderData: { gender: string; total: number }[];
@@ -26,6 +27,7 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
   const salesRef = useRef<HTMLDivElement>(null);
   const cumulativeRef = useRef<HTMLDivElement>(null);
   const mixRef = useRef<HTMLDivElement>(null);
+  const taxRef = useRef<HTMLDivElement>(null);
   const priceRef = useRef<HTMLDivElement>(null);
   const raceRef = useRef<HTMLDivElement>(null);
   const genderRef = useRef<HTMLDivElement>(null);
@@ -205,6 +207,25 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
     });
     mixRef.current?.appendChild(mixPlot);
 
+    // 5d. Tax Estimates
+    const taxPlot = Plot.plot({
+      style: commonStyle,
+      marks: [
+        Plot.barY(data.taxEstimates, {
+          x: "label",
+          y: "value",
+          fill: "color",
+          tip: true
+        }),
+        Plot.ruleY([0])
+      ],
+      x: { label: null },
+      y: { label: "↑ Estimated Revenue ($)", grid: true, tickFormat: currencyFormat },
+      width: taxRef.current?.clientWidth || 400,
+      height: 300
+    });
+    taxRef.current?.appendChild(taxPlot);
+
     // 6. Price Trends
     const pricePlot = Plot.plot({
       style: commonStyle,
@@ -281,6 +302,7 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
       salesPlot.remove();
       cumulativePlot.remove();
       mixPlot.remove();
+      taxPlot.remove();
       pricePlot.remove();
       racePlot.remove();
       genderPlot.remove();
@@ -305,6 +327,11 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
           <div ref={mixRef} class="plot-container"></div>
         </section>
       </div>
+
+      <section class="stat-card">
+        <h3>Estimated Tax Revenue <span class="mono">(Statewide Total)</span></h3>
+        <div ref={taxRef} class="plot-container"></div>
+      </section>
 
       <section class="stat-card">
         <h3>Price Trends <span class="mono">(Statewide Avg Retail Price/Gram)</span></h3>

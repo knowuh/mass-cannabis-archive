@@ -29,8 +29,20 @@ const typeBreakdown = Object.entries(
 ).sort((a, b) => b[1] - a[1]);
 
 const activeCount = licenses.filter(l => l.LICENSE_STATUS === 'Active').length;
+const activeRetailers = licenses.filter(l => l.LICENSE_TYPE === 'Marijuana Retailer' && l.LICENSE_STATUS === 'Active').length;
 const commenceCount = licenses.filter(l => l.COMMENCE_OPS === 'Yes').length;
 const county = licenses[0]?.ESTABLISHMENT_COUNTY;
+
+// --- Pro-rata Tax Estimate ---
+// Statewide Active Retailers: 454
+// Total Adult-Use Sales: ~$9.36B (as of May 2026)
+// This is a rough pro-rata estimate based on share of active retail licenses.
+const statewideActiveRetailers = 454;
+const totalMarketSales = 9360000000; 
+const townMarketShare = activeRetailers / statewideActiveRetailers;
+const estimatedTownSales = totalMarketSales * townMarketShare;
+const estimatedLocalTax = estimatedTownSales * 0.03; // 3% Local Option
+const formatCurrency = (val) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
 ---
 
 <Layout title={`${cityName} Market Profile`}>
@@ -61,6 +73,11 @@ const county = licenses[0]?.ESTABLISHMENT_COUNTY;
       <div class="stat-card">
         <div class="stat-value">{commenceCount}</div>
         <div class="stat-label">Commence Ops</div>
+      </div>
+      <div class="stat-card highlight">
+        <div class="stat-value">{formatCurrency(estimatedLocalTax)}</div>
+        <div class="stat-label">Est. Local Tax (3%)</div>
+        <div class="stat-caveat">Pro-rata estimate</div>
       </div>
     </div>
 
@@ -169,6 +186,16 @@ const county = licenses[0]?.ESTABLISHMENT_COUNTY;
     text-transform: uppercase;
     color: var(--text-muted);
     margin-top: var(--space-2);
+  }
+  .stat-card.highlight {
+    border-color: var(--accent-color);
+    background: rgba(90, 159, 122, 0.05);
+  }
+  .stat-caveat {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 4px;
   }
 
   .content-grid {
