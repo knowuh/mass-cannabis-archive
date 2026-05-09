@@ -38,6 +38,13 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
       fontSize: "10px"
     };
 
+    const currencyFormat = (d: number) => {
+      if (Math.abs(d) >= 1e9) return `$${(d / 1e9).toFixed(1)}B`;
+      if (Math.abs(d) >= 1e6) return `$${(d / 1e6).toFixed(0)}M`;
+      if (Math.abs(d) >= 1e3) return `$${(d / 1e3).toFixed(0)}K`;
+      return `$${d}`;
+    };
+
     // ... (rest of useEffect logic will be updated in next turn or I can try to put it all here if small enough)
 
     // 1. License Velocity
@@ -124,7 +131,7 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
         Plot.ruleY([0])
       ],
       x: { label: "Date →", grid: true },
-      y: { label: "↑ Monthly Revenue ($)", grid: true, tickFormat: "$.0s" },
+      y: { label: "↑ Monthly Revenue ($)", grid: true, tickFormat: currencyFormat },
       color: { legend: true, scheme: "category10" },
       width: segmentRef.current?.clientWidth || 800,
       height: 400
@@ -144,7 +151,7 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
         Plot.ruleY([0])
       ],
       x: { label: "Date →", grid: true },
-      y: { label: "↑ Monthly Revenue ($)", grid: true, tickFormat: "$.0s" },
+      y: { label: "↑ Monthly Revenue ($)", grid: true, tickFormat: currencyFormat },
       color: { legend: true, scheme: "tableau10" },
       width: salesRef.current?.clientWidth || 800,
       height: 400
@@ -171,7 +178,7 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
         Plot.ruleY([0])
       ],
       x: { label: "Date →", grid: true },
-      y: { label: "↑ Cumulative Revenue ($)", grid: true, tickFormat: "$.0s" },
+      y: { label: "↑ Cumulative Revenue ($)", grid: true, tickFormat: currencyFormat },
       width: cumulativeRef.current?.clientWidth || 800,
       height: 300
     });
@@ -190,7 +197,7 @@ export default function StatsDashboard({ data }: StatsDashboardProps) {
         }),
         Plot.ruleX([0])
       ],
-      x: { label: "Total Revenue ($) →", grid: true, tickFormat: "$.0s" },
+      x: { label: "Total Revenue ($) →", grid: true, tickFormat: currencyFormat },
       y: { label: null },
       width: mixRef.current?.clientWidth || 400,
       height: 400,
