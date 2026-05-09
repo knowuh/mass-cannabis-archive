@@ -1,12 +1,11 @@
 ---
 import Layout from '../../components/Layout.astro';
+import { getEnrichedLicenses } from '../../utils/data';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
 export async function getStaticPaths() {
-  const licensesPath = path.join(process.cwd(), 'data/ccc/current/licenses.json');
-  const raw = await fs.readFile(licensesPath, 'utf-8');
-  const licenses = JSON.parse(raw);
+  const licenses = await getEnrichedLicenses();
   
   const licenseMap = new Map(licenses.map(l => [l.LICENSE_NUMBER, l]));
   
@@ -77,7 +76,10 @@ const statusGroups = [
 <Layout title={`${entityName} - History`}>
   <div class="history-container">
     <header class="history-header">
-      <a href="/mass-cannabis-archive/" class="back-link">← Back to Browser</a>
+      <div class="nav-group">
+        <a href="/mass-cannabis-archive/" class="back-link">← Back to Browser</a>
+        <a href="https://weed-hunter.com/" target="_blank" rel="noopener noreferrer" class="external-nav">Live Prices ↗</a>
+      </div>
       <div class="title-group">
         <h1>{entityName}</h1>
         <div class="license-badge mono">{license_number}</div>
@@ -179,13 +181,32 @@ const statusGroups = [
     padding-bottom: var(--space-6);
   }
 
+  .nav-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+  }
+
   .back-link {
-    display: inline-block;
     font-family: var(--font-mono);
     font-size: var(--font-size-xs);
     text-transform: uppercase;
-    margin-bottom: var(--space-6);
     color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .external-nav {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .back-link:hover {
+    color: var(--accent-color);
   }
 
   .title-group {

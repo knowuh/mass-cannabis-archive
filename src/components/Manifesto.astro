@@ -9,6 +9,9 @@
 				The Massachusetts Cannabis Control Commission (CCC) provides public data, but historical context is often lost as files are updated and overwritten. This project serves as a permanent, version-controlled archive of that data.
 			</p>
 			<p>
+				Data processing and historical diffing are powered by the <a href="https://weed-hunter.com/" target="_blank" rel="noopener noreferrer" class="external-link">WeedHunter</a> pipeline, which mirrors the live market state daily.
+			</p>
+			<p>
 				Our goal is transparency and accessibility. By snapshotting data over time, we enable researchers, journalists, and the public to track the evolution of licenses, ownership, and market dynamics in the Commonwealth.
 			</p>
 		</section>
@@ -73,6 +76,17 @@
 		font-size: var(--font-size-lg);
 		line-height: 1.6;
 		margin-bottom: var(--space-6);
+	}
+
+	.external-link {
+		color: var(--accent-color);
+		text-decoration: underline;
+		text-decoration-style: dotted;
+		text-underline-offset: 4px;
+	}
+
+	.external-link:hover {
+		text-decoration-style: solid;
 	}
 
 	.safety-info {

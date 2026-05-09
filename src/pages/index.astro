@@ -2,17 +2,18 @@
 import Layout from '../components/Layout.astro';
 import LicenseSearch from '../components/LicenseSearch';
 import Manifesto from '../components/Manifesto.astro';
+import { getEnrichedLicenses } from '../utils/data';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
 // Build-time: sync the latest data snapshot for the client-side search
-const sourcePath = path.join(process.cwd(), 'data/ccc/current/licenses.json');
 const destPath = path.join(process.cwd(), 'public/data/ccc/latest.json');
 
 try {
+	const enrichedLicenses = await getEnrichedLicenses();
 	await fs.mkdir(path.dirname(destPath), { recursive: true });
-	await fs.copyFile(sourcePath, destPath);
-	console.log('Successfully synced licenses.json to public/data/ccc/latest.json');
+	await fs.writeFile(destPath, JSON.stringify(enrichedLicenses, null, 2));
+	console.log('Successfully synced enriched licenses to public/data/ccc/latest.json');
 } catch (e) {
 	console.error('Failed to sync licenses.json:', e);
 }
@@ -24,6 +25,7 @@ try {
 			<nav class="sub-nav">
 				<span class="nav-link active">Data Browser</span>
 				<a href="/mass-cannabis-archive/stats/" class="nav-link">Market Statistics</a>
+				<a href="https://weed-hunter.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">Live Prices ↗</a>
 			</nav>
 			<h1>Mass Cannabis Archive <span class="browser-label">Data Browser</span></h1>
 			<div class="meta-info">
@@ -397,12 +399,33 @@ try {
 		align-items: center;
 	}
 
+	:global(.pane-title-group) {
+		display: flex;
+		gap: var(--space-4);
+		align-items: center;
+	}
+
 	:global(.pane-header h2) {
 		margin: 0;
 		font-family: var(--font-mono);
 		font-size: var(--font-size-sm);
 		text-transform: uppercase;
 		color: var(--accent-color);
+	}
+
+	:global(.external-utility) {
+		font-family: var(--font-mono);
+		font-size: 10px;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		text-decoration: none;
+		border: 1px solid var(--border-color);
+		padding: 1px 6px;
+	}
+
+	:global(.external-utility:hover) {
+		color: var(--accent-color);
+		border-color: var(--accent-color);
 	}
 
 	:global(.history-link) {

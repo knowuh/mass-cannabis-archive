@@ -1,11 +1,11 @@
 ---
 import Layout from '../../components/Layout.astro';
 import StatsDashboard from '../../components/StatsDashboard';
+import { getEnrichedLicenses } from '../../utils/data';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
 // --- Data Paths ---
-const licensesPath = path.join(process.cwd(), 'public/data/ccc/latest.json');
 const salesAdultPath = path.join(process.cwd(), 'data/ccc/current/sales-adult-use.json');
 const salesMedPath = path.join(process.cwd(), 'data/ccc/current/sales-medical.json');
 const salesDelPath = path.join(process.cwd(), 'data/ccc/current/sales-delivery.json');
@@ -25,7 +25,7 @@ async function loadJSON(p) {
 }
 
 // --- Load Raw Data ---
-const rawLicenses = await loadJSON(licensesPath);
+const rawLicenses = await getEnrichedLicenses();
 const rawSalesAdult = await loadJSON(salesAdultPath);
 const rawSalesMed = await loadJSON(salesMedPath);
 const rawSalesDel = await loadJSON(salesDelPath);
@@ -151,6 +151,7 @@ const aggregatedData = {
       <nav class="sub-nav">
         <a href="/mass-cannabis-archive/" class="nav-link">Data Browser</a>
         <span class="nav-link active">Market Statistics</span>
+        <a href="https://weed-hunter.com/" target="_blank" rel="noopener noreferrer" class="nav-link">Live Prices ↗</a>
       </nav>
       <div class="title-group">
         <h1>Market Statistics</h1>

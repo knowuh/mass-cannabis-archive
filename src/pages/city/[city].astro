@@ -5,21 +5,21 @@ import { getEnrichedLicenses } from '../../utils/data';
 export async function getStaticPaths() {
   const licenses = await getEnrichedLicenses();
 
-  const counties = [...new Set(licenses.map(l => l.ESTABLISHMENT_COUNTY).filter(Boolean))];
+  const cities = [...new Set(licenses.map(l => l.ESTABLISHMENT_CITY).filter(c => c && c !== 'Unknown'))];
   
-  return counties.map(county => {
-    const countyLicenses = licenses.filter(l => l.ESTABLISHMENT_COUNTY === county);
+  return cities.map(city => {
+    const cityLicenses = licenses.filter(l => l.ESTABLISHMENT_CITY === city);
     return {
-      params: { county: county.toLowerCase().replace(/ /g, '-') },
+      params: { city: city.toLowerCase().replace(/ /g, '-') },
       props: { 
-        countyName: county,
-        licenses: countyLicenses
+        cityName: city,
+        licenses: cityLicenses
       }
     };
   });
 }
 
-const { countyName, licenses } = Astro.props;
+const { cityName, licenses } = Astro.props;
 
 const typeBreakdown = Object.entries(
   licenses.reduce((acc, l) => {
@@ -30,18 +30,23 @@ const typeBreakdown = Object.entries(
 
 const activeCount = licenses.filter(l => l.LICENSE_STATUS === 'Active').length;
 const commenceCount = licenses.filter(l => l.COMMENCE_OPS === 'Yes').length;
+const county = licenses[0]?.ESTABLISHMENT_COUNTY;
 ---
 
-<Layout title={`${countyName} Market Profile`}>
-  <div class="county-container">
-    <header class="county-header">
+<Layout title={`${cityName} Market Profile`}>
+  <div class="city-container">
+    <header class="city-header">
       <nav class="sub-nav">
         <a href="/mass-cannabis-archive/" class="nav-link">Data Browser</a>
-        <a href="/mass-cannabis-archive/stats/" class="nav-link">Market Statistics</a>
+        {county && (
+          <a href={`/mass-cannabis-archive/county/${county.toLowerCase().replace(/ /g, '-')}`} class="nav-link">
+            {county.replace(' County', '')}
+          </a>
+        )}
         <a href="https://weed-hunter.com/" target="_blank" rel="noopener noreferrer" class="nav-link">Live Prices ↗</a>
-        <span class="nav-link active">{countyName}</span>
+        <span class="nav-link active">{cityName}</span>
       </nav>
-      <h1>{countyName} <span class="muted">Market Profile</span></h1>
+      <h1>{cityName} <span class="muted">Market Profile</span></h1>
     </header>
 
     <div class="stats-grid">
@@ -60,30 +65,17 @@ const commenceCount = licenses.filter(l => l.COMMENCE_OPS === 'Yes').length;
     </div>
 
     <div class="content-grid">
-      <div class="sidebar">
-        <section class="type-section">
-          <h2>License Composition</h2>
-          <div class="type-list">
-            {typeBreakdown.map(([type, count]) => (
-              <div class="type-row">
-                <span class="type-name">{type}</span>
-                <span class="type-count mono">{count}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section class="city-section">
-          <h2>Municipalities</h2>
-          <div class="city-list">
-            {[...new Set(licenses.map(l => l.ESTABLISHMENT_CITY).filter(Boolean))].sort().map(city => (
-              <a href={`/mass-cannabis-archive/city/${city.toLowerCase().replace(/ /g, '-')}`} class="city-link">
-                {city}
-              </a>
-            ))}
-          </div>
-        </section>
-      </div>
+      <section class="type-section">
+        <h2>License Composition</h2>
+        <div class="type-list">
+          {typeBreakdown.map(([type, count]) => (
+            <div class="type-row">
+              <span class="type-name">{type}</span>
+              <span class="type-count mono">{count}</span>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section class="license-section">
         <h2>Local Establishments</h2>
@@ -94,7 +86,7 @@ const commenceCount = licenses.filter(l => l.COMMENCE_OPS === 'Yes').length;
                 <th>Business Name</th>
                 <th>Type</th>
                 <th>Status</th>
-                <th>City</th>
+                <th>Zip</th>
               </tr>
             </thead>
             <tbody>
@@ -111,11 +103,7 @@ const commenceCount = licenses.filter(l => l.COMMENCE_OPS === 'Yes').length;
                       {l.LICENSE_STATUS}
                     </span>
                   </td>
-                  <td>
-                    <a href={`/mass-cannabis-archive/city/${l.ESTABLISHMENT_CITY?.toLowerCase().replace(/ /g, '-')}`} class="geo-link">
-                      {l.ESTABLISHMENT_CITY}
-                    </a>
-                  </td>
+                  <td class="mono">{l.ESTABLISHMENT_ZIP}</td>
                 </tr>
               ))}
             </tbody>
@@ -127,12 +115,12 @@ const commenceCount = licenses.filter(l => l.COMMENCE_OPS === 'Yes').length;
 </Layout>
 
 <style>
-  .county-container {
+  .city-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: var(--space-4) 0;
   }
-  .county-header {
+  .city-header {
     margin-bottom: var(--space-8);
     border-bottom: var(--border-width) solid var(--border-color);
     padding-bottom: var(--space-4);
@@ -188,13 +176,6 @@ const commenceCount = licenses.filter(l => l.COMMENCE_OPS === 'Yes').length;
     grid-template-columns: 350px 1fr;
     gap: var(--space-8);
   }
-
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-8);
-  }
-
   h2 {
     font-family: var(--font-mono);
     font-size: var(--font-size-sm);
@@ -217,21 +198,6 @@ const commenceCount = licenses.filter(l => l.COMMENCE_OPS === 'Yes').length;
     padding: var(--space-1) 0;
     border-bottom: 1px solid var(--border-color);
   }
-
-  .city-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-1) var(--space-4);
-  }
-  .city-link {
-    color: var(--text-base);
-    text-decoration: none;
-    font-size: var(--font-size-sm);
-    padding: var(--space-1) 0;
-    border-bottom: 1px dotted var(--border-color);
-  }
-  .city-link:hover { color: var(--accent-color); border-bottom-style: solid; }
-
   .mono { font-family: var(--font-mono); }
 
   .table-container {
@@ -262,13 +228,6 @@ const commenceCount = licenses.filter(l => l.COMMENCE_OPS === 'Yes').length;
   }
   .business-link:hover { color: var(--accent-color); }
   .small-text { font-size: var(--font-size-xs); color: var(--text-muted); }
-
-  .geo-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--border-color);
-  }
-  .geo-link:hover { color: var(--accent-color); border-bottom-style: solid; }
 
   .status-tag {
     font-family: var(--font-mono);

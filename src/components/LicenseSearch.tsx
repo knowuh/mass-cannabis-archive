@@ -238,7 +238,12 @@ export default function LicenseSearch() {
 
       <div class="details-pane">
         <div class="pane-header">
-          <h2>Record Details</h2>
+          <div class="pane-title-group">
+            <h2>Record Details</h2>
+            {selectedLicense && (
+               <a href="https://weed-hunter.com/" target="_blank" rel="noopener noreferrer" class="external-utility">Live Prices ↗</a>
+            )}
+          </div>
           {selectedLicense && (
              <a href={`/mass-cannabis-archive/license/${selectedLicense.LICENSE_NUMBER}`} class="history-link">View Full History →</a>
           )}
@@ -289,6 +294,24 @@ function LicenseDetails({ record }: { record: LicenseRecord }) {
     }
   ];
 
+  const formatValue = (key: string, value: any) => {
+    if (key === 'ESTABLISHMENT_CITY') {
+      return (
+        <a href={`/mass-cannabis-archive/city/${value.toLowerCase().replace(/ /g, '-')}`} class="geo-link">
+          {value}
+        </a>
+      );
+    }
+    if (key === 'ESTABLISHMENT_COUNTY') {
+      return (
+        <a href={`/mass-cannabis-archive/county/${value.toLowerCase().replace(/ /g, '-')}`} class="geo-link">
+          {value}
+        </a>
+      );
+    }
+    return value;
+  };
+
   return (
     <>
       {groups.map(group => {
@@ -305,7 +328,7 @@ function LicenseDetails({ record }: { record: LicenseRecord }) {
               {items.map(([key, value]) => (
                 <div class="detail-item" key={key}>
                   <div class="detail-key">{key.replace(/_/g, ' ')}</div>
-                  <div class="detail-value">{value}</div>
+                  <div class="detail-value">{formatValue(key, value)}</div>
                 </div>
               ))}
             </div>
