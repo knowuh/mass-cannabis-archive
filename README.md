@@ -9,6 +9,8 @@ The authoritative open record of the Massachusetts cannabis market — licenses,
 ## Mission
 The Massachusetts cannabis market evolves rapidly. This project preserves the longitudinal history of the market to ensure transparency and accessibility for researchers, advocates, and the public.
 
+This archive is in part an offshoot of the development of [Weed-Hunter.com](https://weed-hunter.com/), a live price and availability tracker for the Commonwealth's cannabis market. While WeedHunter focuses on the real-time consumer experience, this repository serves as the underlying historical backbone, snapshotting the industry's structural evolution.
+
 ## Direct Data Downloads
 Current snapshots from the Cannabis Control Commission (CCC) are available in raw JSON and CSV formats.
 
