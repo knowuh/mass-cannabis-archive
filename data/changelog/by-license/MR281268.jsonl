@@ -2,3 +2,4 @@
 {"ts": "2018-10-04T14:30:00Z", "dataset": "licenses", "type": "field_changed", "license_number": "MR281268", "entity_name": "Cultivate Leicester, Inc.", "field": "APPROVED_LICENSE_STAGE", "old_value": "PROVISIONAL LICENSE", "new_value": "FINAL LICENSE"}
 {"ts": "2018-11-16T09:00:00Z", "dataset": "licenses", "type": "field_changed", "license_number": "MR281268", "entity_name": "Cultivate Leicester, Inc.", "field": "COMMENCE_OPS", "old_value": "No", "new_value": "Yes"}
 {"ts": "2024-02-26T12:00:00Z", "dataset": "licenses", "type": "field_changed", "license_number": "MR281268", "entity_name": "Cultivate Leicester, Inc.", "field": "LIC_START_DATE", "old_value": "2023-02-26", "new_value": "2024-02-26"}
+{"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MR281268","entity_name":"Cultivate Leicester, Inc."}
