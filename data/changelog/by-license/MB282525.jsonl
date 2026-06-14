@@ -1,1 +1,3 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MB282525","entity_name":"Diablo Man, LLC."}
+{"ts":"2026-06-14T07:45:59.784Z","dataset":"licenses","type":"field_changed","license_number":"MB282525","entity_name":"Diablo Man, LLC.","field":"LICENSE_STATUS","old_value":"Payment Pending","new_value":"Active"}
+{"ts":"2026-06-14T07:45:59.784Z","dataset":"licenses","type":"field_changed","license_number":"MB282525","entity_name":"Diablo Man, LLC.","field":"LIC_EXPIRATION_DATE","old_value":null,"new_value":"2027-05-06"}

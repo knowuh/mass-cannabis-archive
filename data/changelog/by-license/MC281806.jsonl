@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MC281806","entity_name":"Nature Medicines, Inc"}
+{"ts":"2026-06-14T07:45:59.784Z","dataset":"licenses","type":"field_changed","license_number":"MC281806","entity_name":"Nature Medicines, Inc","field":"LIC_EXPIRATION_DATE","old_value":"2026-05-11","new_value":"2026-09-08"}
