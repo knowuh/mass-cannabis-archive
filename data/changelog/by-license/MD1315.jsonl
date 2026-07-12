@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MD1315","entity_name":"WeeDeliver, LLC"}
+{"ts":"2026-07-12T07:40:23.447Z","dataset":"licenses","type":"field_changed","license_number":"MD1315","entity_name":"WeeDeliver, LLC","field":"LIC_EXPIRATION_DATE","old_value":"2026-09-11","new_value":"2027-01-09"}

@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MR282315","entity_name":"Reverie 73 Gloucester, LLC"}
+{"ts":"2026-07-12T07:40:23.447Z","dataset":"licenses","type":"field_changed","license_number":"MR282315","entity_name":"Reverie 73 Gloucester, LLC","field":"LIC_EXPIRATION_DATE","old_value":"2026-06-27","new_value":"2027-06-27"}
