@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MR281892","entity_name":"Insa, Inc."}
+{"ts":"2026-07-19T07:40:11.955Z","dataset":"licenses","type":"field_changed","license_number":"MR281892","entity_name":"Insa, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-09-16","new_value":"2027-09-16"}

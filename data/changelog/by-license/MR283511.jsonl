@@ -1,3 +1,4 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MR283511","entity_name":"Charles River Remedies LLC"}
 {"ts":"2026-06-14T07:45:59.784Z","dataset":"licenses","type":"field_changed","license_number":"MR283511","entity_name":"Charles River Remedies LLC","field":"LIC_EXPIRATION_DATE","old_value":"2026-06-03","new_value":"2026-08-02"}
 {"ts":"2026-06-14T07:45:59.784Z","dataset":"licenses","type":"field_changed","license_number":"MR283511","entity_name":"Charles River Remedies LLC","field":"EE_PRIORITY_STATUS","old_value":"APPROVED","new_value":null}
+{"ts":"2026-07-19T07:40:11.955Z","dataset":"licenses","type":"field_changed","license_number":"MR283511","entity_name":"Good Nature Harvard, Inc.","field":"BUSINESS_NAME","old_value":"Charles River Remedies LLC","new_value":"Good Nature Harvard, Inc."}
