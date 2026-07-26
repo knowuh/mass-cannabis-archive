@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"RMD786","entity_name":"Green Gold Group, Inc."}
+{"ts":"2026-07-26T07:41:46.605Z","dataset":"licenses","type":"field_changed","license_number":"RMD786","entity_name":"Green Gold Group, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-09-19","new_value":"2027-01-17"}
