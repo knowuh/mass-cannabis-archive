@@ -1840,7 +1840,7 @@
     "BUSINESS_EMAIL": "hr@thecurecompanyma.com",
     "ESTABLISHMENT_COUNTY": "Franklin County",
     "COMMENCE_OPERATIONS_DATE": "",
-    "LIC_EXPIRATION_DATE": "08-15-2026",
+    "LIC_EXPIRATION_DATE": "08-15-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -5445,7 +5445,7 @@
     "EE_PRIORITY_STATUS": ""
   },
   {
-    "BUSINESS_NAME": "Tree Market Taunton LLC",
+    "BUSINESS_NAME": "Green Emerald, LLC",
     "LICENSE_NUMBER": "MR281597",
     "LICENSE_TYPE": "Marijuana Retailer",
     "LICENSE_STATUS": "Active",
@@ -9310,7 +9310,7 @@
     "BUSINESS_EMAIL": "m.radebach@berkley-botanicals.com",
     "ESTABLISHMENT_COUNTY": "Plymouth County",
     "COMMENCE_OPERATIONS_DATE": "08-06-2025",
-    "LIC_EXPIRATION_DATE": "07-23-2026",
+    "LIC_EXPIRATION_DATE": "09-21-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -10180,7 +10180,7 @@
     "BUSINESS_EMAIL": "nicole@smokegreensoul.com",
     "ESTABLISHMENT_COUNTY": "Middlesex County",
     "COMMENCE_OPERATIONS_DATE": "03-19-2025",
-    "LIC_EXPIRATION_DATE": "07-27-2026",
+    "LIC_EXPIRATION_DATE": "11-11-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -10510,7 +10510,7 @@
     "BUSINESS_EMAIL": "swoodman@gardenremedies.com",
     "ESTABLISHMENT_COUNTY": "Middlesex County",
     "COMMENCE_OPERATIONS_DATE": "11-14-2016",
-    "LIC_EXPIRATION_DATE": "08-04-2026",
+    "LIC_EXPIRATION_DATE": "12-02-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -13721,6 +13721,21 @@
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "08-09-2022",
     "LIC_EXPIRATION_DATE": "06-16-2027",
+    "APPROVED_SOCIAL_EQUITY": "",
+    "EE_PRIORITY_STATUS": ""
+  },
+  {
+    "BUSINESS_NAME": "Advanced Cultivators, LLC",
+    "LICENSE_NUMBER": "RMD1692",
+    "LICENSE_TYPE": "Medical Marijuana Treatment Center",
+    "LICENSE_STATUS": "Active",
+    "LICENSE_STATUS_CATEGORY": "Active",
+    "ESTABLISHMENT_ZIP": "01852",
+    "COMMENCE_OPS": "",
+    "BUSINESS_EMAIL": "rborges@advancedcultivators.com",
+    "ESTABLISHMENT_COUNTY": "Middlesex County",
+    "COMMENCE_OPERATIONS_DATE": "",
+    "LIC_EXPIRATION_DATE": "12-11-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },

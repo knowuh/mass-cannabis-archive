@@ -1327,3 +1327,9 @@
 {"ts":"2026-07-26T07:41:46.605Z","dataset":"licenses","type":"field_changed","license_number":"MB282537","entity_name":"Bulrush LLC","field":"LIC_EXPIRATION_DATE","old_value":null,"new_value":"2027-07-13"}
 {"ts":"2026-07-26T07:41:46.605Z","dataset":"licenses","type":"field_changed","license_number":"MR284855","entity_name":"GreenSoul Organics, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-07-15","new_value":"2026-07-27"}
 {"ts":"2026-07-26T07:41:46.605Z","dataset":"licenses","type":"field_changed","license_number":"RMD786","entity_name":"Green Gold Group, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-09-19","new_value":"2027-01-17"}
+{"ts":"2026-08-02T07:41:01.707Z","dataset":"licenses","type":"entity_added","license_number":"RMD1692","entity_name":"Advanced Cultivators, LLC"}
+{"ts":"2026-08-02T07:41:01.707Z","dataset":"licenses","type":"field_changed","license_number":"MP281331","entity_name":"Power Fund Operations, LLC","field":"LIC_EXPIRATION_DATE","old_value":"2026-08-15","new_value":"2027-08-15"}
+{"ts":"2026-08-02T07:41:01.707Z","dataset":"licenses","type":"field_changed","license_number":"MR281597","entity_name":"Green Emerald, LLC","field":"BUSINESS_NAME","old_value":"Tree Market Taunton LLC","new_value":"Green Emerald, LLC"}
+{"ts":"2026-08-02T07:41:01.707Z","dataset":"licenses","type":"field_changed","license_number":"MR284877","entity_name":"Berkley Botanicals LLC","field":"LIC_EXPIRATION_DATE","old_value":"2026-07-23","new_value":"2026-09-21"}
+{"ts":"2026-08-02T07:41:01.707Z","dataset":"licenses","type":"field_changed","license_number":"MR284855","entity_name":"GreenSoul Organics, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-07-27","new_value":"2026-11-11"}
+{"ts":"2026-08-02T07:41:01.707Z","dataset":"licenses","type":"field_changed","license_number":"RMD205","entity_name":"Garden Remedies, Inc","field":"LIC_EXPIRATION_DATE","old_value":"2026-08-04","new_value":"2026-12-02"}
