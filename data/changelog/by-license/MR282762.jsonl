@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MR282762","entity_name":"The Heritage Club, LLC"}
+{"ts":"2026-08-16T07:39:27.401Z","dataset":"licenses","type":"field_changed","license_number":"MR282762","entity_name":"The Heritage Club, LLC","field":"LIC_EXPIRATION_DATE","old_value":"2026-09-07","new_value":"2027-01-05"}
