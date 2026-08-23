@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MC283322","entity_name":"ACMJ, Inc."}
+{"ts":"2026-08-23T07:39:12.528Z","dataset":"licenses","type":"field_changed","license_number":"MC283322","entity_name":"ACMJ, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-11-09","new_value":"2027-11-09"}
