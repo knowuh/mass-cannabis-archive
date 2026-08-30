@@ -1,2 +1,3 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MP281397","entity_name":"Boston Bud Factory Inc."}
 {"ts":"2026-08-16T07:39:27.401Z","dataset":"licenses","type":"field_changed","license_number":"MP281397","entity_name":"Boston Bud Factory Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-08-02","new_value":"2026-10-31"}
+{"ts":"2026-08-30T07:42:07.969Z","dataset":"licenses","type":"field_changed","license_number":"MP281397","entity_name":"Boston Bud Factory Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-10-31","new_value":"2027-10-31"}
