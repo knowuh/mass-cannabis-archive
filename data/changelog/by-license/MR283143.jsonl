@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MR283143","entity_name":"Uma Flowers LLC"}
+{"ts":"2026-09-20T07:38:42.147Z","dataset":"licenses","type":"field_changed","license_number":"MR283143","entity_name":"Uma Flowers LLC","field":"LIC_EXPIRATION_DATE","old_value":"2026-09-13","new_value":"2026-12-12"}
