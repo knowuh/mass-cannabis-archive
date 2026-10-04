@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MC281370","entity_name":"Apotho Therapeutics Athol, Inc."}
+{"ts":"2026-10-04T07:39:03.700Z","dataset":"licenses","type":"field_changed","license_number":"MC281370","entity_name":"Apotho Therapeutics Athol, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-10-11","new_value":"2027-02-08"}

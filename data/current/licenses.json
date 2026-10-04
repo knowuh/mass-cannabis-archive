@@ -280,7 +280,7 @@
     "BUSINESS_EMAIL": "Dan@ATGMA.org",
     "ESTABLISHMENT_COUNTY": "Essex County",
     "COMMENCE_OPERATIONS_DATE": "12-11-2018",
-    "LIC_EXPIRATION_DATE": "10-28-2026",
+    "LIC_EXPIRATION_DATE": "10-28-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -760,7 +760,7 @@
     "BUSINESS_EMAIL": "matt@apothotherapeutics.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "10-20-2020",
-    "LIC_EXPIRATION_DATE": "10-11-2026",
+    "LIC_EXPIRATION_DATE": "02-08-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -820,7 +820,7 @@
     "BUSINESS_EMAIL": "contact@ampma.org",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "08-31-2020",
-    "LIC_EXPIRATION_DATE": "09-13-2026",
+    "LIC_EXPIRATION_DATE": "10-13-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -1165,7 +1165,7 @@
     "BUSINESS_EMAIL": "john@novafarms.com",
     "ESTABLISHMENT_COUNTY": "Bristol County",
     "COMMENCE_OPERATIONS_DATE": "03-05-2020",
-    "LIC_EXPIRATION_DATE": "11-06-2026",
+    "LIC_EXPIRATION_DATE": "11-06-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -1240,7 +1240,7 @@
     "BUSINESS_EMAIL": "missiongeorgetown@missioncan.com",
     "ESTABLISHMENT_COUNTY": "Essex County",
     "COMMENCE_OPERATIONS_DATE": "07-30-2020",
-    "LIC_EXPIRATION_DATE": "10-25-2026",
+    "LIC_EXPIRATION_DATE": "11-24-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -1552,10 +1552,10 @@
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "02724",
     "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "jigarp@jbrothersbiz.com",
+    "BUSINESS_EMAIL": "JigerPatel360@gmail.com",
     "ESTABLISHMENT_COUNTY": "Bristol County",
     "COMMENCE_OPERATIONS_DATE": "01-14-2021",
-    "LIC_EXPIRATION_DATE": "09-08-2026",
+    "LIC_EXPIRATION_DATE": "09-11-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -1575,21 +1575,6 @@
     "EE_PRIORITY_STATUS": ""
   },
   {
-    "BUSINESS_NAME": "Nature Medicines, Inc",
-    "LICENSE_NUMBER": "MC281806",
-    "LICENSE_TYPE": "Marijuana Cultivator",
-    "LICENSE_STATUS": "Active",
-    "LICENSE_STATUS_CATEGORY": "Active",
-    "ESTABLISHMENT_ZIP": "01569",
-    "COMMENCE_OPS": "",
-    "BUSINESS_EMAIL": "jigarp@jbrothersbiz.com",
-    "ESTABLISHMENT_COUNTY": "Worcester County",
-    "COMMENCE_OPERATIONS_DATE": "",
-    "LIC_EXPIRATION_DATE": "09-08-2026",
-    "APPROVED_SOCIAL_EQUITY": "",
-    "EE_PRIORITY_STATUS": ""
-  },
-  {
     "BUSINESS_NAME": "SOLAR THERAPEUTICS",
     "LICENSE_NUMBER": "MR281817",
     "LICENSE_TYPE": "Marijuana Retailer",
@@ -1600,7 +1585,7 @@
     "BUSINESS_EMAIL": "rkeller@solarthera.com",
     "ESTABLISHMENT_COUNTY": "Bristol County",
     "COMMENCE_OPERATIONS_DATE": "08-29-2019",
-    "LIC_EXPIRATION_DATE": "09-21-2026",
+    "LIC_EXPIRATION_DATE": "01-19-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -1825,7 +1810,7 @@
     "BUSINESS_EMAIL": "Tim@massyield.com",
     "ESTABLISHMENT_COUNTY": "Berkshire County",
     "COMMENCE_OPERATIONS_DATE": "02-07-2022",
-    "LIC_EXPIRATION_DATE": "09-30-2026",
+    "LIC_EXPIRATION_DATE": "10-30-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -1975,7 +1960,7 @@
     "BUSINESS_EMAIL": "jigarp@jbrothersbiz.com",
     "ESTABLISHMENT_COUNTY": "Plymouth County",
     "COMMENCE_OPERATIONS_DATE": "03-14-2022",
-    "LIC_EXPIRATION_DATE": "09-11-2026",
+    "LIC_EXPIRATION_DATE": "01-09-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -2185,7 +2170,7 @@
     "BUSINESS_EMAIL": "james.leventis@verano.com",
     "ESTABLISHMENT_COUNTY": "Norfolk County",
     "COMMENCE_OPERATIONS_DATE": "02-22-2022",
-    "LIC_EXPIRATION_DATE": "12-12-2026",
+    "LIC_EXPIRATION_DATE": "12-12-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -2200,7 +2185,7 @@
     "BUSINESS_EMAIL": "james.leventis@verano.com",
     "ESTABLISHMENT_COUNTY": "Norfolk County",
     "COMMENCE_OPERATIONS_DATE": "11-18-2021",
-    "LIC_EXPIRATION_DATE": "12-12-2026",
+    "LIC_EXPIRATION_DATE": "12-12-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -2215,7 +2200,7 @@
     "BUSINESS_EMAIL": "james.leventis@verano.com",
     "ESTABLISHMENT_COUNTY": "Norfolk County",
     "COMMENCE_OPERATIONS_DATE": "08-21-2020",
-    "LIC_EXPIRATION_DATE": "12-12-2026",
+    "LIC_EXPIRATION_DATE": "12-12-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -2721,10 +2706,10 @@
     "LICENSE_STATUS": "Active",
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "01746",
-    "COMMENCE_OPS": "",
+    "COMMENCE_OPS": "Yes",
     "BUSINESS_EMAIL": "ma.licensing@pharmacann.com",
     "ESTABLISHMENT_COUNTY": "Middlesex County",
-    "COMMENCE_OPERATIONS_DATE": "",
+    "COMMENCE_OPERATIONS_DATE": "09-03-2026",
     "LIC_EXPIRATION_DATE": "07-09-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
@@ -2755,7 +2740,7 @@
     "BUSINESS_EMAIL": "janetdevco@gmail.com",
     "ESTABLISHMENT_COUNTY": "Suffolk County",
     "COMMENCE_OPERATIONS_DATE": "10-30-2020",
-    "LIC_EXPIRATION_DATE": "12-15-2026",
+    "LIC_EXPIRATION_DATE": "12-15-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -3366,10 +3351,10 @@
     "LICENSE_STATUS": "Active",
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "01057",
-    "COMMENCE_OPS": "",
+    "COMMENCE_OPS": "Yes",
     "BUSINESS_EMAIL": "licensing@holisticindustries.com",
     "ESTABLISHMENT_COUNTY": "Hampden County",
-    "COMMENCE_OPERATIONS_DATE": "",
+    "COMMENCE_OPERATIONS_DATE": "09-04-2026",
     "LIC_EXPIRATION_DATE": "08-20-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
@@ -3381,10 +3366,10 @@
     "LICENSE_STATUS": "Active",
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "01057",
-    "COMMENCE_OPS": "",
+    "COMMENCE_OPS": "Yes",
     "BUSINESS_EMAIL": "licensing@holisticindustries.com",
     "ESTABLISHMENT_COUNTY": "Hampden County",
-    "COMMENCE_OPERATIONS_DATE": "",
+    "COMMENCE_OPERATIONS_DATE": "09-04-2026",
     "LIC_EXPIRATION_DATE": "08-20-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
@@ -3715,7 +3700,7 @@
     "BUSINESS_EMAIL": "daiellojr@gmail.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "07-02-2024",
-    "LIC_EXPIRATION_DATE": "09-09-2026",
+    "LIC_EXPIRATION_DATE": "11-08-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -4057,10 +4042,10 @@
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "01913",
     "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "devin@mellocannabis.com",
+    "BUSINESS_EMAIL": "kaitlin@mellocannabis.com",
     "ESTABLISHMENT_COUNTY": "Essex County",
     "COMMENCE_OPERATIONS_DATE": "07-23-2021",
-    "LIC_EXPIRATION_DATE": "09-08-2026",
+    "LIC_EXPIRATION_DATE": "09-11-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -4705,7 +4690,7 @@
     "BUSINESS_EMAIL": "facility-licensing@myinsa.com",
     "ESTABLISHMENT_COUNTY": "Hampden County",
     "COMMENCE_OPERATIONS_DATE": "06-01-2021",
-    "LIC_EXPIRATION_DATE": "12-04-2026",
+    "LIC_EXPIRATION_DATE": "12-04-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -4770,36 +4755,6 @@
     "EE_PRIORITY_STATUS": ""
   },
   {
-    "BUSINESS_NAME": "Green Theory Cultivation, LLC",
-    "LICENSE_NUMBER": "MC282665",
-    "LICENSE_TYPE": "Marijuana Cultivator",
-    "LICENSE_STATUS": "Active",
-    "LICENSE_STATUS_CATEGORY": "Active",
-    "ESTABLISHMENT_ZIP": "01238",
-    "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "work@aruna.farm",
-    "ESTABLISHMENT_COUNTY": "Berkshire County",
-    "COMMENCE_OPERATIONS_DATE": "10-03-2022",
-    "LIC_EXPIRATION_DATE": "09-13-2026",
-    "APPROVED_SOCIAL_EQUITY": "",
-    "EE_PRIORITY_STATUS": ""
-  },
-  {
-    "BUSINESS_NAME": "Green Theory Cultivation, LLC",
-    "LICENSE_NUMBER": "MP281848",
-    "LICENSE_TYPE": "Marijuana Product Manufacturer",
-    "LICENSE_STATUS": "Active",
-    "LICENSE_STATUS_CATEGORY": "Active",
-    "ESTABLISHMENT_ZIP": "01238",
-    "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "harsh@aruna.farm",
-    "ESTABLISHMENT_COUNTY": "Berkshire County",
-    "COMMENCE_OPERATIONS_DATE": "10-03-2022",
-    "LIC_EXPIRATION_DATE": "09-13-2026",
-    "APPROVED_SOCIAL_EQUITY": "",
-    "EE_PRIORITY_STATUS": ""
-  },
-  {
     "BUSINESS_NAME": "Bailey's Buds, LLC",
     "LICENSE_NUMBER": "MB281692",
     "LICENSE_TYPE": "Marijuana Microbusiness",
@@ -4855,7 +4810,7 @@
     "BUSINESS_EMAIL": "cheryl@staffordgreeninc.com",
     "ESTABLISHMENT_COUNTY": "Berkshire County",
     "COMMENCE_OPERATIONS_DATE": "12-22-2021",
-    "LIC_EXPIRATION_DATE": "11-15-2026",
+    "LIC_EXPIRATION_DATE": "11-15-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -4960,7 +4915,7 @@
     "BUSINESS_EMAIL": "heidi@devineberkshires.com",
     "ESTABLISHMENT_COUNTY": "Berkshire County",
     "COMMENCE_OPERATIONS_DATE": "04-11-2022",
-    "LIC_EXPIRATION_DATE": "11-18-2026",
+    "LIC_EXPIRATION_DATE": "11-18-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -5032,10 +4987,10 @@
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "02053",
     "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "cblair@neoalts.com",
+    "BUSINESS_EMAIL": "neomanufacturingmallc@gmail.com",
     "ESTABLISHMENT_COUNTY": "Norfolk County",
     "COMMENCE_OPERATIONS_DATE": "08-30-2022",
-    "LIC_EXPIRATION_DATE": "09-12-2026",
+    "LIC_EXPIRATION_DATE": "09-12-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -5047,10 +5002,10 @@
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "02053",
     "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "cblair@neoalts.com",
+    "BUSINESS_EMAIL": "neomanufacturingmallc@gmail.com",
     "ESTABLISHMENT_COUNTY": "Norfolk County",
     "COMMENCE_OPERATIONS_DATE": "08-30-2022",
-    "LIC_EXPIRATION_DATE": "09-12-2026",
+    "LIC_EXPIRATION_DATE": "09-12-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -5096,6 +5051,21 @@
     "ESTABLISHMENT_COUNTY": "Middlesex County",
     "COMMENCE_OPERATIONS_DATE": "11-30-2021",
     "LIC_EXPIRATION_DATE": "12-29-2026",
+    "APPROVED_SOCIAL_EQUITY": "",
+    "EE_PRIORITY_STATUS": ""
+  },
+  {
+    "BUSINESS_NAME": "Solar Therapeutics Inc.",
+    "LICENSE_NUMBER": "MR282948",
+    "LICENSE_TYPE": "Marijuana Retailer",
+    "LICENSE_STATUS": "Active",
+    "LICENSE_STATUS_CATEGORY": "Active",
+    "ESTABLISHMENT_ZIP": "02771",
+    "COMMENCE_OPS": "Yes",
+    "BUSINESS_EMAIL": "rkeller@solarthera.com",
+    "ESTABLISHMENT_COUNTY": "Bristol County",
+    "COMMENCE_OPERATIONS_DATE": "12-03-2021",
+    "LIC_EXPIRATION_DATE": "01-04-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -5336,21 +5306,6 @@
     "ESTABLISHMENT_COUNTY": "Plymouth County",
     "COMMENCE_OPERATIONS_DATE": "10-31-2022",
     "LIC_EXPIRATION_DATE": "05-15-2027",
-    "APPROVED_SOCIAL_EQUITY": "",
-    "EE_PRIORITY_STATUS": ""
-  },
-  {
-    "BUSINESS_NAME": "Black Harbor Group, LLC",
-    "LICENSE_NUMBER": "MR282947",
-    "LICENSE_TYPE": "Marijuana Retailer",
-    "LICENSE_STATUS": "Active",
-    "LICENSE_STATUS_CATEGORY": "Active",
-    "ESTABLISHMENT_ZIP": "02575",
-    "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "info@blackharborgroupllc.com",
-    "ESTABLISHMENT_COUNTY": "Dukes County",
-    "COMMENCE_OPERATIONS_DATE": "08-05-2021",
-    "LIC_EXPIRATION_DATE": "09-11-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -5665,7 +5620,7 @@
     "BUSINESS_EMAIL": "info@nativesunwellness.com",
     "ESTABLISHMENT_COUNTY": "Bristol County",
     "COMMENCE_OPERATIONS_DATE": "04-01-2022",
-    "LIC_EXPIRATION_DATE": "09-14-2026",
+    "LIC_EXPIRATION_DATE": "09-14-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -5815,7 +5770,7 @@
     "BUSINESS_EMAIL": "mike@cimcorealty.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "06-20-2024",
-    "LIC_EXPIRATION_DATE": "11-20-2026",
+    "LIC_EXPIRATION_DATE": "11-20-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -6040,7 +5995,7 @@
     "BUSINESS_EMAIL": "priyanka@umaflowers.co",
     "ESTABLISHMENT_COUNTY": "Middlesex County",
     "COMMENCE_OPERATIONS_DATE": "11-30-2021",
-    "LIC_EXPIRATION_DATE": "12-12-2026",
+    "LIC_EXPIRATION_DATE": "12-12-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -6310,7 +6265,7 @@
     "BUSINESS_EMAIL": "lfonseca@1connectionllc.com",
     "ESTABLISHMENT_COUNTY": "Bristol County",
     "COMMENCE_OPERATIONS_DATE": "",
-    "LIC_EXPIRATION_DATE": "10-14-2026",
+    "LIC_EXPIRATION_DATE": "10-14-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -6325,7 +6280,7 @@
     "BUSINESS_EMAIL": "lfonseca@1connectionllc.com",
     "ESTABLISHMENT_COUNTY": "Bristol County",
     "COMMENCE_OPERATIONS_DATE": "05-16-2022",
-    "LIC_EXPIRATION_DATE": "10-14-2026",
+    "LIC_EXPIRATION_DATE": "10-14-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -6340,7 +6295,7 @@
     "BUSINESS_EMAIL": "lfonseca@1connectionllc.com",
     "ESTABLISHMENT_COUNTY": "Bristol County",
     "COMMENCE_OPERATIONS_DATE": "",
-    "LIC_EXPIRATION_DATE": "10-14-2026",
+    "LIC_EXPIRATION_DATE": "10-14-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -6655,7 +6610,7 @@
     "BUSINESS_EMAIL": "jessica@blueriverterps.com",
     "ESTABLISHMENT_COUNTY": "Middlesex County",
     "COMMENCE_OPERATIONS_DATE": "12-04-2023",
-    "LIC_EXPIRATION_DATE": "11-02-2026",
+    "LIC_EXPIRATION_DATE": "11-02-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": "APPROVED"
   },
@@ -6682,10 +6637,25 @@
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "02128",
     "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "sgrant@publicpolicylaw.com",
+    "BUSINESS_EMAIL": "atkachuk@publicpolicylaw.com",
     "ESTABLISHMENT_COUNTY": "Suffolk County",
     "COMMENCE_OPERATIONS_DATE": "06-08-2023",
     "LIC_EXPIRATION_DATE": "11-17-2026",
+    "APPROVED_SOCIAL_EQUITY": "",
+    "EE_PRIORITY_STATUS": ""
+  },
+  {
+    "BUSINESS_NAME": "DayDreamz Estates LLC",
+    "LICENSE_NUMBER": "MC283417",
+    "LICENSE_TYPE": "Marijuana Cultivator",
+    "LICENSE_STATUS": "Active",
+    "LICENSE_STATUS_CATEGORY": "Active",
+    "ESTABLISHMENT_ZIP": "01255",
+    "COMMENCE_OPS": "Yes",
+    "BUSINESS_EMAIL": "pmblume@daydreamzestates.com",
+    "ESTABLISHMENT_COUNTY": "Berkshire County",
+    "COMMENCE_OPERATIONS_DATE": "01-23-2023",
+    "LIC_EXPIRATION_DATE": "09-21-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -6730,7 +6700,7 @@
     "BUSINESS_EMAIL": "Andy.Plante@ianthuscapital.com",
     "ESTABLISHMENT_COUNTY": "Bristol County",
     "COMMENCE_OPERATIONS_DATE": "10-12-2023",
-    "LIC_EXPIRATION_DATE": "11-27-2026",
+    "LIC_EXPIRATION_DATE": "11-27-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -7102,7 +7072,7 @@
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "01569",
     "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "jsahagian@cox.net",
+    "BUSINESS_EMAIL": "Nick.fermano@megalabs.tech",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "04-18-2023",
     "LIC_EXPIRATION_DATE": "11-03-2026",
@@ -8215,7 +8185,7 @@
     "BUSINESS_EMAIL": "jordan@ggcultivation.com",
     "ESTABLISHMENT_COUNTY": "Bristol County",
     "COMMENCE_OPERATIONS_DATE": "12-15-2025",
-    "LIC_EXPIRATION_DATE": "10-17-2026",
+    "LIC_EXPIRATION_DATE": "10-17-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -9250,7 +9220,7 @@
     "BUSINESS_EMAIL": "m.radebach@berkley-botanicals.com",
     "ESTABLISHMENT_COUNTY": "Plymouth County",
     "COMMENCE_OPERATIONS_DATE": "08-06-2025",
-    "LIC_EXPIRATION_DATE": "09-21-2026",
+    "LIC_EXPIRATION_DATE": "12-20-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -9415,7 +9385,7 @@
     "BUSINESS_EMAIL": "nho@oblaws.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "04-01-2026",
-    "LIC_EXPIRATION_DATE": "09-12-2026",
+    "LIC_EXPIRATION_DATE": "09-22-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -9885,6 +9855,21 @@
     "EE_PRIORITY_STATUS": ""
   },
   {
+    "BUSINESS_NAME": "Middlesex Integrative Medicine, Inc.",
+    "LICENSE_NUMBER": "MR285251",
+    "LICENSE_TYPE": "Marijuana Retailer",
+    "LICENSE_STATUS": "Active",
+    "LICENSE_STATUS_CATEGORY": "Active",
+    "ESTABLISHMENT_ZIP": "02062",
+    "COMMENCE_OPS": "",
+    "BUSINESS_EMAIL": "lauren@fullmooninvestments.com",
+    "ESTABLISHMENT_COUNTY": "Norfolk County",
+    "COMMENCE_OPERATIONS_DATE": "",
+    "LIC_EXPIRATION_DATE": "09-17-2027",
+    "APPROVED_SOCIAL_EQUITY": "",
+    "EE_PRIORITY_STATUS": ""
+  },
+  {
     "BUSINESS_NAME": "Diem Lynn, LLC",
     "LICENSE_NUMBER": "MR283369",
     "LICENSE_TYPE": "Marijuana Retailer",
@@ -9952,10 +9937,10 @@
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "02141",
     "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "jessica@blueriverterps.com",
+    "BUSINESS_EMAIL": "will@freshconnectionboston.com",
     "ESTABLISHMENT_COUNTY": "Middlesex County",
     "COMMENCE_OPERATIONS_DATE": "03-20-2023",
-    "LIC_EXPIRATION_DATE": "11-02-2026",
+    "LIC_EXPIRATION_DATE": "11-02-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": "APPROVED"
   },
@@ -10015,7 +10000,7 @@
     "BUSINESS_EMAIL": "auholdingcompany@gmail.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "06-26-2023",
-    "LIC_EXPIRATION_DATE": "11-08-2026",
+    "LIC_EXPIRATION_DATE": "11-08-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -10161,10 +10146,10 @@
     "LICENSE_STATUS": "Active",
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "01746",
-    "COMMENCE_OPS": "",
+    "COMMENCE_OPS": "Yes",
     "BUSINESS_EMAIL": "ma.licensing@pharmacann.com",
     "ESTABLISHMENT_COUNTY": "Middlesex County",
-    "COMMENCE_OPERATIONS_DATE": "",
+    "COMMENCE_OPERATIONS_DATE": "09-03-2026",
     "LIC_EXPIRATION_DATE": "07-29-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
@@ -10195,7 +10180,7 @@
     "BUSINESS_EMAIL": "info@masscannsit.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "",
-    "LIC_EXPIRATION_DATE": "11-05-2026",
+    "LIC_EXPIRATION_DATE": "11-05-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": "APPROVED"
   },
@@ -10495,7 +10480,7 @@
     "BUSINESS_EMAIL": "missiongeorgetown@missioncan.com",
     "ESTABLISHMENT_COUNTY": "Essex County",
     "COMMENCE_OPERATIONS_DATE": "03-08-2017",
-    "LIC_EXPIRATION_DATE": "10-18-2026",
+    "LIC_EXPIRATION_DATE": "02-15-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -10765,7 +10750,7 @@
     "BUSINESS_EMAIL": "jason.newell@theheirloomcollective.us",
     "ESTABLISHMENT_COUNTY": "Hampshire County",
     "COMMENCE_OPERATIONS_DATE": "02-19-2020",
-    "LIC_EXPIRATION_DATE": "12-01-2026",
+    "LIC_EXPIRATION_DATE": "12-01-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -11065,7 +11050,7 @@
     "BUSINESS_EMAIL": "contact@ampma.org",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "09-14-2020",
-    "LIC_EXPIRATION_DATE": "09-14-2026",
+    "LIC_EXPIRATION_DATE": "10-14-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -11170,7 +11155,7 @@
     "BUSINESS_EMAIL": "jigarp@jbrothersbiz.com",
     "ESTABLISHMENT_COUNTY": "Bristol County",
     "COMMENCE_OPERATIONS_DATE": "11-26-2018",
-    "LIC_EXPIRATION_DATE": "09-15-2026",
+    "LIC_EXPIRATION_DATE": "10-15-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -11245,7 +11230,7 @@
     "BUSINESS_EMAIL": "victoria.denbow@shopbotanist.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "12-17-2018",
-    "LIC_EXPIRATION_DATE": "09-11-2026",
+    "LIC_EXPIRATION_DATE": "09-21-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -11290,7 +11275,7 @@
     "BUSINESS_EMAIL": "ulysses@majorbloom.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "03-14-2022",
-    "LIC_EXPIRATION_DATE": "11-12-2026",
+    "LIC_EXPIRATION_DATE": "11-12-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": "APPROVED"
   },
@@ -11305,7 +11290,7 @@
     "BUSINESS_EMAIL": "Ericca@TryDoobie.com",
     "ESTABLISHMENT_COUNTY": "Plymouth County",
     "COMMENCE_OPERATIONS_DATE": "04-26-2022",
-    "LIC_EXPIRATION_DATE": "09-12-2026",
+    "LIC_EXPIRATION_DATE": "10-12-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": "APPROVED"
   },
@@ -11320,7 +11305,7 @@
     "BUSINESS_EMAIL": "info@lowellcannabis.com",
     "ESTABLISHMENT_COUNTY": "Middlesex County",
     "COMMENCE_OPERATIONS_DATE": "10-28-2022",
-    "LIC_EXPIRATION_DATE": "11-18-2026",
+    "LIC_EXPIRATION_DATE": "11-18-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -11350,7 +11335,7 @@
     "BUSINESS_EMAIL": "wes@necraftcultivators.com",
     "ESTABLISHMENT_COUNTY": "Middlesex County",
     "COMMENCE_OPERATIONS_DATE": "03-06-2023",
-    "LIC_EXPIRATION_DATE": "12-05-2026",
+    "LIC_EXPIRATION_DATE": "04-04-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -11500,7 +11485,7 @@
     "BUSINESS_EMAIL": "joseph@greenpathcannabis.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "03-16-2023",
-    "LIC_EXPIRATION_DATE": "11-07-2026",
+    "LIC_EXPIRATION_DATE": "11-07-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -11545,7 +11530,7 @@
     "BUSINESS_EMAIL": "info@617thc.com",
     "ESTABLISHMENT_COUNTY": "Suffolk County",
     "COMMENCE_OPERATIONS_DATE": "07-10-2023",
-    "LIC_EXPIRATION_DATE": "10-12-2026",
+    "LIC_EXPIRATION_DATE": "10-12-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -11650,7 +11635,7 @@
     "BUSINESS_EMAIL": "heather@thespencerhousellc.com",
     "ESTABLISHMENT_COUNTY": "Berkshire County",
     "COMMENCE_OPERATIONS_DATE": "",
-    "LIC_EXPIRATION_DATE": "10-01-2026",
+    "LIC_EXPIRATION_DATE": "10-01-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -12175,7 +12160,7 @@
     "BUSINESS_EMAIL": "michellefoley@surfsupcannabis.com",
     "ESTABLISHMENT_COUNTY": "Suffolk County",
     "COMMENCE_OPERATIONS_DATE": "03-10-2026",
-    "LIC_EXPIRATION_DATE": "11-01-2026",
+    "LIC_EXPIRATION_DATE": "11-01-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -12232,10 +12217,10 @@
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "01089",
     "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "sgrant@publicpolicylaw.com",
+    "BUSINESS_EMAIL": "Trooke162@gmail.com",
     "ESTABLISHMENT_COUNTY": "Hampden County",
     "COMMENCE_OPERATIONS_DATE": "04-06-2026",
-    "LIC_EXPIRATION_DATE": "09-18-2026",
+    "LIC_EXPIRATION_DATE": "11-17-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -12396,10 +12381,10 @@
     "LICENSE_STATUS": "Active",
     "LICENSE_STATUS_CATEGORY": "Active",
     "ESTABLISHMENT_ZIP": "01906",
-    "COMMENCE_OPS": "",
+    "COMMENCE_OPS": "Yes",
     "BUSINESS_EMAIL": "jweaver@sanctuarymed.com",
     "ESTABLISHMENT_COUNTY": "Essex County",
-    "COMMENCE_OPERATIONS_DATE": "",
+    "COMMENCE_OPERATIONS_DATE": "09-21-2026",
     "LIC_EXPIRATION_DATE": "04-23-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
@@ -13210,7 +13195,7 @@
     "BUSINESS_EMAIL": "mark8mass@protonmail.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "",
-    "LIC_EXPIRATION_DATE": "09-08-2026",
+    "LIC_EXPIRATION_DATE": "09-21-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -13870,7 +13855,7 @@
     "BUSINESS_EMAIL": "Scholanges@yahoo.com",
     "ESTABLISHMENT_COUNTY": "Hampshire County",
     "COMMENCE_OPERATIONS_DATE": "",
-    "LIC_EXPIRATION_DATE": "09-11-2026",
+    "LIC_EXPIRATION_DATE": "01-09-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -13885,7 +13870,7 @@
     "BUSINESS_EMAIL": "shanel.lindsay@gmail.com",
     "ESTABLISHMENT_COUNTY": "Hampshire County",
     "COMMENCE_OPERATIONS_DATE": "",
-    "LIC_EXPIRATION_DATE": "09-11-2026",
+    "LIC_EXPIRATION_DATE": "01-09-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": "INCOMPLETE"
   },
@@ -14085,21 +14070,6 @@
     "EE_PRIORITY_STATUS": ""
   },
   {
-    "BUSINESS_NAME": "Green Flash Delivery LLC",
-    "LICENSE_NUMBER": "MD1298",
-    "LICENSE_TYPE": "Marijuana Delivery Operator",
-    "LICENSE_STATUS": "Active",
-    "LICENSE_STATUS_CATEGORY": "Active",
-    "ESTABLISHMENT_ZIP": "02118",
-    "COMMENCE_OPS": "Yes",
-    "BUSINESS_EMAIL": "osbornduane@gmail.com",
-    "ESTABLISHMENT_COUNTY": "Suffolk County",
-    "COMMENCE_OPERATIONS_DATE": "01-29-2024",
-    "LIC_EXPIRATION_DATE": "09-12-2026",
-    "APPROVED_SOCIAL_EQUITY": "",
-    "EE_PRIORITY_STATUS": ""
-  },
-  {
     "BUSINESS_NAME": "ON ROOT, LLC",
     "LICENSE_NUMBER": "MD1301",
     "LICENSE_TYPE": "Marijuana Delivery Operator",
@@ -14185,22 +14155,7 @@
     "BUSINESS_EMAIL": "info@yourgreenpackage.com",
     "ESTABLISHMENT_COUNTY": "Middlesex County",
     "COMMENCE_OPERATIONS_DATE": "12-27-2023",
-    "LIC_EXPIRATION_DATE": "10-29-2026",
-    "APPROVED_SOCIAL_EQUITY": "",
-    "EE_PRIORITY_STATUS": ""
-  },
-  {
-    "BUSINESS_NAME": "Bada Vroom, LLC ",
-    "LICENSE_NUMBER": "MD1324",
-    "LICENSE_TYPE": "Marijuana Delivery Operator",
-    "LICENSE_STATUS": "Active",
-    "LICENSE_STATUS_CATEGORY": "Active",
-    "ESTABLISHMENT_ZIP": "01879",
-    "COMMENCE_OPS": "",
-    "BUSINESS_EMAIL": "mmarinaro@badabloominc.com",
-    "ESTABLISHMENT_COUNTY": "Middlesex County",
-    "COMMENCE_OPERATIONS_DATE": "",
-    "LIC_EXPIRATION_DATE": "09-11-2026",
+    "LIC_EXPIRATION_DATE": "10-29-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -14290,7 +14245,7 @@
     "BUSINESS_EMAIL": "dave@uprootcannabis.com",
     "ESTABLISHMENT_COUNTY": "Worcester County",
     "COMMENCE_OPERATIONS_DATE": "12-15-2025",
-    "LIC_EXPIRATION_DATE": "09-08-2026",
+    "LIC_EXPIRATION_DATE": "11-07-2026",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   },
@@ -14321,6 +14276,21 @@
     "ESTABLISHMENT_COUNTY": "Middlesex County",
     "COMMENCE_OPERATIONS_DATE": "",
     "LIC_EXPIRATION_DATE": "05-28-2027",
+    "APPROVED_SOCIAL_EQUITY": "",
+    "EE_PRIORITY_STATUS": ""
+  },
+  {
+    "BUSINESS_NAME": "Wonderland Dispensary & Delivery Inc.",
+    "LICENSE_NUMBER": "MD1349",
+    "LICENSE_TYPE": "Marijuana Delivery Operator",
+    "LICENSE_STATUS": "Active",
+    "LICENSE_STATUS_CATEGORY": "Active",
+    "ESTABLISHMENT_ZIP": "02138",
+    "COMMENCE_OPS": "",
+    "BUSINESS_EMAIL": "Sdemarco89@yahoo.com",
+    "ESTABLISHMENT_COUNTY": "Middlesex County",
+    "COMMENCE_OPERATIONS_DATE": "",
+    "LIC_EXPIRATION_DATE": "09-17-2027",
     "APPROVED_SOCIAL_EQUITY": "",
     "EE_PRIORITY_STATUS": ""
   }
