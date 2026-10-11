@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MR282659","entity_name":"Northeast Alternatives Retail, LLC"}
+{"ts":"2026-10-11T07:40:13.470Z","dataset":"licenses","type":"field_changed","license_number":"MR282659","entity_name":"Northeast Alternatives Retail, LLC","field":"LIC_EXPIRATION_DATE","old_value":"2026-09-26","new_value":"2027-01-24"}
