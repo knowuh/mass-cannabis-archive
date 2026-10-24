@@ -1,5 +1,75 @@
 [
   {
+    "YEARMONTH": "2018-11",
+    "AVERAGERETAILPRICEPERGM": "14.17",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2018-12",
+    "AVERAGERETAILPRICEPERGM": "14.23",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-01",
+    "AVERAGERETAILPRICEPERGM": "14.54",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-02",
+    "AVERAGERETAILPRICEPERGM": "14.61",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-03",
+    "AVERAGERETAILPRICEPERGM": "14.55",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-04",
+    "AVERAGERETAILPRICEPERGM": "14.53",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-05",
+    "AVERAGERETAILPRICEPERGM": "14.44",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-06",
+    "AVERAGERETAILPRICEPERGM": "14.42",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-07",
+    "AVERAGERETAILPRICEPERGM": "14.31",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-08",
+    "AVERAGERETAILPRICEPERGM": "14.24",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-09",
+    "AVERAGERETAILPRICEPERGM": "14.32",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-10",
+    "AVERAGERETAILPRICEPERGM": "14.63",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-11",
+    "AVERAGERETAILPRICEPERGM": "14.54",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2019-12",
+    "AVERAGERETAILPRICEPERGM": "14.62",
+    "UNIT": "Grams"
+  },
+  {
     "YEARMONTH": "2020-01",
     "AVERAGERETAILPRICEPERGM": "14.68",
     "UNIT": "Grams"
@@ -91,7 +161,7 @@
   },
   {
     "YEARMONTH": "2021-07",
-    "AVERAGERETAILPRICEPERGM": "13.90",
+    "AVERAGERETAILPRICEPERGM": "13.9",
     "UNIT": "Grams"
   },
   {
@@ -211,7 +281,7 @@
   },
   {
     "YEARMONTH": "2023-07",
-    "AVERAGERETAILPRICEPERGM": "6.20",
+    "AVERAGERETAILPRICEPERGM": "6.2",
     "UNIT": "Grams"
   },
   {
@@ -326,7 +396,7 @@
   },
   {
     "YEARMONTH": "2025-06",
-    "AVERAGERETAILPRICEPERGM": "4.20",
+    "AVERAGERETAILPRICEPERGM": "4.2",
     "UNIT": "Grams"
   },
   {
@@ -372,6 +442,36 @@
   {
     "YEARMONTH": "2026-03",
     "AVERAGERETAILPRICEPERGM": "4.03",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2026-04",
+    "AVERAGERETAILPRICEPERGM": "3.89",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2026-05",
+    "AVERAGERETAILPRICEPERGM": "3.89",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2026-06",
+    "AVERAGERETAILPRICEPERGM": "3.87",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2026-07",
+    "AVERAGERETAILPRICEPERGM": "3.83",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2026-08",
+    "AVERAGERETAILPRICEPERGM": "3.81",
+    "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2026-09",
+    "AVERAGERETAILPRICEPERGM": "3.78",
     "UNIT": "Grams"
   }
 ]

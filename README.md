@@ -40,5 +40,5 @@ If you or someone you know is struggling with substance use, help is available:
 - **Crisis Text Line:** Text HOME to 741741
 
 ---
-*Last Updated: 2026-05-04*  
+*Last Updated: 2026-10-24*  
 *Maintained by [Knowuh](https://github.com/knowuh).*

@@ -1,52 +1,52 @@
 [
   {
     "RACE_ETHNICITY": "White",
-    "TOTAL": "12837",
-    "%_TOTAL": "0.641"
-  },
-  {
-    "RACE_ETHNICITY": "Missing or Decline to Answer",
-    "TOTAL": "2341",
-    "%_TOTAL": "0.117"
+    "TOTAL": "12800",
+    "%_TOTAL": "0.639"
   },
   {
     "RACE_ETHNICITY": "Hispanic or Latino – Puerto Rican",
-    "TOTAL": "2133",
-    "%_TOTAL": "0.106"
+    "TOTAL": "2256",
+    "%_TOTAL": "0.113"
+  },
+  {
+    "RACE_ETHNICITY": "Missing or Decline to Answer",
+    "TOTAL": "2244",
+    "%_TOTAL": "0.112"
   },
   {
     "RACE_ETHNICITY": "Black or African American",
-    "TOTAL": "1390",
-    "%_TOTAL": "0.069"
+    "TOTAL": "1417",
+    "%_TOTAL": "0.071"
   },
   {
     "RACE_ETHNICITY": "Agent Identified as Two or More Ethnicities",
-    "TOTAL": "609",
+    "TOTAL": "608",
     "%_TOTAL": "0.03"
   },
   {
     "RACE_ETHNICITY": "Asian – Asian Indian",
-    "TOTAL": "441",
+    "TOTAL": "442",
     "%_TOTAL": "0.022"
   },
   {
     "RACE_ETHNICITY": "Some Other Race or Ethnicity",
-    "TOTAL": "172",
-    "%_TOTAL": "0.009"
+    "TOTAL": "151",
+    "%_TOTAL": "0.008"
   },
   {
     "RACE_ETHNICITY": "Middle Eastern or North African",
-    "TOTAL": "45",
+    "TOTAL": "50",
     "%_TOTAL": "0.002"
   },
   {
     "RACE_ETHNICITY": "American Indian or Alaska Native",
-    "TOTAL": "39",
+    "TOTAL": "42",
     "%_TOTAL": "0.002"
   },
   {
     "RACE_ETHNICITY": "Native Hawaiian or Other Pacific Islander",
-    "TOTAL": "28",
+    "TOTAL": "24",
     "%_TOTAL": "0.001"
   }
 ]
