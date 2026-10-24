@@ -16,7 +16,7 @@ Current snapshots from the Cannabis Control Commission (CCC) are available in ra
 
 | Dataset | JSON | CSV |
 | :--- | :--- | :--- |
-| **Licenses & Applications** | [Download](./data/ccc/current/licenses.json) | [Download](./data/ccc/current/licenses.csv) |
+| **Licenses & Applications** | [Download](./data/ccc/current/licenses.json) | — |
 | **Sales (Adult-Use)** | [Download](./data/ccc/current/sales-adult-use.json) | [Download](./data/ccc/current/sales-adult-use.csv) |
 | **Sales (Medical)** | [Download](./data/ccc/current/sales-medical.json) | [Download](./data/ccc/current/sales-medical.csv) |
 | **Sales (Delivery)** | [Download](./data/ccc/current/sales-delivery.json) | [Download](./data/ccc/current/sales-delivery.csv) |
@@ -24,13 +24,11 @@ Current snapshots from the Cannabis Control Commission (CCC) are available in ra
 | **Plant Activity & Volume** | [Download](./data/ccc/current/plant-activity.json) | [Download](./data/ccc/current/plant-activity.csv) |
 | **Workforce: Race/Ethnicity** | [Download](./data/ccc/current/agents-race.json) | [Download](./data/ccc/current/agents-race.csv) |
 | **Workforce: Gender** | [Download](./data/ccc/current/agents-gender.json) | [Download](./data/ccc/current/agents-gender.csv) |
+| **Applications: Disadvantaged Business Enterprises** | [Download](./data/ccc/current/applications-dbe.json) | [Download](./data/ccc/current/applications-dbe.csv) |
 
 ## For Researchers
 ### Changelog Structure
 The archive maintains per-license JSONL files in `data/changelog/by-license/`. Each line represents a detected change event (status change, relocation, ownership transfer, or new sales record).
-
-### Annual Test Results
-Detailed product testing history (THC%, contaminants) is available in `data/test-results/`. These files are large and tracked via **Git LFS**.
 
 ## Data Attribution & Caveat
 All data is sourced from the [Massachusetts Cannabis Control Commission](https://masscannabiscontrol.com/open-data/data-catalog/).
