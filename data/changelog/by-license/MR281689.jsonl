@@ -2,3 +2,4 @@
 {"ts":"2026-07-12T07:40:23.447Z","dataset":"licenses","type":"field_changed","license_number":"MR281689","entity_name":"Good Nature Wareham, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-06-23","new_value":"2026-07-23"}
 {"ts":"2026-07-19T07:40:11.955Z","dataset":"licenses","type":"field_changed","license_number":"MR281689","entity_name":"Good Nature Wareham, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-07-23","new_value":"2026-08-22"}
 {"ts":"2026-08-23T07:39:12.528Z","dataset":"licenses","type":"field_changed","license_number":"MR281689","entity_name":"Good Nature Wareham, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-08-22","new_value":"2026-10-21"}
+{"ts":"2026-10-25T07:40:59.827Z","dataset":"licenses","type":"field_changed","license_number":"MR281689","entity_name":"Good Nature Wareham, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-10-21","new_value":"2026-12-20"}

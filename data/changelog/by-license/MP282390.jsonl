@@ -1,1 +1,3 @@
 {"ts":"2026-08-23T07:39:12.528Z","dataset":"licenses","type":"entity_added","license_number":"MP282390","entity_name":"PIONEER VALLEY TRADING COMPANY INC."}
+{"ts":"2026-10-25T07:40:59.827Z","dataset":"licenses","type":"field_changed","license_number":"MP282390","entity_name":"PIONEER VALLEY TRADING COMPANY INC.","field":"LICENSE_STATUS","old_value":"Payment Pending","new_value":"Active"}
+{"ts":"2026-10-25T07:40:59.827Z","dataset":"licenses","type":"field_changed","license_number":"MP282390","entity_name":"PIONEER VALLEY TRADING COMPANY INC.","field":"LIC_EXPIRATION_DATE","old_value":null,"new_value":"2027-10-13"}

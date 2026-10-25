@@ -1,2 +1,3 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"RMD3028","entity_name":"New England Treatment Access, LLC."}
 {"ts":"2026-08-16T07:39:27.401Z","dataset":"licenses","type":"field_changed","license_number":"RMD3028","entity_name":"New England Treatment Access, LLC.","field":"LIC_EXPIRATION_DATE","old_value":"2026-10-08","new_value":"2027-10-08"}
+{"ts":"2026-10-25T07:40:59.827Z","dataset":"licenses","type":"field_changed","license_number":"RMD3028","entity_name":"CDXX MA TRANSCO, LLC","field":"BUSINESS_NAME","old_value":"New England Treatment Access, LLC.","new_value":"CDXX MA TRANSCO, LLC"}

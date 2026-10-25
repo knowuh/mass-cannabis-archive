@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MX281413","entity_name":"FitzCanna, Inc"}
+{"ts":"2026-10-25T07:40:59.827Z","dataset":"licenses","type":"field_changed","license_number":"MX281413","entity_name":"FitzCanna, Inc","field":"LIC_EXPIRATION_DATE","old_value":"2026-10-31","new_value":"2027-10-31"}
