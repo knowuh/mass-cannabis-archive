@@ -1,43 +1,43 @@
 [
   {
     "RACE_ETHNICITY": "White",
-    "TOTAL": "12805",
+    "TOTAL": "12833",
     "%_TOTAL": "0.639"
   },
   {
     "RACE_ETHNICITY": "Missing or Decline to Answer",
-    "TOTAL": "2252",
-    "%_TOTAL": "0.112"
+    "TOTAL": "2272",
+    "%_TOTAL": "0.113"
   },
   {
     "RACE_ETHNICITY": "Hispanic or Latino – Puerto Rican",
-    "TOTAL": "2250",
+    "TOTAL": "2259",
     "%_TOTAL": "0.112"
   },
   {
     "RACE_ETHNICITY": "Black or African American",
-    "TOTAL": "1411",
+    "TOTAL": "1415",
     "%_TOTAL": "0.07"
   },
   {
     "RACE_ETHNICITY": "Agent Identified as Two or More Ethnicities",
-    "TOTAL": "602",
+    "TOTAL": "605",
     "%_TOTAL": "0.03"
   },
   {
     "RACE_ETHNICITY": "Asian – Asian Indian",
-    "TOTAL": "442",
+    "TOTAL": "445",
     "%_TOTAL": "0.022"
   },
   {
     "RACE_ETHNICITY": "Some Other Race or Ethnicity",
-    "TOTAL": "145",
+    "TOTAL": "146",
     "%_TOTAL": "0.007"
   },
   {
     "RACE_ETHNICITY": "Middle Eastern or North African",
-    "TOTAL": "50",
-    "%_TOTAL": "0.002"
+    "TOTAL": "51",
+    "%_TOTAL": "0.003"
   },
   {
     "RACE_ETHNICITY": "American Indian or Alaska Native",
@@ -46,7 +46,7 @@
   },
   {
     "RACE_ETHNICITY": "Native Hawaiian or Other Pacific Islander",
-    "TOTAL": "24",
+    "TOTAL": "25",
     "%_TOTAL": "0.001"
   }
 ]

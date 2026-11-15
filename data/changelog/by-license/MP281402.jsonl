@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MP281402","entity_name":"Temescal Wellness of Massachusetts, LLC"}
+{"ts":"2026-11-15T08:38:32.367Z","dataset":"licenses","type":"field_changed","license_number":"MP281402","entity_name":"Temescal Wellness of Massachusetts, LLC","field":"LIC_EXPIRATION_DATE","old_value":"2027-01-02","new_value":"2028-01-02"}

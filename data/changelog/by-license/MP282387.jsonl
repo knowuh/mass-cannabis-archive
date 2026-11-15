@@ -1,1 +1,3 @@
 {"ts":"2026-08-23T07:39:12.528Z","dataset":"licenses","type":"entity_added","license_number":"MP282387","entity_name":"Hardwick Mill Greenery, Inc"}
+{"ts":"2026-11-15T08:38:32.367Z","dataset":"licenses","type":"field_changed","license_number":"MP282387","entity_name":"Hardwick Mill Greenery, Inc","field":"LICENSE_STATUS","old_value":"Payment Pending","new_value":"Active"}
+{"ts":"2026-11-15T08:38:32.367Z","dataset":"licenses","type":"field_changed","license_number":"MP282387","entity_name":"Hardwick Mill Greenery, Inc","field":"LIC_EXPIRATION_DATE","old_value":null,"new_value":"2027-10-28"}

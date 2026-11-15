@@ -473,5 +473,10 @@
     "YEARMONTH": "2026-09",
     "AVERAGERETAILPRICEPERGM": "3.78",
     "UNIT": "Grams"
+  },
+  {
+    "YEARMONTH": "2026-10",
+    "AVERAGERETAILPRICEPERGM": "3.75",
+    "UNIT": "Grams"
   }
 ]
