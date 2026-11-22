@@ -1,22 +1,22 @@
 [
   {
     "GENDER": "Male",
-    "TOTAL": "12334",
+    "TOTAL": "12303",
     "%_TOTAL": "0.614"
   },
   {
     "GENDER": "Female",
-    "TOTAL": "7285",
-    "%_TOTAL": "0.363"
+    "TOTAL": "7267",
+    "%_TOTAL": "0.362"
   },
   {
     "GENDER": "Missing or Decline to Answer",
-    "TOTAL": "307",
+    "TOTAL": "308",
     "%_TOTAL": "0.015"
   },
   {
     "GENDER": "Gender Defined by Agent",
-    "TOTAL": "169",
+    "TOTAL": "170",
     "%_TOTAL": "0.008"
   }
 ]

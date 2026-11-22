@@ -3,3 +3,4 @@
 {"ts":"2026-08-16T07:39:27.401Z","dataset":"licenses","type":"field_changed","license_number":"MR282585","entity_name":"Health Circle, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-08-09","new_value":"2026-09-08"}
 {"ts":"2026-09-20T07:38:42.147Z","dataset":"licenses","type":"field_changed","license_number":"MR282585","entity_name":"Health Circle, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-09-08","new_value":"2026-10-08"}
 {"ts":"2026-10-25T07:40:59.827Z","dataset":"licenses","type":"field_changed","license_number":"MR282585","entity_name":"Health Circle, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-10-08","new_value":"2026-11-07"}
+{"ts":"2026-11-22T08:38:22.592Z","dataset":"licenses","type":"field_changed","license_number":"MR282585","entity_name":"Health Circle, Inc.","field":"LIC_EXPIRATION_DATE","old_value":"2026-11-07","new_value":"2027-11-07"}

@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"DO100185","entity_name":"The Heritage Club, LLC"}
+{"ts":"2026-11-22T08:38:22.592Z","dataset":"licenses","type":"field_changed","license_number":"DO100185","entity_name":"The Heritage Club, LLC","field":"LIC_EXPIRATION_DATE","old_value":"2027-02-12","new_value":"2028-02-12"}

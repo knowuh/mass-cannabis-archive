@@ -1,1 +1,2 @@
 {"ts":"2026-05-18T11:48:04.954Z","dataset":"licenses","type":"entity_added","license_number":"MX281357","entity_name":"Frozen 4 Corporation"}
+{"ts":"2026-11-22T08:38:22.592Z","dataset":"licenses","type":"field_changed","license_number":"MX281357","entity_name":"Frozen 4 Corporation","field":"LIC_EXPIRATION_DATE","old_value":"2027-02-03","new_value":"2028-02-03"}
